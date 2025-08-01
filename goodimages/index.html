@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Images</title>
+</head>
+
+<style>
+    body{
+        max-width: 900px;
+        margin: auto;
+        padding: 10px;
+
+        background-image: url('bg.png');
+        background-attachment: fixed;
+        background-position: center;
+
+        color: white;
+        font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', monospace, sans-serif;
+    }
+
+    h1{
+        font-family: 'garamond','Times New Roman', Times, serif;
+    }
+
+    .c {
+        text-align: center;
+    }
+
+    .gallery{
+        display: block;
+        text-align: center;
+    }
+
+    .image{
+        position:relative;
+        display:inline-block;
+        vertical-align: middle;
+    }
+
+    .image a{
+        cursor: zoom-in;
+    }
+
+    .image img{
+        max-width: 400px;
+    }
+
+    #squareishpic{
+        position: absolute;
+        z-index: -1;
+        left: 42px; 
+        top: 32px;
+        width: 310px;
+        height: 270px;
+    }
+
+    #squarepic{
+        position: absolute;
+        z-index: -1;
+        left: 20px; 
+        top: 30px;
+        width: 360px;
+        height: 380px;
+    }
+
+    #widepic{
+        position: absolute;
+        z-index: -1;
+        left: 44px; 
+        top: 32px;
+        width: 320px;
+        height: 210px;
+    }
+
+    #tallpic{
+        position: absolute;
+        z-index: -1;
+        left: 32px; 
+        top: 44px;
+        width: 210px;
+        height: 320px;
+    }
+
+    a{
+        color: white;
+    }
+</style>
+
+<body>
+    
+    <div class="c"><h1>Kuro2427's Certified Good Image Gallery</h1></div>
+
+    <p>My most prized collection of very good images I have collected over the years on the web. You may click on any of them to enlarge them and view them at their full glory.</p>
+
+    <div class="c">
+        <audio src="gallery.mp3" autoplay loop id="BGM"></audio>
+        <p><a href="#" onclick="toggleBGM()">♫: Ib Soundtrack - Corelli La Folia</a></p>
+    </div>
+
+    <div class="gallery">
+
+        <div class="image">
+            <a href="images/heart.jpg" target="_blank">
+            <img src="images/heart.jpg" alt="" id="tallpic">
+            <img src="frames/tall.png" id="frame">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/cooking.jpg" target="_blank">
+            <img src="images/cooking.jpg" id="squareishpic">
+            <img src="frames/squareish-hor.png" id="frame">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/camgirl.jpg" target="_blank">
+            <img src="images/camgirl.jpg" id="squarepic">
+            <img src="frames/square.png" alt="frame">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/brianeno.jpg" target="_blank">
+            <img src="images/brianeno.jpg" id="squareishpic">
+            <img src="frames/squareish-hor.png" id="frame">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/limboid.png" target="_blank">
+            <img src="images/limboid.png" alt="" id="widepic">
+            <img src="frames/wide.png" alt="" id="frame">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/ℹ️Status Update.jpg" target="_blank">
+            <img src="images/ℹ️Status Update.jpg" alt="" id="squarepic">
+            <img src="frames/square.png" alt="" id="frame">
+            </a>
+        </div>
+        
+
+        <div class="image">
+            <a href="images/jigsaw.png" target="_blank">
+            <img src="images/jigsaw.png" alt="" id="squareishpic">
+            <img src="frames/squareish-hor.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/yaoi.jpg" target="_blank">
+            <img src="images/yaoi.jpg" alt="" id="squareishpic">
+            <img src="frames/squareish-hor.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/perfect fred.jpg" target="_blank">
+            <img src="images/perfect fred.jpg" alt="" id="widepic">
+            <img src="frames/wide.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/emo.png" target="_blank">
+            <img src="images/emo.png" alt="" id="widepic">
+            <img src="frames/wide.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/the rot.png" target="_blank">
+            <img src="images/the rot.png" alt="" id="squareishpic">
+            <img src="frames/squareish-hor.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/play limit.jpg" target="_blank">
+            <img src="images/play limit.jpg" alt="" id="squarepic">
+            <img src="frames/square.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/i never knew it was a grill!.png" target="_blank">
+            <img src="images/i never knew it was a grill!.png" alt="" id="widepic">
+            <img src="frames/wide.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/go straight.jpg" target="_blank">
+            <img src="images/go straight.jpg" alt="" id="squareishpic">
+            <img src="frames/squareish-hor.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/extrude.jpg" target="_blank">
+            <img src="images/extrude.jpg" alt="" id="squarepic">
+            <img src="frames/square.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/juju.jpg" target="_blank">
+            <img src="images/juju.jpg" alt="" id="squareishpic">
+            <img src="frames/squareish-hor.png" alt="">
+
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/what i tsu.png" target="_blank">
+            <img src="images/what i tsu.png" alt="" id="tallpic">
+            <img src="frames/tall.png" alt="">
+            </a>
+        </div>
+
+        <div class="image">
+            <a href="images/caked up.png" target="_blank">
+            <img src="images/caked up.png" alt="" id="squarepic">
+            <img src="frames/square.png" alt="">
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        BGMElement=document.getElementById('BGM');
+        function toggleBGM(){
+            if(BGMElement.paused){
+                BGMElement.play();
+            }
+            else{
+                BGMElement.pause();
+            }
+        }
+        BGMElement.volume=0.4;
+    </script>
+
+</body>
+</html>

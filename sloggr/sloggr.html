@@ -1,0 +1,72 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>sloggr</title>
+</head>
+
+<style>
+  img{
+    max-width: 100px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+</style>
+
+<body>
+  <div id="sloggr">Loading posts…</div>
+
+  <script>
+    const sheetID = 'YOUR_SHEET_ID';  // Replace with your sheet ID
+    const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json`;
+
+    fetch(url)
+      .then(res => res.text())
+      .then(text => JSON.parse(text.substring(47).slice(0, -2)))
+      .then(data => {
+        const rows = data.table.rows
+          .map(r => {
+            const raw = r.c[0]?.v;
+            const postText = r.c[1]?.v;
+            if (!raw || !postText) return null;
+
+            const match = raw.match(/Date\((\d+),(\d+),(\d+),(\d+),(\d+),(\d+)\)/);
+            const date = match
+              ? new Date(
+                  Number(match[1]),
+                  Number(match[2]),
+                  Number(match[3]),
+                  Number(match[4]),
+                  Number(match[5]),
+                  Number(match[6])
+                )
+              : new Date(raw);
+
+            return { timestamp: date, post: postText };
+          })
+          .filter(Boolean)
+          .sort((a, b) => b.timestamp - a.timestamp); // newest to oldest
+
+        const container = document.getElementById('sloggr');
+        container.innerHTML = '';
+        let lastDate = '';
+
+        rows.forEach(({ timestamp, post }) => {
+          const dayStr = timestamp.toDateString();
+
+          if (dayStr !== lastDate) {
+            if (lastDate) container.appendChild(document.createElement('hr'));
+            lastDate = dayStr;
+          }
+
+          const p = document.createElement('p');
+          p.innerHTML = `${post} - ${timestamp.toLocaleDateString()} ${timestamp.toLocaleTimeString()}`;
+          container.appendChild(p);
+        });
+      })
+      .catch(err => {
+        document.getElementById('sloggr').innerText = 'Failed to load posts.';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

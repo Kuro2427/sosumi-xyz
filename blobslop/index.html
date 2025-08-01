@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sosumi.xyz | comics</title>
+    <link rel="stylesheet" href="https://unpkg.com/photoviewer@3.6.2/dist/photoviewer.css">
+
+    <meta content="sosumi.xyz | comics" property="og:title" />
+    <meta content="Low effort ms paint comics. How original!" property="og:description" />
+    <meta content="https://sosumi.xyz/blobslop" property="og:url" />
+    <meta content="https://sosumi.xyz/assets/bunnymac-big.png" property="og:image" />
+    <meta content="#FFFFFF" data-react-helmet="true" name="theme-color" />
+</head>
+
+<style>
+/***
+EZ Gallery by netfriend - https://netfriend.neocities.org/ez-gallery/
+Released under the Unlicense - https://unlicense.org/
+***/
+
+body{
+    padding: 16px;
+    font-family: monospace;
+    max-width: 800px;
+    margin: auto;
+}
+
+.ezgallery.montage { 
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.ezgallery.montage img {
+  flex: auto;
+  margin: 0 5px 5px 0;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.ezgallery.horizontal { 
+  display: grid;
+  grid-gap: 5px;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.ezgallery.horizontal a {
+  text-align: center;
+}
+
+.ezgallery.horizontal img {
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 5px 5px 0;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+a{
+    color: black;
+}
+
+.c{
+  text-align: center;
+}
+
+</style>
+
+<body>
+    <h1>Blobslop Industries Inc.</h1>
+    <p>An archive of the shitty little paint.net doodle comics I like to make every now and then, as requested by one of my friends. Most of these hinge on knowing inside jokes, occurrences, or members of my friend group and are for the most part made while having specific conversations in said group, so they will probably be pretty incomprehensible to outsiders.</p>
+    <p>As usual, click to enlarge them, but this one is all fancy thanks to <a href="https://netfriend.neocities.org/ez-gallery/">Netfriend's easy gallery thingy.</a></p>
+    <div class="ezgallery montage">
+        <a href="comics/longchips.png"><img src="comics/longchips-t.png" alt="My First Image"><figcaption>Long Chips (03/09/2023)</figcaption></a>
+        <a href="comics/chaserinstall.png"><img src="comics/chaserinstall-t.png" alt=""><figcaption>Chaser Install (11/06/2025)</figcaption></a>
+        <a href="comics/weedgummy.gif"><img src="comics/weedgummy-t.png" alt="My First Image"><figcaption>Weed Gummy (11/02/2025)</figcaption></a>
+        <a href="comics/skype.png"><img src="comics/skype-t.png" alt="My First Image"><figcaption>Skype (28/02/2025)</figcaption></a>
+        <a href="comics/kasaneted.png"><img src="comics/kasaneted-t.png" alt="My First Image"><figcaption>Kasane Ted (24/03/2025)</figcaption></a>
+    </div>
+    <div class="c"><a href="comics/welcome/"><img src="comics/job.png" alt="My First Image"><figcaption>Jobs (19/05/2025)</figcaption></a></div>
+
+    <script src="https://unpkg.com/photoviewer@3.6.2/dist/photoviewer.min.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>

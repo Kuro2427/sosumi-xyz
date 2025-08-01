@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>	<title>sosumi's Blog</title>
+	<description>Assorted autistic ramblings from a guy with too many fursonas</description>
+	<link>https://sosumi.xyz/blog</link>
+	<atom:link href="https://sosumi.xyz/blog" rel="self"></atom:link>
+	<language>en</language>
+	<lastBuildDate>
+Sun, 18 May 2025 03:49:52 +0000
+</lastBuildDate>
+	<ttl>1440</ttl>
+
+	<item>
+		<title> (Meta) Welcome</title>
+		<description>Just setting things up for now...</description>
+		<link>https://sosumi.xyz/blogposts/2025-05-13.-(meta)-welcome.html</link>
+		<pubDate>
+			Tue, 13 May 2025 00:00:00 +0000
+		</pubDate>
+	</item>
+
+	<item>
+		<title> (Journal) The Day Kuro Became Sosumi</title>
+		<description>An unreasonably long rambling about usernames and my online identity.</description>
+		<link>https://sosumi.xyz/blogposts/2025-05-16.-(journal)-the-day-kuro-became-sosumi.html</link>
+		<pubDate>
+			Fri, 16 May 2025 00:00:00 +0000
+		</pubDate>
+	</item>
+
+</channel>
+</rss>

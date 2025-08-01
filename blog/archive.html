@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Archive</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<link href="./style/style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div id="container">
+<header id="header">
+
+<p><a href="https://sosumi.xyz/home">Home</a> <a href="./index.html">Index</a> <a href="./archive.html">Archive</a> <a href="./feed.xml">RSS feed</a></p>
+<hr>
+</header>
+<article id="content">
+<h1>Archive</h1>
+<p><div id="postlistdiv">
+<ul>
+<li><a href="./posts/2025-05-16.-(journal)-the-day-kuro-became-sosumi.html">2025-05-16 »  (Journal) The Day Kuro Became Sosumi</a></li>
+<li><a href="./posts/2025-05-13.-(meta)-welcome.html">2025-05-13 »  (Meta) Welcome</a></li>
+</ul>
+</div></p>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const list = document.querySelector("#postlistdiv ul");
+  const items = Array.from(list.querySelectorAll("li"));
+  const tags = new Set();
+
+  // Extract tags and add data-tag attributes
+  items.forEach(item => {
+    const link = item.querySelector("a");
+    const text = link.textContent;
+    const match = text.match(/\(([^)]+)\)/); // Extract text inside parentheses
+    if (match) {
+      const tag = match[1].trim().toLowerCase();
+      item.dataset.tag = tag;
+      tags.add(tag);
+    }
+  });
+
+  // Create tag filter UI
+  const filterDiv = document.createElement("div");
+  filterDiv.id = "tagFilter";
+
+  const allButton = document.createElement("button");
+  allButton.textContent = "Show All";
+  allButton.className = "tag-button active";
+  allButton.addEventListener("click", () => {
+    items.forEach(item => item.style.display = "");
+    updateActiveButton(allButton);
+  });
+  filterDiv.appendChild(allButton);
+
+  tags.forEach(tag => {
+    const button = document.createElement("button");
+    button.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+    button.className = "tag-button";
+    button.addEventListener("click", () => {
+      items.forEach(item => {
+        item.style.display = (item.dataset.tag === tag) ? "" : "none";
+      });
+      updateActiveButton(button);
+    });
+    filterDiv.appendChild(button);
+  });
+
+  list.parentElement.insertBefore(filterDiv, list);
+
+  function updateActiveButton(active) {
+    document.querySelectorAll(".tag-button").forEach(btn => {
+      btn.classList.remove("active");
+    });
+    active.classList.add("active");
+  }
+});
+</script>
+</article>
+<footer id="footer">
+<hr>
+<p>Written by sosumi and powered by <a href="https://sr.ht/%7Eryantrawick/zoner/">Zoner</a>.</p>
+</footer>
+</div>
+</body>
+</html>

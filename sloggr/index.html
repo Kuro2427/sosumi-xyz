@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sloggr by sosumi</title>
+
+    <meta content="sloggr by sosumi" property="og:title" />
+    <meta content="Antisocial microblogging." property="og:description" />
+    <meta content="https://sosumi.xyz/sloggr" property="og:url" />
+    <meta content="#FFFFFF" data-react-helmet="true" name="theme-color" />
+</head>
+
+<style>
+    body{
+        background-color: white;
+        color: black;
+        font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, monospace, sans-serif;
+        font-size: 16px;
+        font-smooth: never;
+        -webkit-font-smoothing : none;
+        image-rendering: pixelated;
+
+        max-width: 700px;
+        margin: auto;
+        padding: 16px;
+    }
+
+    a{
+        color: black;
+        text-decoration: underline;
+    }
+
+    hr{
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid black;
+        margin: 1em 0;
+        padding: 0;
+    }
+
+    iframe{
+        width: 100%;
+        height: 245px;
+        border: 1px solid black;
+    }
+
+    ol{
+        margin-right: 32px;
+    }
+
+    li{
+        margin-bottom: 16px;
+    }
+
+    footer{
+        color: gray;
+    }
+
+</style>
+
+<body>
+    <p>Tired of social media but can't stop posting? Statuses just don't feel the same? Check out...</p>
+    <h1>sloggr!</h1> 
+
+    <iframe src="sample.html" frameborder="0"></iframe>
+
+    <h2>What?</h2>
+    <p>sloggr is a microblogging tool that is fully compatible with static web hosts. Useful for sharing quick updates, shower thoughts, <a href="https://www.urbandictionary.com/define.php?term=blogposting">blogposting</a> of all sorts, really.</p>
+
+    <h2>Why?</h2>
+    <p>Slogs as a concept actually predate sloggr itself by almost a whole year, I started using them to get away from social media. Any time I had the urge to post something, I just added it to a little scrollable div on my website instead, bt that quickly proved to be too cumbersome as my site grew, so, inspired by <a href="https://drawbox.nekoweb.org/">the drawbox project</a>, I made this funky little script to make slogging easier than ever.</p>
+
+    <h2>How?</h2>
+    <p>Through the power of using Google's suite for dubious purposes! Like any good programmer has done at least once.</p>
+
+    <h2>And what's with the name?</h2>
+    <p>sloggr comes from "slog", as mentioned above, and slog is a portmanteau of "short" and "log" therefore, a short log! ... It's a shitty name, I know, I use it half ironically myself, you can call it whatever you want, honestly.</p>
+
+    <hr>
+
+    <h2>How to use</h2>
+
+    <p>Setting up sloggr is a shockingly easy process, all you need to get it up and running is a google account, and once you're done, you're pretty much set! Basically all you have to do is...</p>
+
+    <ol>
+        <li>Create a new blank <a href="https://docs.google.com/forms/u/0/">google form</a>. Feel free to set the title and description to whatever you want, this will not be publicly accessible.</li>
+        <li>Change the default question to "paragraph" (or "short answer" if you want a smaller word limit, either one works)</li>
+        <li>Click the big purple "publish" button.</li>
+        <li>Change the form's responder setting from "anyone with the link" to "restricted". If you ignore this step, anyone who inspects your site's source code <b><i>WILL</i></b> be able to make public posts very easily.</li>
+        <li>Copy your form's responder link an keep it somewhere easy to access. This is how you will make all of your posts.</li>
+        <li>Tab over to the "responses" section and click "link to sheets".</li>
+        <li>Select "create a new spreadsheet" and click "create". A new window will open with your newly created responses spreadsheet, this sheet is also where you will be able to manage, edit and delete all of your posts.</li>
+        <li>Click on the share button, and change the "general access" permission to "anyone with the link". Make sure the role is set to "viewer", or else much like in step 4 anyone will be able to edit your posts.</li>
+        <li>Download <a href="view-source:kuros-room.nekoweb.org/sloggr/sloggr.html">sloggr.html</a> and place it in your website's directory and open it in your text editor of choice.</li>
+        <li>Change the "sheetId" constant to your spreadsheet's ID, which is literally just the long string of characters after /d/and before /edit in  the URL you are at when editing yor sheet. E.G: https://docs.google.com/spreadsheets/d/<b><u>1ztRsiAWRhyuiHznP5L4iA-omwV3G2mkepgqFOAFjLrA</u></b>/edit</li>
+        <li>Add an iframe that links to sloggr.html on your website and you're done! You can now freely post to your heart's content!</li>
+    </ol>
+
+    <footer>sloggr is licensed under a <a href="https://creativecommons.org/public-domain/cc0/">Creative Commons CC0 Public Domain license</a>; Feel free to use, edit, and redistribute sloggr and all of its components with or without crediting me. Though linking back here so others may also use it is always appreciated, of course :)</footer>
+
+</body>
+</html>

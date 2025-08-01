@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/oekakish/</title>
+    <link rel="stylesheet" href="../home/style.css">
+
+    <meta content="sosumi.xyz /oekakish/" property="og:title" />
+    <meta content="/oekakish/, sosumi's anonymous whiteboard" property="og:description" />
+    <meta content="https://sosumi.xyz/oekakish" property="og:url" />
+    <meta content="https://sosumi.xyz/assets/bunnymac-big.png" property="og:image" />
+    <meta content="#FFFFFF" data-react-helmet="true" name="theme-color" />
+
+    <style>
+
+        body{
+            image-rendering: pixelated;
+        }
+        
+        main{
+            padding: 0px 32px;
+            max-width: 900px;
+        }
+    
+        * {box-sizing: border-box;}
+        canvas {
+            border: 1px solid black;
+            cursor: crosshair;
+        }
+        #gallery {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+        .image-container {
+            border: 1px solid #ccc;
+            padding: 5px;
+            max-width: 200px;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        input{
+            vertical-align: middle;
+        }
+
+        .color input{
+            height: 20px;
+            width: 20px;
+            padding: 2px;
+            border-radius: 0px;
+            border: 1px solid black;
+            background-color: white;
+        }
+
+        .caption{
+            margin-top: -25px;
+        }
+
+        summary{
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+    <h2>sosumi.xyz/oekakish/</h2>
+    <p class="caption">Powered by <a href="https://drawbox.nekoweb.org/">drawbox</a></p>
+
+    <div class="c">
+    <canvas id="drawboxcanvas" width="256" height="256"></canvas>
+    <br>
+    <div onclick="change_color(this)" style="background:red" class="stroke-color"></div>
+    <div onclick="change_color(this)" style="background:blue" class="stroke-color"></div>
+    
+    <button onclick="Restore()">Undo</button>
+    <button onclick="Clear()">Clear</button>
+    
+    <span class="color"><input type="color" oninput="stroke_color = this.value"></span>
+    <span class="size"><input type="range" min="1" max="100" oninput="stroke_width = this.value" id="color"></span>
+    
+    <button id="submit">Submit drawing</button>
+    </div>
+    <p id="status"></p>
+
+    <details>
+        <summary>About</summary>
+        <p>Welcome to /oekakish/! This is one of those anonymous drawing submission boards, like the ones kids these days have on their "straw paiges" or whatever. Just doodle something, hit submit and it should pop up on the gallery below. Pretty nifty, right?</p>
+        <h3>F.A.Q</h3>
+
+        <p><b>Q: What's with the weird name?</b></p>
+        <p>A: This page is called oekakish because it's not quite an <a href="https://en.wikifur.com/wiki/Oekaki">oekaki!</a></p>
+
+        <p><b>Q: Why is the canvas so small?</b></p>
+        <p>To both save on bandwidth and also because I just plain like the more pixelated look 256x256 has compared to 512x512. It's worth noting, though, that this page is set up so if you zoom in the canvas <i>should</i> remain pixelated.</p>
+
+        <p><b>Q: This page is broken on mobile!</b></p>
+        <p>A: Are you new here?</p>
+    </details>
+
+	
+    <h2>Submitted Drawings</h2>
+    <div id="gallery">Loading images...</div>
+    
+    
+    <script src="drawbox.js"></script>
+    </main>
+</body>
+</html>
+

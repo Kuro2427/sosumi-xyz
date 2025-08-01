@@ -1,0 +1,30 @@
+#computering {
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #computering table {
+    background-color: #ffffff; /* makes the background pure white */
+    margin: 0px auto; /* centers the widget */
+  }
+  
+  #computering table tr td {
+  /* creates some space between the links and text inside the widget */
+  }
+  
+  #computering .webring-prev {
+    text-align:right;
+  }
+  
+  #computering .webring-info {
+     text-align:center;
+  }
+  
+  #computering .webring-next {
+    text-align:left;
+  }
+  
+  #computering .webring-links {
+    font-size:10px;
+  }
+  

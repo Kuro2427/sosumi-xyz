@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>sosumi.xyz | oc gallery</title>
+
+    <meta content="sosumi.xyz | oc gallery" property="og:title" />
+    <meta content="In a shocking turn of events sosumi is a huge furry! Who could have seen that one coming??" property="og:description" />
+    <meta content="https://sosumi.xyz/ocs" property="og:url" />
+    <meta content="https://sosumi.xyz/assets/bunnymac-big.png" property="og:image" />
+    <meta content="#FFFFFF" data-react-helmet="true" name="theme-color" />
+  <style>
+    @font-face {
+        font-family: 'msgfallback';
+        src: url('../home/assets/MS\ PGothic.ttf');
+    }
+
+    body {
+      font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', 'msgfallback' , monospace, sans-serif;
+      background-image: url("../home/assets/dither1.png");
+      margin: 0;
+      padding: 16px;
+      color: black;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .character-image, img {
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+    }
+
+    .character-wrapper:hover .character-image {
+    filter: grayscale(0%);
+    }
+
+    img:hover{
+        filter: grayscale(0%);
+    }
+
+
+    .character-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6rem;
+      justify-content: center;
+    }
+
+    .character-wrapper {
+      position: relative;
+      overflow: visible;
+      flex-shrink: 0;
+    }
+
+    .character-card {
+      border: 1px solid black;
+      position: relative;
+      background: white;
+      max-width: 600px;
+      padding: 16px;
+      padding-left: 12rem; /* space for the floating image */
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    .character-image {
+      position: absolute;
+      left: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 250px;
+      height: auto;
+      z-index: 2; /* ensures it floats above the card */
+    }
+
+    .bio {
+      margin-top: -20px;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .gallery a img {
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        transition: transform 0.2s ease;
+    }
+
+    .gallery a img:hover {
+      transform: scale(1.05);
+    }
+
+    .window{
+        background-color: white;
+        border: 1px solid black;
+        margin-bottom: 64px;
+        padding: 5px;
+    }
+
+    .title{
+        width: 100%;
+        background-color: black;
+        color:white;
+        margin-top: -5px;
+        margin-bottom:0px;
+        text-align: right;
+        padding: 2px 0px ;
+    }
+
+    .titleA{
+        width: 100%;
+        background-color: black;
+        color:white;
+        margin-top: -5px;
+        margin-bottom:0px;
+        text-align: center;
+        padding: 2px 0px ;
+    }
+
+    a{
+        color: black;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    td{
+        border: 1px solid black;
+        padding: 2px;
+    }
+
+    .m-character-image{
+        display: none;
+    }
+
+@media (max-width: 768px) {
+  .character-section {
+    display: block; /* remove flex behaviour on mobile */
+  }
+
+  .character-wrapper {
+    margin-bottom: 4rem;
+  }
+
+  .character-image {
+    display: none;
+  }
+
+  .character-card {
+    padding: 1rem;
+    padding-left: 1rem; /* remove space for image */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .gallery a img {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+  }
+
+  .m-character-image{
+    display: block;
+    height: 300px;
+    float: left;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+    <div class="titleA">OC Gallery</div>
+    <div class="window">
+        <p>Thank you for checking out this page. Here you'll find info, refs and featured drawings of my OCs, all of which are just my previous fursonas lol.</p>
+        <p>I'm generally pretty lax as to how these characters are portrayed, but to avoid any confusion, refer to the table below:</p>
+        <table>
+            <tr>
+                <th>Can I make...</th>
+            </tr>
+            <tr>
+                <td>Fan works (drawings, comics, fanfiction, etc.)</td><td>Please do!</td>
+            </tr>
+            <tr>
+                <td>Adult / NSFW fan works</td><td>Unless the character is stated to be underage, please do! And don't be afraid to send it to me!</td>
+            </tr>
+            <tr>
+                <td>Fetish-related works</td><td>Ask first</td>
+            </tr>
+            <tr>
+                <td>Comercial / for profit works </td><td>Ask first</td>
+            </tr>
+        </table>
+        <p>If you drew something and would like for it to be featured here, first of all: thank you! Second of all: please <a href="mailto:kuro@semicola.xyz">e-mail me the drawing and your name at kuro@semicola.xyz</a></p>
+        <p>Hover over the images to view the credits, and click on the gallery images to enlarge!</p>
+    </div>
+
+  <div class="character-section">
+
+    <!-- Character 1 -->
+    <div class="character-wrapper">
+      <div class="title">MiraiTech Companion Robot Prototype Model KV-480; "Kanae" </div>
+      <img src="kanae/springless-kanae-fullbody.png" alt="Kanae" class="character-image" title="Art by @SpringlessEcho" />
+      <div class="character-card">
+        <img src="kanae/springless-kanae-fullbody.png" alt="Kanae" class="m-character-image" title="Art by @SpringlessEcho" />
+        <div class="bio">
+          <ul>
+            <li>Species: Robot</li>
+            <li>Gender: Male (he/him)</li>
+            <li>Age: Unknown</li>
+            <li>Sexuality: Panromantic Asexual</li>
+          </ul>
+        <p>Kanae is the sole surviving prototype of a then aspiring series of companion robots designed by _DATAMISSNG���.</p>
+        <p>Not only does he use a complex self-training neural network to continuously improve his capabilities even despite his underpowered processor, his highly experimental power source, the Firecore, allows him to feel human-like emotions.</p>
+        <p>His current and only directive is to love and aid humans by any means necessary, thus making him a selfless and gentle - if a bit reckless - individual.</p>
+        </div>
+        <div class="gallery">
+          <a href="kanae/skedgyedgy-kanae-gatchi.png" target="_blank"><img src="kanae/skedgyedgy-kanae-gatchi.png" alt="Thumb 1" title="Art by @SkedgyEdgy" /></a>
+          <a href="kanae/him.png" target="_blank"><img src="kanae/him.png" alt="Thumb 2" title="Art by me lol"/></a>
+          <a href="kanae/skedgyedgy-two-of-them.png" target="_blank"><img src="kanae/skedgyedgy-two-of-them.png" alt="Thumb 3" title="Art by SkedgyEdgy"/></a>
+        </div>
+      </div>
+    </div>
+
+            <!-- Character 1 -->
+    <div class="character-wrapper">
+      <div class="title">Roland&nbsp;</div>
+      <img src="roland/roland-fullbody.png" class="character-image" title="Art by me"/>
+      <div class="character-card">
+        <img src="roland/roland-fullbody.png" class="m-character-image" title="Art by me"/>
+        <div class="bio">
+          <ul>
+            <li>Species: Reindeer</li>
+            <li>Gender: Male (he/him)</li>
+            <li>Age: 22</li>
+            <li>Sexuality: Gay</li>
+          </ul>
+        <p>Roland is a Christmas-obsessed reindeer. During the month of december he's a bundle of joy (and sticks, lol), but during the other 11 months of the year, he's far more reserved and dresses with a much more reserved, darker look.</p>
+        <p>He's a photographer and a major tech nerd, some of his interests include amateur radio and signal identification. He's the type of guy who sleeps to a UVB-76 feed every night.</p>
+        <p>He was my main fursona for about one month, in december 2023, but I just couldn't make him work in the non-holiday months, so he ended up getting shelved pretty quick, even for my standards.</p>
+        </div>
+        <div class="gallery">
+          <a href="roland/Roland but good.png" target="_blank"><img src="roland/Roland but good.png" alt="Thumb 1" title="Art by me" /></a>
+          <a href="roland/skedgyedgy-cozy.png" target="_blank"><img src="roland/skedgyedgy-cozy.png" alt="Thumb 1" title="Art by @SkedgyEdgy" /></a>
+        </div>
+      </div>
+    </div>  
+
+        <!-- Character 1 -->
+    <div class="character-wrapper">
+      <div class="title">Haruo Hanamura&nbsp;</div>
+      <img src="haruo/haruo-fullbody.png" class="character-image" title="Art by me"/>
+      <div class="character-card">
+        <img src="haruo/haruo-fullbody.png" class="m-character-image" title="Art by me"/>
+        <div class="bio">
+          <ul>
+            <li>Species: Jackalope</li>
+            <li>Gender: Male (he/him)</li>
+            <li>Age: 20</li>
+            <li>Sexuality: Gay</li>
+          </ul>
+        <p>Haruo is an East Asian Jackalope, a species that I just sorta made the hell up (much like base jackalopes, I suppose)</p>
+        <p>There is not much to say about him as he was designed to be a sort of "blank slate" character, like most of the fursonas I make until I inevitably give them too much personality and they end up being downgraded (or is it upgraded) to ocs.</p>
+        <p>If I had to give him a personality on the spot, I'd say that despite his stern, straight-faced looks, he's into all sorts of mildly-embarrassing nerdy interests. He probably has a pretty stacked gunpla shelf...</p>
+        </div>
+        <div class="gallery">
+          <a href="haruo/haruopfp.png" target="_blank"><img src="haruo/haruopfp.png" alt="Thumb 1" title="Art by me" /></a>
+          <a href="haruo/MakotoHanamura.png" target="_blank"><img src="haruo/MakotoHanamura.png" alt="Thumb 1" title="Art by me" /></a>
+          <a href="haruo/aurafarmer-big.png"><img src="haruo/aurafarmer-big.png" alt="Thumb 1" title="Art by me"></a>
+        </div>
+      </div>
+    </div>    
+
+    
+        <!-- Character 1 -->
+    <div class="character-wrapper">
+      <div class="title">James "Vermillion" Kobayashi (Current main fursona)&nbsp;</div>
+      <img src="james/springless-james-fullbody.png" class="character-image" title="Art by @SpringlessEcho (upcoming)"/>
+      <div class="character-card">
+        <div class="bio">
+          <ul>
+            <li>Species: Coyote</li>
+            <li>Gender: Male (he/him)</li>
+            <li>Age: 23</li>
+            <li>Sexuality: Gay</li>
+          </ul>
+        <p>He has no art <br> He has no lore <br> This fur-sona <br> Is quite the bore!</p>
+        <p>All jokes aside, James is based off a series of playermodels I've used in multiple sandbox and social games. When I first started playing Tower Unite, I picked a Lycanroc as my avatar, and ended up growing attached to it. Eventually once I started getting more into VRChat, I made a slight edit to <a href="https://chaoticjay.gumroad.com/l/rvudkr">ChaoticJay's Alpha Werewolf base</a> (basically just hue shifting it red lol) and grew even MORE attached to that. Eventually I decided to try making a red edit of <a href="https://alber.gumroad.com/l/CoyoteMk2">Alber's Coyote base</a>, and I got so attached to that that I decided to make it my main sona with only some slight edits. So technically I fell victim to not just the Pokésona -> fursona pipeline, but the VRChat base edit -> fursona pipeline with one character...</p>
+        </div>
+        <div class="gallery">
+          <a href="james/coloryote.png" target="_blank"><img src="james/coloryote.png" alt="Thumb 1" title="Art by me" /></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Duplicate .character-wrapper for more characters -->
+
+  </div>
+
+</body>
+</html>

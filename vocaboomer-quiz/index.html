@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vocaboomer Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .question { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .explanation { color: #666; font-style: italic; display: none; margin-top: 5px; }
+        .correct { color: green; }
+        .incorrect { color: red; }
+        #result { font-weight: bold; font-size: 1.2em; margin: 20px 0; }
+        .result-img { max-width: 300px; margin: 10px 0; text-align: center; margin: auto;}
+        .feedback { 
+            margin-left: 8px;
+            font-weight: bold;
+            display: none;
+        }
+        .correct-feedback { color: green; }
+        .incorrect-feedback { color: red; }
+        #submitBtn { transition: opacity 0.3s; }
+        #submitBtn.hidden { display:none; }
+        .unanswered { border-left: 3px solid orange; padding-left: 5px; }
+        li{margin-bottom: 16px;}
+        footer{font-style: italic; color: #666; font-size: 12px;}
+    </style>
+</head>
+<body>
+    <h1>Vocaboomer Quiz</h1>
+    <p>How much do you know about Vocaloid? For how LONG have you known Vocaloid? Were you infected by the Miku Miku bacteria as a pre-teen and haven't been able to spend a single day of your miserable existence without thinking about that funny green haired girl? Well then, it's time for you to put your Vocaloid knowledge (Vocaknowledge...?) to the test!</p>
+    <details>
+        <summary>Disclaimers (Expand before complaining about pedantic BS on my inbox pretty please)</summary>
+        <ol>
+            <li>Yes some of these are worded weird, English isn't my first language, cry about it.</li>
+            <li>Yes I use Vocaloid as a blanket term to talk about all singing voice synthesizers, most people do that and there's no alternative term that sounds as good, weep over it.</li>
+            <li>Yes these are all about the Cryptonloids, they're what most people talk about most frequently, including seasoned fans, sob because of it.</li>
+        </ol>
+    </details>
+    <form id="quizForm">
+        
+            <div class="question" id="q0">
+                <p>1. <span id="questionText0">What was the first ever song composed for Hatsune Miku?</span></p>
+                
+                <div class="option" id="option0-0">
+                    <input type="radio" id="q0o0" name="q0" value="0">
+                    <label for="q0o0">World is Mine</label>
+                    <span class="feedback" id="feedback0-0"></span>
+                </div>
+                <div class="option" id="option0-1">
+                    <input type="radio" id="q0o1" name="q0" value="1">
+                    <label for="q0o1">Hoshi no Kakera</label>
+                    <span class="feedback" id="feedback0-1"></span>
+                </div>
+                <div class="option" id="option0-2">
+                    <input type="radio" id="q0o2" name="q0" value="2">
+                    <label for="q0o2">Hajimete no Oto</label>
+                    <span class="feedback" id="feedback0-2"></span>
+                </div>
+                <div class="explanation" id="explanation0">Originally known as 01_ballade, Hoshi no Kakera was Miku's first publicly released demo song, composed by Eiji Hirasawa.</div>
+            </div>
+            <div class="question" id="q1">
+                <p>2. <span id="questionText1">Which of these concerts is <i>NOT</i> considered by the overall Vocaloid fanbase to be of legendary status?</span></p>
+                
+                <div class="option" id="option1-0">
+                    <input type="radio" id="q1o0" name="q1" value="0">
+                    <label for="q1o0">Hatsune Miku Live Party 2013</label>
+                    <span class="feedback" id="feedback1-0"></span>
+                </div>
+                <div class="option" id="option1-1">
+                    <input type="radio" id="q1o1" name="q1" value="1">
+                    <label for="q1o1">Mikufes 2009</label>
+                    <span class="feedback" id="feedback1-1"></span>
+                </div>
+                <div class="option" id="option1-2">
+                    <input type="radio" id="q1o2" name="q1" value="2">
+                    <label for="q1o2">Magical Mirai 2018</label>
+                    <span class="feedback" id="feedback1-2"></span>
+                </div>
+                <div class="explanation" id="explanation1">Mikupa 2013 was the final concert in the Mikupa line, and is still to this day the longest official Miku concert in history, clocking in at nearly 3 hours of total runtime(!) Mikufes 2009 was the first ever concert to feature Hatsune Miku as a holographic projection.</div>
+            </div>
+            <div class="question" id="q2">
+                <p>3. <span id="questionText2">Which of these car manufacturers ran a series of viral ads in 2011 prominently featuring Hatsune Miku?</span></p>
+                
+                <div class="option" id="option2-0">
+                    <input type="radio" id="q2o0" name="q2" value="0">
+                    <label for="q2o0">Toyota</label>
+                    <span class="feedback" id="feedback2-0"></span>
+                </div>
+                <div class="option" id="option2-1">
+                    <input type="radio" id="q2o1" name="q2" value="1">
+                    <label for="q2o1">Daihatsu Motors</label>
+                    <span class="feedback" id="feedback2-1"></span>
+                </div>
+                <div class="option" id="option2-2">
+                    <input type="radio" id="q2o2" name="q2" value="2">
+                    <label for="q2o2">Subaru</label>
+                    <span class="feedback" id="feedback2-2"></span>
+                </div>
+                <div class="explanation" id="explanation2">Toyota ran a series of 5 ads for the Toyota Corolla in collaboration with Crypton Future Media featuring Miku riding their new model and getting up to mischief during the recording of said commercial.</div>
+            </div>
+            <div class="question" id="q3">
+                <p>4. <span id="questionText3">Which Vocaloid character was known by the English community to frequently die in songs featuring him?</span></p>
+                
+                <div class="option" id="option3-0">
+                    <input type="radio" id="q3o0" name="q3" value="0">
+                    <label for="q3o0">Kamui Gackpo</label>
+                    <span class="feedback" id="feedback3-0"></span>
+                </div>
+                <div class="option" id="option3-1">
+                    <input type="radio" id="q3o1" name="q3" value="1">
+                    <label for="q3o1">MEIKO</label>
+                    <span class="feedback" id="feedback3-1"></span>
+                </div>
+                <div class="option" id="option3-2">
+                    <input type="radio" id="q3o2" name="q3" value="2">
+                    <label for="q3o2">Kagamine Len</label>
+                    <span class="feedback" id="feedback3-2"></span>
+                </div>
+                <div class="explanation" id="explanation3">"Len always dies" was a major meme in the early days of the fandom due to many classic story-driven songs killing off the character.</div>
+            </div>
+            <div class="question" id="q4">
+                <p>5. <span id="questionText4">Which of these items is <i>NOT</i> associated with any vocal synth characters?</span></p>
+                
+                <div class="option" id="option4-0">
+                    <input type="radio" id="q4o0" name="q4" value="0">
+                    <label for="q4o0">A bottle of sake</label>
+                    <span class="feedback" id="feedback4-0"></span>
+                </div>
+                <div class="option" id="option4-1">
+                    <input type="radio" id="q4o1" name="q4" value="1">
+                    <label for="q4o1">A rusty pipe</label>
+                    <span class="feedback" id="feedback4-1"></span>
+                </div>
+                <div class="option" id="option4-2">
+                    <input type="radio" id="q4o2" name="q4" value="2">
+                    <label for="q4o2">An eggplant</label>
+                    <span class="feedback" id="feedback4-2"></span>
+                </div>
+                <div class="explanation" id="explanation4">Sake and eggplants are the character items of MEIKO and Gackpo respectively.</div>
+            </div>
+            <div class="question" id="q5">
+                <p>6. <span id="questionText5">Where was Project Diva Future Tone originally released?</span></p>
+                
+                <div class="option" id="option5-0">
+                    <input type="radio" id="q5o0" name="q5" value="0">
+                    <label for="q5o0">Arcades</label>
+                    <span class="feedback" id="feedback5-0"></span>
+                </div>
+                <div class="option" id="option5-1">
+                    <input type="radio" id="q5o1" name="q5" value="1">
+                    <label for="q5o1">PS Vita</label>
+                    <span class="feedback" id="feedback5-1"></span>
+                </div>
+                <div class="option" id="option5-2">
+                    <input type="radio" id="q5o2" name="q5" value="2">
+                    <label for="q5o2">PS4</label>
+                    <span class="feedback" id="feedback5-2"></span>
+                </div>
+                <div class="explanation" id="explanation5">Future Tone first released in arcades in the year 2013 as an upgrade kit for older Project Diva Arcade cabinets.</div>
+            </div>
+            <div class="question" id="q6">
+                <p>7. <span id="questionText6">Why was the first half of Mikufes 2009 not included in the official concert DVD?</span></p>
+                
+                <div class="option" id="option6-0">
+                    <input type="radio" id="q6o0" name="q6" value="0">
+                    <label for="q6o0">The recording was lost</label>
+                    <span class="feedback" id="feedback6-0"></span>
+                </div>
+                <div class="option" id="option6-1">
+                    <input type="radio" id="q6o1" name="q6" value="1">
+                    <label for="q6o1">Crypton ran into licensing issues</label>
+                    <span class="feedback" id="feedback6-1"></span>
+                </div>
+                <div class="option" id="option6-2">
+                    <input type="radio" id="q6o2" name="q6" value="2">
+                    <label for="q6o2">That portion was deemed as too inappropriate</label>
+                    <span class="feedback" id="feedback6-2"></span>
+                </div>
+                <div class="explanation" id="explanation6">The first half of Mikufes 2009 was never officially published to DVD due to it being much too risqu� for general audiences. Some of the highlight events of that portion of the night include scantily clad women dancing behind the projection screens, and an equally underclothed Deadball-P allegedly getting an erection as he performed on stage.</div>
+            </div>
+            <div class="question" id="q7">
+                <p>8. <span id="questionText7">Which of these non-Crypton characters <i>HASN'T</i> shown up in a Project Diva game?</span></p>
+                
+                <div class="option" id="option7-0">
+                    <input type="radio" id="q7o0" name="q7" value="0">
+                    <label for="q7o0">Kasane Teto</label>
+                    <span class="feedback" id="feedback7-0"></span>
+                </div>
+                <div class="option" id="option7-1">
+                    <input type="radio" id="q7o1" name="q7" value="1">
+                    <label for="q7o1">IA</label>
+                    <span class="feedback" id="feedback7-1"></span>
+                </div>
+                <div class="option" id="option7-2">
+                    <input type="radio" id="q7o2" name="q7" value="2">
+                    <label for="q7o2">Gumi</label>
+                    <span class="feedback" id="feedback7-2"></span>
+                </div>
+                <div class="explanation" id="explanation7">Kasane Teto has been an equippable module in the main series Project Diva games, typically as DLC since Project Diva 2nd on the PSP, and Gumi was prominently featured as a fully fledged character with distinct Modules and Songs in the Project Mirai games on the 3DS.</div>
+            </div>
+            <div class="question" id="q8">
+                <p>9. <span id="questionText8">Which instrument inspired certain aspects of Hatsune Miku's character design?</span></p>
+                
+                <div class="option" id="option8-0">
+                    <input type="radio" id="q8o0" name="q8" value="0">
+                    <label for="q8o0">The Suzuki Omnichord</label>
+                    <span class="feedback" id="feedback8-0"></span>
+                </div>
+                <div class="option" id="option8-1">
+                    <input type="radio" id="q8o1" name="q8" value="1">
+                    <label for="q8o1">The Otomatone</label>
+                    <span class="feedback" id="feedback8-1"></span>
+                </div>
+                <div class="option" id="option8-2">
+                    <input type="radio" id="q8o2" name="q8" value="2">
+                    <label for="q8o2">The Yamaha DX7 keyboard</label>
+                    <span class="feedback" id="feedback8-2"></span>
+                </div>
+                <div class="explanation" id="explanation8">KEI, Miku's character designer, added many nods to the DX7 synthesizer in certain aspects of her design, sch as her color palette, and the designs on her sleeves.</div>
+            </div>
+            <div class="question" id="q9">
+                <p>10. <span id="questionText9">Which of these classic Vocaloid songs was based on real events?</span></p>
+                
+                <div class="option" id="option9-0">
+                    <input type="radio" id="q9o0" name="q9" value="0">
+                    <label for="q9o0">The Disappearance of Hatsune Miku</label>
+                    <span class="feedback" id="feedback9-0"></span>
+                </div>
+                <div class="option" id="option9-1">
+                    <input type="radio" id="q9o1" name="q9" value="1">
+                    <label for="q9o1">The Intense Voice of Hatsune Miku</label>
+                    <span class="feedback" id="feedback9-1"></span>
+                </div>
+                <div class="option" id="option9-2">
+                    <input type="radio" id="q9o2" name="q9" value="2">
+                    <label for="q9o2">Headphone Actor</label>
+                    <span class="feedback" id="feedback9-2"></span>
+                </div>
+                <div class="explanation" id="explanation9">The Disappearance of Hatsune Miku was based on an event which occurred in 2007 during Miku's initial popularity spike where her name was filtered as spam and thus made unable to be searched by Japanese search engines due to her rapid overnight growth, leading to outrage and claims of censorship by fans.</div>
+            </div>
+            <div class="question" id="q10">
+                <p>11. <span id="questionText10">Why do certain fans dislike Japanese singer Kenshi Yonezu?</span></p>
+                
+                <div class="option" id="option10-0">
+                    <input type="radio" id="q10o0" name="q10" value="0">
+                    <label for="q10o0">He made a problematic song using Miku</label>
+                    <span class="feedback" id="feedback10-0"></span>
+                </div>
+                <div class="option" id="option10-1">
+                    <input type="radio" id="q10o1" name="q10" value="1">
+                    <label for="q10o1">He dropped a diss track on the Vocaloid fandom at literally the worst time possible</label>
+                    <span class="feedback" id="feedback10-1"></span>
+                </div>
+                <div class="option" id="option10-2">
+                    <input type="radio" id="q10o2" name="q10" value="2">
+                    <label for="q10o2">He said Vocaloid music is not real music</label>
+                    <span class="feedback" id="feedback10-2"></span>
+                </div>
+                <div class="explanation" id="explanation10">Kenshi Yonezu, formerly a Vocaloid producer known as Hachi, was commissioned to make a song for Hatsune Miku's 10th anniversary in 2017. He promptly made a track effectively saying that the scene that kickstarted his entire career was dead and the fans should move on. Seriously, fuck that guy.</div>
+            </div>
+            <div class="question" id="q11">
+                <p>12. <span id="questionText11">Which of the main Cryptonloids never had a voicebank for Vocaloid 2?</span></p>
+                
+                <div class="option" id="option11-0">
+                    <input type="radio" id="q11o0" name="q11" value="0">
+                    <label for="q11o0">Hatsune Miku</label>
+                    <span class="feedback" id="feedback11-0"></span>
+                </div>
+                <div class="option" id="option11-1">
+                    <input type="radio" id="q11o1" name="q11" value="1">
+                    <label for="q11o1">Kagamine Rin</label>
+                    <span class="feedback" id="feedback11-1"></span>
+                </div>
+                <div class="option" id="option11-2">
+                    <input type="radio" id="q11o2" name="q11" value="2">
+                    <label for="q11o2">KAITO</label>
+                    <span class="feedback" id="feedback11-2"></span>
+                </div>
+                <div class="explanation" id="explanation11">Unlike their counterparts, KAITO and MEIKO were originally released for Vocaloid 1 and eventually got upgrades for Vocaloid 3, skipping version 2 of the engine entirely.</div>
+            </div>
+    </form>
+    
+    <button id="submitBtn" onclick="validateQuiz()">Submit Quiz</button>
+    
+    <div id="result"></div>
+    <div id="resultImg"></div>
+    <div id="resultParagraph"></div>
+
+    <footer>Want to make your own little HTML quiz thingies? Try <a href="QEngine.py">Have my undocumented shitass python script</a></footer>
+    
+    <script>
+        const correctAnswers = [1, 2, 0, 2, 1, 0, 2, 1, 2, 0, 1, 2];
+        const resultLevels = {'Certified Vocaboomer': 10, 'Vocaloid Expert': 6, 'Vocababy': 4};
+        const resultImages = {
+            "Certified Vocaboomer": "https://example.com/trivia-master.png",
+            "Vocaloid Expert": "https://example.com/trivia-expert.png",
+            "Vocababy": "https://example.com/trivia-newbie.png"
+        };
+        const resultParagraphs = {
+            "Certified Vocaboomer": "You've been around since the golden age of Vocaloid! You've been in more arguments about petty things in YouTube comments and Twitter threads than you can count, and at this point, you might as well just BE hatsune Miku. Great job!",
+            "Vocaloid Expert": "Solid work! You know your Vocafacts pretty well. There's a good change you've been a fan for a good while, or maybe you've leaped into the rabbit hole head first. Either way, nicely done!",
+            "Vocababy": "You're new to this whole vocal synth thing, and honestly, there's no harm in that! Enjoy the ride, be open to learning about things and for the love of God try to get into less discourse than we did 10 years ago."
+        };
+        
+        function validateQuiz() {
+            let allAnswered = true;
+            
+            for (let i = 0; i < 12; i++) {
+                const questionElement = document.getElementById(`q${i}`);
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                
+                if (!selectedOption) {
+                    allAnswered = false;
+                    questionElement.classList.add('unanswered');
+                } else {
+                    questionElement.classList.remove('unanswered');
+                }
+            }
+            
+            if (!allAnswered) {
+                alert("All questions need to be answered before submission!");
+                return;
+            }
+            
+            calculateScore();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function calculateScore() {
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.classList.add('hidden');
+            
+            let score = 0;
+            let form = document.getElementById('quizForm');
+            
+            for (let i = 0; i < 12; i++) {
+                const selected = form.elements[`q${i}`].value;
+                const explanation = document.getElementById(`explanation${i}`);
+                const questionText = document.getElementById(`questionText${i}`);
+                
+                for (let j = 0; j < 3; j++) {
+                    const feedback = document.getElementById(`feedback${i}-${j}`);
+                    if (j == correctAnswers[i]) {
+                        feedback.textContent = "(Correct!)";
+                        feedback.classList.add("correct-feedback");
+                        feedback.style.display = "inline";
+                    }
+                    if (selected == j && j != correctAnswers[i]) {
+                        feedback.textContent = "(Wrong...)";
+                        feedback.classList.add("incorrect-feedback");
+                        feedback.style.display = "inline";
+                    }
+                }
+                
+                if (selected == correctAnswers[i]) {
+                    score++;
+                    questionText.classList.add('correct');
+                } else {
+                    questionText.classList.add('incorrect');
+                }
+                
+                explanation.style.display = 'block';
+            }
+            
+            let resultLevel = 'Vocababy';  // Default if no threshold is met
+
+            // Sort thresholds in descending order and assign first matching
+            const sortedLevels = Object.entries(resultLevels).sort((a, b) => b[1] - a[1]);
+            for (const [level, threshold] of sortedLevels) {
+                if (score >= threshold) {
+                    resultLevel = level;
+                    break;
+                }
+            }
+
+            
+            const resultText = `${resultLevel} (${score} / 12)`;
+            document.getElementById('result').textContent = "You're a... "+resultText+"!";
+            
+            const img = document.createElement('img');
+            img.src = resultImages[resultLevel];
+            img.alt = resultText;
+            img.className = 'result-img';
+            img.title = 'Share my score: ' + resultText;
+
+            const para = document.createElement('p');
+            para.textContent = resultParagraphs[resultLevel] || "";
+            document.getElementById('resultParagraph').appendChild(para);
+        }
+    </script>
+</body>
+</html>
+    

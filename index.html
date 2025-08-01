@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sosumi.xyz | landing</title>
+
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+    <link rel="me" href="mailto:kuro@semicola.xyz">
+    <link rel="me" href="https://bsky.app/profile/sosumi.xyz">
+
+    <meta content="sosumi.xyz" property="og:title" />
+    <meta content="Let it beep!" property="og:description" />
+    <meta content="https://sosumi.xyz" property="og:url" />
+    <meta content="https://sosumi.xyz/assets/bunnymac-big.png" property="og:image" />
+    <meta content="#FFFFFF" data-react-helmet="true" name="theme-color" />
+
+    <link rel="stylesheet" href="home/style.css">
+</head>
+
+<style>
+    @font-face {
+        font-family: 'msgfallback';
+        src: url('home/assets/MS\ PGothic.ttf');
+    }
+
+    main{
+        max-height: 100%;
+        max-width: 800px;
+        margin: auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    h1{
+        text-align: center;
+    }
+
+    .rating{
+        width: 360px;
+        position: flex-end;
+        float: left;
+        font-size: 12px;
+    }
+
+    .title{
+        margin: -10px;
+        margin-bottom: 10px;
+    }
+
+    .enter{
+        text-align: center;
+        margin-top: 15%;
+        margin-bottom: 10%;
+    }
+
+    .enter img{
+        transform: scale(2);
+    }
+
+    .enter p{
+        margin-top: 28px ;
+    }
+
+    @media screen and (max-width: 768px) {
+        body{
+            text-align: justify;
+            padding: 0px;
+            height: 100%;
+        }
+
+        .enter img{
+            transform: scale(1);
+        }
+
+        .enter p{
+            margin-top: 0px;
+        }
+
+        main{
+            height: 100%;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        .rating{
+            bottom: 0px;
+        }
+    }
+</style>
+
+<body>
+    <main>
+        <div class="title">Welcome</div>
+        <h1>Welcome to sosumi.xyz!</h1>
+        <div class="c"><p><b><u>!! This website contains disorienting effects, mild flashing lights, and autoplaying audio !!</b></u><br><br></div>
+        If you or anyone in your family has a history of photosensitivity, or if at any point while browsing you feel headaches, nausea or other similar symptoms, please leave right away!</p>
+
+        <p>This website was optimized to be viewed on a desktop computer with a display resolution of 1440x1080 at the minimum. Certain pages may show up with varying degrees of broken formatting when viewed on mobile devices.</p>
+        <p>sosumi.xyz also makes extensive usage of JavaScript, so certain elements may not work properly if you have JS disabled of if your adblock is particularly pissy about this sort of thing. Though of course, there are no real ads here.</p>
+        
+        <p>If you're chill with all that, click the bunny Mac below to visit the main page!</p>
+
+        <div class="enter"><a href="home/"><img src="assets/bunnymac-big.png" alt=""><br><p>Enter sosumi.xyz</p></a></div>
+        
+        <!--<a href="https://www.mabsland.com/Adoption.html"><img src="assets/Censor_Ma.png" alt="This website is rated Web-MA"></a><p>This site is rated <b>WEB-MA</b><br><br>(Frequent usage of strong language,<br>allusions to adult themes and media<br>and infrequent usage of reclaimed slurs.)</p>-->
+
+        <div class="bambu-widget" style="border: 2px solid black; border-radius: 5px; width: 250px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: white;">
+        <div class="bambu-heading" style="background-color: black; color: white; text-align: center;">This web page is rated</div>
+        <div class="bambu-body" style="padding: 5px;">
+            <div class="bambu-rating" style="float:left"><a href="https://bambu.nekoweb.org/ratings/"><img src="https://bambu.nekoweb.org/ratings/m17.svg" title="Suitable for mature audiences." alt="M-17"></a></div>
+            <div class="bambu-inner-text" style="margin: -10px;">
+                <p>Contains:</p>
+
+                <div class="bambu-content-warnings" style="margin-top: -5px;">
+                    <ul style="list-style-position: inside;">
+                        <li><a href="https://bambu.nekoweb.org/warnings#strong-language">Strong language</a></li>
+                        <li>Rabbits (scary)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bambu-clear" style="clear: both;"></div>
+        </div>
+        <div class="bambu-footing" style="background-color: black; color: white; font-size: 10px; padding: 2px;">BAMBU Rating System. <a class="bambu-reflink" style="float: right; color: white;" href="https://bambu.nekoweb.org" target="_blank">bambu.nekoweb.org</a></div>
+    </div>
+
+    </main>
+</body>
+</html>

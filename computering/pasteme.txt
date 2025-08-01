@@ -1,0 +1,45 @@
+Paste this snippet where you want the widget to show up on your site:
+
+<div id='computering'>
+    <script type="text/javascript" src="https://kurosroom.nekoweb.org/computering/onionring-variables.js"></script>
+    <script type="text/javascript" src="https://kurosroom.nekoweb.org/computering/onionring-widget.js"></script>
+</div>
+
+Style it to your liking with this boilerplate CSS; There's no "official" look to it, so feel free to get creative with it as long as it's still legible.
+
+/* onionring.js is made up of four files - onionring-widget.js, onionring-index.js, onionring-variables.js and onionring.css (this one!)
+// it's licensed under the cooperative non-violent license (CNPL) v4+ (https://thufie.lain.haus/NPL.html)
+// it was originally made by joey + mord of allium (蒜) house, last updated 2020-10-24 */
+
+/* === ONIONRING.CSS === */
+/* this file affects the style of the widget. remember to replace all instances of #computering with whatever value you have for ringID in the onionring-widget.js file. make sure it still has the # at the front, though! probably easiest to use find+replace to do it */
+
+#computering {
+  margin: 0 auto;
+  padding: 15px; /* creates some space around the widget */
+}
+
+#computering table {
+  background-color: #ffffff; /* makes the background pure white */
+  margin: 0 auto; /* centers the widget */
+}
+
+#computering table tr td {
+  padding: 15px; /* creates some space between the links and text inside the widget */
+}
+
+#computering .webring-prev {
+  text-align:right;
+}
+
+#computering .webring-info {
+   text-align:center;
+}
+
+#computering .webring-next {
+  text-align:left;
+}
+
+#computering .webring-links {
+  font-size:small;
+}

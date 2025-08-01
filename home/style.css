@@ -1,0 +1,298 @@
+@font-face {
+    font-family: 'msgfallback';
+    src: url('assets/MS\ PGothic.ttf');
+}
+
+body{
+    image-rendering: pixelated;
+
+    background-image: url(assets/dither1.png);
+    font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', 'msgfallback' , monospace, sans-serif;
+
+    font-smooth: never;
+    -webkit-font-smoothing : none;
+}
+
+main{
+    box-sizing: border-box;
+    max-width: 1000px;
+    min-height: 850px;
+    margin:auto;
+
+    background-color: white;
+    border:1px solid black;
+}
+
+header{
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: -10px;
+}
+
+a{
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.logo{
+    display: table-cell;
+    vertical-align: middle;
+    border: 1px solid black;
+    width: 250px;
+    height: 146px;
+    padding: 2px;
+
+    text-align: center;
+}
+
+#motto{
+    font-size: 12px;
+}
+
+.logo h1{
+    margin: 2px;
+}
+
+.banner{
+    float: right;
+    width: calc(100% - 260px); /* 250px logo + 10px gap buffer */
+    height: 150px;
+
+    background-image: url('assets/banners/keyboard.png');
+    background-repeat: no-repeat;
+    background-size: auto 100%; /* keep full height, scale width naturally */
+    background-position: left center; /* start from left, horizontally cropped */
+    border: 1px solid black;
+
+    overflow: hidden; /* clips the background */
+    margin-left: 10px;
+}
+
+.clear{
+    clear: both;
+}
+
+.navbar{
+    margin-top: 5px;
+    padding: 2px;
+
+    background-color: black;
+    color: white;
+}
+
+.navbar a{
+    color: white;
+}
+
+.internettime{
+    float: right;
+}
+
+hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid black;
+    margin: 1em 0;
+    padding: 0;
+}
+
+button{
+    border-radius: 0px;
+    border: 1px solid black;
+    font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', monospace, sans-serif;
+}
+
+.leftcollumn{
+    float:left;
+    margin: 10px;
+    max-width: 200px;
+}
+
+.window ul{
+    padding-left: 15px;
+    list-style-type: square;
+}
+
+.rightcollumn{
+    float:right;
+    margin: 10px;
+    max-width: 200px;
+}
+
+.pfp{
+    text-align: center;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 10px;
+}
+
+.window{
+    border:1px solid black;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.maincontent{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    max-width: 550px;
+
+    border:1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    overflow: hidden;
+
+    padding: 10px;
+}
+
+.maincontent iframe{
+    border: 1px solid black;
+    height: 300px;
+    width: 525px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.title{
+    background-color: black;
+    color:white;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-top: -5px;
+    margin-bottom:0px;
+    text-align: center;
+}
+
+.title::after{
+    margin-top: 100px;
+}
+
+.buttons{
+    margin-top: 5px;
+}
+
+.buttons a{
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.buttons a:hover{
+    filter: grayscale(0%);
+}
+
+.c{
+    text-align: center;
+}
+
+.news{
+    margin: 10px 0px;
+    padding: 0px 10px;
+    max-height: 132px;
+    border: 1px solid black;
+    overflow: scroll;
+}
+
+.radio{
+    background-color: white;
+    display: block;
+    border: 1px solid black;
+    padding-bottom: 5px;
+    position: fixed;
+    bottom: 10px;
+    width: 250px;
+    filter: grayscale(100%);
+}
+
+.navcaption{
+    margin-bottom: -15px;
+    margin-top: 15px;
+}
+
+.mobileonly{
+    display: none;
+}
+
+#slogs{
+    filter: grayscale(100%);
+}
+
+#pikicard{
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+
+    main {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        border-width: 0;
+    }
+
+    .logo{
+        display: block;
+        width: 100%;
+        height: auto;
+        float: none;
+        margin-bottom: 10px;
+    }
+
+    .banner{
+        display: none;
+    }
+
+    .navbar, .internettime {
+        text-align: center;
+        float: none;
+    }
+
+    .leftcollumn,
+    .rightcollumn {
+        float: none;
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    .maincontent {
+        max-width: 100%;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .maincontent iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .radio {
+        background-color: white;
+        display: block;
+        border: 1px solid black;
+        padding-bottom: 5px;
+        position: fixed;
+        left: 10vw;
+        right: 10vw;
+        filter: grayscale(100%);
+    }
+
+    #pconly{
+        display: none;
+    }
+
+    .mobileonly{
+        display: block;
+    }
+}
