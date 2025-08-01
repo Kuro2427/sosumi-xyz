@@ -15,8 +15,6 @@
     <meta content="https://sosumi.xyz" property="og:url" />
     <meta content="https://sosumi.xyz/assets/bunnymac-big.png" property="og:image" />
     <meta content="#FFFFFF" data-react-helmet="true" name="theme-color" />
-
-    <link rel="stylesheet" href="home/style.css">
 </head>
 
 <style>
@@ -25,44 +23,46 @@
         src: url('home/assets/MS\ PGothic.ttf');
     }
 
-    main{
-        max-height: 100%;
+    body{
         max-width: 800px;
         margin: auto;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
+        padding: 5px;
+        background-image: url('home/assets/dither1.png');
+         font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', 'msgfallback' , monospace, sans-serif;
+
+        font-smooth: never;
+        -webkit-font-smoothing : none;
     }
 
+    main{
+        background-color: white;
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    .title{
+        width: 99.5%;
+        color: white;
+        background-color: black;
+        padding: 2px;
+        text-align: center;
+    }
+
+    a{
+        color: black;
+    }
+
+    .c{
+        text-align: center;
+    }
 
     h1{
         text-align: center;
     }
 
-    .rating{
-        width: 360px;
-        position: flex-end;
-        float: left;
-        font-size: 12px;
-    }
-
-    .title{
-        margin: -10px;
-        margin-bottom: 10px;
-    }
-
-    .enter{
+    figure{
         text-align: center;
-        margin-top: 15%;
-        margin-bottom: 10%;
-    }
-
-    .enter img{
-        transform: scale(2);
-    }
-
-    .enter p{
-        margin-top: 28px ;
+        margin: 32px;
     }
 
     @media screen and (max-width: 768px) {
@@ -70,14 +70,7 @@
             text-align: justify;
             padding: 0px;
             height: 100%;
-        }
-
-        .enter img{
-            transform: scale(1);
-        }
-
-        .enter p{
-            margin-top: 0px;
+            padding: 10px;
         }
 
         main{
@@ -93,9 +86,10 @@
 </style>
 
 <body>
-    <main>
         <div class="title">Welcome</div>
+    <main>
         <h1>Welcome to sosumi.xyz!</h1>
+        <h1 style="color: red;">THIS IS SOME VERY BIG AND VERY BRIGHT TEXT TO CHECK IF THE THING WORKED</h1>
         <div class="c"><p><b><u>!! This website contains disorienting effects, mild flashing lights, and autoplaying audio !!</b></u><br><br></div>
         If you or anyone in your family has a history of photosensitivity, or if at any point while browsing you feel headaches, nausea or other similar symptoms, please leave right away!</p>
 
@@ -104,7 +98,7 @@
         
         <p>If you're chill with all that, click the bunny Mac below to visit the main page!</p>
 
-        <div class="enter"><a href="home/"><img src="assets/bunnymac-big.png" alt=""><br><p>Enter sosumi.xyz</p></a></div>
+        <figure><a href="home/"><img src="assets/bunnymac-big.png" alt="fubking bnuuy"><figcaption>Enter</figcaption></a></figure>
         
         <!--<a href="https://www.mabsland.com/Adoption.html"><img src="assets/Censor_Ma.png" alt="This website is rated Web-MA"></a><p>This site is rated <b>WEB-MA</b><br><br>(Frequent usage of strong language,<br>allusions to adult themes and media<br>and infrequent usage of reclaimed slurs.)</p>-->
 
