@@ -3,7 +3,7 @@
 Hello, this is the repository for my site, [sosumi.xyz.](https://sosumi.xyz)
 
 sosumi.xyz is hosted on [Nekoweb.](https://nekoweb.org/) 
-The commits pushed here get automatically synced thanks to [this awesome action.](https://github.com/marketplace/actions/deploy-to-nekoweb)
+The commits pushed here get automatically synced there thanks to [this awesome action.](https://github.com/marketplace/actions/deploy-to-nekoweb)
 
 This repo exists publicly entirely just because the action calls for it, but if you'd like to make something cool for the site, be my guest and make a PR! Just be advised that:
 
