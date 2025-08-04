@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kaeru</title>
+</head>
+
+<style>
+    @font-face {
+        font-family: 'hellvetica';
+        src: url('Helvetica.ttf');
+    }
+
+    body{
+        color: white;
+
+        background: #360D2E;
+        background: linear-gradient(197deg, #31042A 35%, #600E35 100%);
+        height: 100%;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        margin: 10px;
+        font-family: 'hellvetica', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 20px;
+    }
+
+    h1{
+        font-size: 60px;
+        margin: 0px;
+    }
+
+    .container {
+        margin:0;
+        display:flex;
+        height:90vh;
+        align-items:center;
+        margin: auto;
+    }
+
+    .welcome{
+        max-width: 900px;
+    }
+
+    .welcome p{
+        margin: 0px;
+    }
+
+    nav{
+        margin-top: 30px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .menu-title {
+        font-weight: bold;
+        font-size: 35px;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .sub-links {
+        font-size: 35px;
+        display: inline-flex;
+        gap: 30px;
+        overflow: hidden;
+        max-width: 0;
+        opacity: 0;
+        transition: max-width 0.4s ease, opacity 0.4s ease;
+        white-space: nowrap;
+    }
+
+    .sub-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: normal;
+    }
+
+    .sub-links.open {
+        max-width: 100%;
+        opacity: 1;
+        margin-right: 20px;
+    }
+
+
+</style>
+
+<body>
+    <!--whoa what are you doing here, this is MY homepage!!!
+    kidding lol. yea if you want to fork this and modify it to your needs go ahead and be my guest-->
+
+    <div class="container">
+        <div class="welcome">
+            <h1>welcome.</h1>
+            <p id="time"></p>
+            <p id="weather">checking the weather...</p>
+
+            <nav>
+                <span class="menu-title" onclick="toggleLinks(this)">music</span>
+                <div class="sub-links"><a href="https://music.youtube.com/">youtube</a> <a href="https://ballsack.tv/">bstv</a> <a href="https://downloads.khinsider.com/">khinsider</a></div><br>
+
+                <span class="menu-title" onclick="toggleLinks(this)">games</span>
+                <div class="sub-links"><a href="https://www.nytimes.com/crosswords">ny times games</a> <a href="https://flashmuseum.org/">flash museum</a> <a href="https://www.retrogames.cc/">retrogames.cc</a></div><br>
+
+                <span class="menu-title" onclick="toggleLinks(this)">comics</span>
+                <div class="sub-links"><a href="https://wyverncomic.com/">wyvern</a> <a href="https://xkcd.com/">xkcd</a></div><br>
+
+                <span class="menu-title" onclick="toggleLinks(this)">art</span>
+                <div class="sub-links"><a href="https://safebooru.donmai.us/">safebooru</a> <a href="https://e926.net/">e926</a> <a href="https://tumblr.com">tumblr</a></div><br>
+
+                <span class="menu-title" onclick="toggleLinks(this)">social</span>
+                <div class="sub-links"><a href="https://retrogametalk.com/forums/">retrogametalk</a> <a href="https://nekoweb.org/explore?page=1&sort=lastupd&by=name&q=">nekoweb</a></div><br>
+
+                <span class="menu-title" onclick="toggleLinks(this)">fun</span>
+                <div class="sub-links"><a href="https://cloudhiker.net/">cloudhiker</a> <a href="#" onclick="fopify()">fopify</a> <a href="#" onclick="noodfy()">noodle-ify</a></div>
+            </nav>
+
+        </div>
+    </div>
+
+
+    <script>
+        function toggleLinks(element) {
+            const subLinks = element.nextElementSibling;
+            subLinks.classList.toggle("open");
+        }
+
+        function fopify() {
+            document.body.style.backgroundImage = "url('https://api.tinyfox.dev/img?animal=fox')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundPosition = "center center";
+            document.body.style.transition = " 1s ease";
+        }
+
+        function noodfy() {
+            document.body.style.backgroundImage = "url('https://api.tinyfox.dev/img?animal=marten')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundPosition = "center center";
+            document.body.style.transition = " 1s ease";
+        }
+    </script>
+    
+    <script>
+        // 1. Format time: e.g., 4:52 pm
+        const now = new Date();
+        const hour = now.getHours();
+        const minute = now.getMinutes().toString().padStart(2, '0');
+        const ampm = hour >= 12 ? 'pm' : 'am';
+        const hour12 = hour % 12 === 0 ? 12 : hour % 12;
+        const timeStr = `${hour12}:${minute} ${ampm}`;
+
+        // 2. Format date: e.g., 4th of august 2025
+        const day = now.getDate();
+        const month = now.toLocaleString('en-GB', { month: 'long' }).toLowerCase();
+        const year = now.getFullYear();
+
+        // Helper to get ordinal suffix
+        function getOrdinal(n) {
+        if (n >= 11 && n <= 13) return n + 'th';
+        switch (n % 10) {
+            case 1: return n + 'st';
+            case 2: return n + 'nd';
+            case 3: return n + 'rd';
+            default: return n + 'th';
+        }
+        }
+
+        const dayStr = getOrdinal(day);
+        const dateStr = `${dayStr} of ${month} ${year}`;
+
+        // Inject into the DOM
+        document.getElementById("time").innerText = `it is currently ${timeStr} on the ${dateStr}.`;
+
+
+        // 2. Define descriptors based on temperature
+        function getTempDescriptor(temp) {
+        if (temp <= -10) return "brutally cold";
+        if (temp <= 0) return "freezing";
+        if (temp <= 5) return "frigid";
+        if (temp <= 10) return "chilly";
+        if (temp <= 16) return "cool";
+        if (temp <= 22) return "pleasant";
+        if (temp <= 28) return "warm";
+        if (temp <= 33) return "hot";
+        return "grueling";
+        }
+
+        // 3. Fetch weather data
+        const lat = -27.59; // replace with your desired location
+        const lon = -48.55;
+
+        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=celsius`)
+        .then(res => res.json())
+        .then(data => {
+            const temp = Math.round(data.current_weather.temperature);
+            const descriptor = getTempDescriptor(temp);
+            document.getElementById("weather").innerText = `it is a ${descriptor} ${temp} degrees outside.`;
+        })
+        .catch(() => {
+            document.getElementById("weather").innerText = "weather data unavailable.";
+        });
+    </script>
+</body>
+
+</html>
