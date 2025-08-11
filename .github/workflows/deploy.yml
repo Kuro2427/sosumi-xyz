@@ -12,8 +12,8 @@ jobs:
         
       # your build step here
         
-      - name: Deploy to Nekoweb
-        uses: mp-pinheiro/nekoweb-deploy@0.2.8
+      - name: deploy2nekoweb
+        uses: indiefellas/deploy2nekoweb@main
         with:
           nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
           # nekoweb-cookie: ${{ secrets.NEKOWEB_COOKIE }}
