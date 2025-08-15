@@ -88,17 +88,52 @@
         <li>Create a new blank <a href="https://docs.google.com/forms/u/0/">google form</a>. Feel free to set the title and description to whatever you want, this will not be publicly accessible.</li>
         <li>Change the default question to "paragraph" (or "short answer" if you want a smaller word limit, either one works)</li>
         <li>Click the big purple "publish" button.</li>
-        <li>Change the form's responder setting from "anyone with the link" to "restricted". If you ignore this step, anyone who inspects your site's source code <b><i>WILL</i></b> be able to make public posts very easily.</li>
+        <li>Change the form's responder setting from "anyone with the link" to "restricted". If you ignore this step, nosy people may be able to make public posts without your permission.</li>
         <li>Copy your form's responder link an keep it somewhere easy to access. This is how you will make all of your posts.</li>
         <li>Tab over to the "responses" section and click "link to sheets".</li>
         <li>Select "create a new spreadsheet" and click "create". A new window will open with your newly created responses spreadsheet, this sheet is also where you will be able to manage, edit and delete all of your posts.</li>
         <li>Click on the share button, and change the "general access" permission to "anyone with the link". Make sure the role is set to "viewer", or else much like in step 4 anyone will be able to edit your posts.</li>
-        <li>Download <a href="view-source:kuros-room.nekoweb.org/sloggr/sloggr.html">sloggr.html</a> and place it in your website's directory and open it in your text editor of choice.</li>
+        <li>Download <a href="view-source:kuros-room.nekoweb.org/sloggr/sloggr.html">sloggr.html</a>, place it in your website's directory and open it in your text editor of choice.</li>
         <li>Change the "sheetId" constant to your spreadsheet's ID, which is literally just the long string of characters after /d/and before /edit in  the URL you are at when editing yor sheet. E.G: https://docs.google.com/spreadsheets/d/<b><u>1ztRsiAWRhyuiHznP5L4iA-omwV3G2mkepgqFOAFjLrA</u></b>/edit</li>
-        <li>Add an iframe that links to sloggr.html on your website and you're done! You can now freely post to your heart's content!</li>
+        <li>Add an iframe or embed that links to your sloggr.html file and you're done! You can now freely post to your heart's content!</li>
     </ol>
 
-    <footer>sloggr is licensed under a <a href="https://creativecommons.org/public-domain/cc0/">Creative Commons CC0 Public Domain license</a>; Feel free to use, edit, and redistribute sloggr and all of its components with or without crediting me. Though linking back here so others may also use it is always appreciated, of course :)</footer>
+    <h2>Optional steps</h2>
+    <p>Through the power of the <a href="https://docs.bsky.app/">public bluesky api</a> and Google App Scripts, we can make it so sloggr cross posts to everyone's third favourite social network. Useful if your stupid and dumb friends don't constantly check your site for updates (smh)</p>
+
+    <ol>
+        <li>Open the spreadsheet that's linked to your form responses.</li>
+        <li>Click on Extensions > Apps Script.</li>
+        <li>Delete the default function and paste <a href="view-source:bsky-crosspost.js">this code</a> into the editor.</li>
+        <li>Save your changes with Ctrl+S.</li>
+        <li>Switch to the "Project settings" tab (the cog icon on the side bar).</li>
+        <li>Add two new script properties, one titled <b>BSKY_HANDLE</b> and another titled <b>BSKY_APP_PASSWORD</b>.</li>
+        <li>Paste your bluesky handle <i>(e.g: johndoe.bsky.app)</i> into <b>BSKY_HANDLE</b>'s "Value" field.</li>
+        <li>Paste your bluesky account's password into the <b>BSKY_APP_PASSWORD</b>'s "Value" field (don't worry, by doing it this way, your password is well obscured and inacessible to outsiders) and click on "Save Script Properties".</li>
+        <li>Tab over to "Triggers" (the alarm clock icon on the sidebar).</li>
+        <li>Create a new trigger.</li>
+        <li>Change the "Select event type" property from "On open" to "On form submit".</li>
+        <li>Change "Failure notification settings" to "Notify me immedietely" (optional, it's just nicer to get the email right away if something breaks).</li>
+        <li>Save your settings and wait for the login prompt to open.</li>
+        <li>A very scary looking message will appear once you log in telling you that Google hasn't verified this app. But the code is all right here, so if you wish to proceed, click on Advanced > Go to [PROJECT NAME].</li>
+        <li>Finish the authorization as normal. Your slogs should now cross post to bluesky automatically! :D</li>
+    </ol>
+
+    <footer>
+        <p>Sloggr and all its assets and components are licensed under <a href="https://opensource.org/license/mit">the MIT open source license</a>, as defined below:</p>
+
+        <p>
+
+        <p>Copyright 2025 Uriel "Sosumi" Kawahara</p>
+
+        <p> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+        <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+        <p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+        </p>
+    </footer>
 
 </body>
 </html>
