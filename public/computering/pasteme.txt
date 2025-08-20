@@ -1,8 +1,8 @@
 Paste this snippet where you want the widget to show up on your site:
 
 <div id='computering'>
-    <script type="text/javascript" src="https://kurosroom.nekoweb.org/computering/onionring-variables.js"></script>
-    <script type="text/javascript" src="https://kurosroom.nekoweb.org/computering/onionring-widget.js"></script>
+    <script type="text/javascript" src="https://sosumi.xyz/computering/onionring-variables.js"></script>
+    <script type="text/javascript" src="https://sosumi.xyz/computering/onionring-widget.js"></script>
 </div>
 
 Style it to your liking with this boilerplate CSS; There's no "official" look to it, so feel free to get creative with it as long as it's still legible.
