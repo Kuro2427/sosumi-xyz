@@ -13,10 +13,20 @@ body{
 
 #container{
     background-color: white;
-    max-width: 800px;
+    max-width: 600px;
     margin: auto;
     border: 1px solid black;
     padding: 0px 10px;
+}
+
+header{
+    text-align: center;
+}
+
+header a{
+    margin-right: 20px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 #tagFilter {
@@ -53,7 +63,7 @@ hr{
     padding: 0;
 }
 
-img{
+figure img{
     width: 200px;
 }
 
