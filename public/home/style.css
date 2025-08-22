@@ -223,7 +223,7 @@ button{
     filter: grayscale(100%);
 }
 
-.webring-prev, .webring-next{
+.webring-prev a, .webring-next a{
     text-decoration: none;
 }
 
