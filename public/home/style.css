@@ -223,11 +223,8 @@ button{
     filter: grayscale(100%);
 }
 
-#pikicard{
-    width: 100%;
-    height: 300px;
-    border: 1px solid black;
-    margin-bottom: 10px;
+.webring-prev a, .webring-next a{
+    text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
