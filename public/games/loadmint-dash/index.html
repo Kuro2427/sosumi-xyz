@@ -45,10 +45,43 @@
     a{
         color: white;
     }
+
+    .mobileonly{
+        display: none;
+    }
+
+    @media only screen and (max-width: 600px){
+        embed{
+            display: none;
+        }
+
+        .mobileonly{
+            display: block;
+            text-align: center;
+        }
+
+        .mobileonly p{
+           background-color: rgb(255, 78, 78);
+           margin: 0px;
+        }
+
+        .mobileonly button{
+            margin-top: 16px;
+
+            font-size: 32px;
+            background-color: #white;
+            color: #191919;
+            border: none;
+
+        }
+    }
 </style>
 
 <body>
     <main>
+        <div class="mobileonly"><p>The embedded version of this game doesn't play nice with the page's layout on mobile browsers. Once you believe you've stared at the credits and instructions for an appropriate amount of time, rotate your phone to landscape mode and press the "play" button below to start the game.</p>
+            <button onclick="location.href='game/'">Play</button>
+        </div>
         <div class="c"><embed src="game/index.html" type="" width="800px" height="605px"></div>
         
         <p>A crappy little endless runner by yours truly, effectively a clone of the Chrome dinosaur game featuring my good friend <a href="https://sylvies.space/">sylvie's</a> fursona. Made in one day as a sort of gift to welcome them into nekoweb.</p>
@@ -65,7 +98,11 @@
         </ul>
 
         Changelog:
-        <ul>v 1.1 - Added mobile support (finally) and more obstacle sprites.</ul>
+        <ul>
+            <li>v 1.2 - Fixed mobile support lol</li>
+            <li>v 1.1 - Added mobile support (finally) and more obstacle sprites.</li>
+            
+        </ul>
     </main>
 </body>
 </html>
