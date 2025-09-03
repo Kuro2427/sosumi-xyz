@@ -11,8 +11,7 @@ var sites = [
 'https://sylvies.space/',
 'https://pizzacatdelights.nekoweb.org/',
 'https://twentyphanday.nekoweb.org/',
-'https://lapislabel.net/',
-'https://kimberlygb.nekoweb.org'
+'https://lapislabel.net/'
 ];
 
 //the name of the ring
