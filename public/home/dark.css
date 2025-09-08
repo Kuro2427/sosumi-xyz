@@ -6,11 +6,13 @@
 body{
     image-rendering: pixelated;
 
-    background-image: url(assets/dither1.png);
+    background-image: url(assets/blackdither.png);
     font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', 'msgfallback' , monospace, sans-serif;
 
     font-smooth: never;
     -webkit-font-smoothing : none;
+
+    color: white;
 }
 
 main{
@@ -19,18 +21,19 @@ main{
     min-height: 850px;
     margin:auto;
 
-    background-color: white;
-    border:1px solid black;
+    background-color: black;
+    border:1px solid white;
 }
 
 header{
+    color: white;
     box-sizing: border-box;
     padding: 10px;
     margin-bottom: -10px;
 }
 
 a{
-    color: black;
+    color: white;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -38,7 +41,7 @@ a{
 .logo{
     display: table-cell;
     vertical-align: middle;
-    border: 1px solid black;
+    border: 1px solid white;
     width: 250px;
     height: 146px;
     padding: 2px;
@@ -60,10 +63,11 @@ a{
     height: 150px;
 
     background-image: url('assets/banners/keyboard.png');
+    background-color: white;
     background-repeat: no-repeat;
     background-size: auto 100%; /* keep full height, scale width naturally */
     background-position: left center; /* start from left, horizontally cropped */
-    border: 1px solid black;
+    border: 1px solid white;
 
     overflow: hidden; /* clips the background */
     margin-left: 10px;
@@ -77,12 +81,12 @@ a{
     margin-top: 5px;
     padding: 2px;
 
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .navbar a{
-    color: white;
+    color: black;
 }
 
 .internettime{
@@ -93,16 +97,26 @@ hr{
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid black;
+    border-top: 1px solid white;
     margin: 1em 0;
     padding: 0;
 }
 
 button{
     border-radius: 0px;
-    border: 1px solid black;
+    border: 1px solid white;
     font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', monospace, sans-serif;
 }
+
+img{
+    filter: invert(100);
+}
+
+img:hover{
+    filter: invert(0);
+    transition: 0.5s;
+}
+
 
 .leftcollumn{
     float:left;
@@ -129,7 +143,7 @@ button{
 }
 
 .window{
-    border:1px solid black;
+    border:1px solid white;
     padding: 5px;
     margin-bottom: 10px;
 }
@@ -141,7 +155,7 @@ button{
 
     max-width: 550px;
 
-    border:1px solid black;
+    border:1px solid white;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
@@ -153,16 +167,17 @@ button{
 }
 
 .maincontent iframe{
-    border: 1px solid black;
+    border: 1px solid white;
     height: 300px;
     width: 525px;
     margin: auto;
     margin-bottom: 10px;
+    filter:invert(100);
 }
 
 .title{
-    background-color: black;
-    color:white;
+    background-color: white;
+    color:black;
     margin-left: -5px;
     margin-right: -5px;
     margin-top: -5px;
@@ -195,14 +210,14 @@ button{
     margin: 10px 0px;
     padding: 0px 10px;
     max-height: 132px;
-    border: 1px solid black;
+    border: 1px solid white;
     overflow: scroll;
 }
 
 .radio{
     background-color: white;
     display: block;
-    border: 1px solid black;
+    border: 1px solid white;
     padding-bottom: 5px;
     position: fixed;
     bottom: 10px;
@@ -211,7 +226,7 @@ button{
 }
 
 .radio a{
-    color: white;
+    color: black;
 }
 
 .navcaption{
@@ -295,5 +310,9 @@ button{
 
     .mobileonly{
         display: block;
+    }
+
+    .computering{
+        filter: invert(100);
     }
 }
