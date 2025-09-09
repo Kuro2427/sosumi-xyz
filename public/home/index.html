@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sosumi.xyz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" id="pageStyle">
     <link rel="stylesheet" href="computering-stuff.css">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"/>
@@ -33,7 +33,13 @@
             
             <div class="navbar">
                 <a href="https://www.youtube.com/watch?v=SOqenYis1iQ" target="_blank"> "So how will we fight? All we have is logic and love on our side" </a>
-                <a href="https://wiki.melonland.net/swatch_time" title="What's this?"><span class="internettime" id="clock">@000</span></a>
+                <!--span class="internettime">
+                    <select name="Themes" id="themeSelect">
+                        <option value="light">Classic</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </span>
+                <br style="clear: both;"-->
             </div>
 
         </header>
@@ -328,27 +334,8 @@
         randMotto();
     </script>
 
-    <script type="module">
-        import { now } from "https://cdn.pika.dev/dot-beat-time";
-
-        window.onload = function() {
-        // Set the time on the hero in beats
-
-        const setBeatTime = () => {
-            const currentBeatTime = now();
-            const longCurrentBeatTime = now(true);
-            document.getElementById("clock").textContent = `${longCurrentBeatTime}`;
-        };
-
-        setBeatTime();
-
-        setInterval(() => {
-            setBeatTime();
-        }, 1000);
-        }
-    </script>
-
     <script type="text/javascript">
+
         let user = 'kuro2427';
         let url = 'https://lastfm-last-played.biancarosa.com.br/' + user + '/latest-song';
         let song = document.querySelector('#song');
@@ -358,6 +345,58 @@
             }).then(function (json) {
                 song.innerHTML = json['track']['artist']['#text'] + ' - ' + json['track']['name'];
             });
+
+    </script>
+
+    <script>
+        //Set up stylesheet changer 9000
+        function changeStyle(newStyle){
+            document.getElementById('pageStyle').setAttribute('href', newStyle);
+        }
+
+        //Check if dropdown has changed
+        document.getElementById('themeSelect').onchange=applyStyle;
+
+        //Apply style and save coochie if yes
+        function applyStyle(){
+            var picked=this.value;
+            console.log(picked);
+
+            if(picked=='light'){
+                changeStyle('style.css');
+                document.cookie = "theme=light; max-age=31536000; path=/"
+            } else if(picked=='dark'){
+                changeStyle('dark.css');
+                document.cookie = "theme=dark; max-age=31536000; path=/"
+            }
+        }
+
+        //Get and set preffered user theme on load
+        window.onload = function getPrefs(){
+            if(getCookie("theme")=="light"){
+                changeStyle("style.css");
+            } else if (getCookie("theme")=="dark"){
+                changeStyle("dark.css");
+            }
+        }
+
+        //Code for getting cookie by name shamelesly stolen from w3schools 🫃
+        function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+        }
+
     </script>
 
 </body>
