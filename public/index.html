@@ -109,7 +109,7 @@
         <p>If you're chill with all that, click the image below to visit the main page!</p>
 
         <div class="c">
-            <a href="home/"> <img src="assets/enterbanner.png" alt="Enter sosumi.xyz" width="58%"></a>
+            <a href="home/" onclick="setClickedCookie()"> <img src="assets/enterbanner.png" alt="Enter sosumi.xyz" width="58%"></a>
         </div>
         
         <!--<a href="https://www.mabsland.com/Adoption.html"><img src="assets/Censor_Ma.png" alt="This website is rated Web-MA"></a><p>This site is rated <b>WEB-MA</b><br><br>(Frequent usage of strong language,<br>allusions to adult themes and media<br>and infrequent usage of reclaimed slurs.)</p>-->
@@ -134,5 +134,35 @@
     </div>
 
     </main>
+
+
+    <script>
+        window.onload = function redirectToMain(){
+            if (getCookie("hasEntered")=="true"){
+                window.location.href="/home/";
+            }
+        }
+
+        function setClickedCookie(){
+            document.cookie = "hasEntered=true; max-age=31536000; path=/"
+        }
+
+        //Code for getting cookie by name shamelesly stolen from w3schools 🫃
+        function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+            return "";
+        }
+    </script>
 </body>
 </html>

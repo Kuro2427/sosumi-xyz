@@ -96,3 +96,14 @@ iframe, embed{
 .c{
     text-align: center;
 }
+
+.bigimg{
+    text-align: center;
+}
+
+.bigimg img{
+    width: 400px;
+    padding: 2px;
+    border : 1px solid black;
+    image-rendering: optimizeQuality;
+}

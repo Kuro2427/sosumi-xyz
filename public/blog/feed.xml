@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>	<title>sosumi's Blog</title>
+<channel>	<title>Interrobang! (sosumi's blog)</title>
 	<description>Assorted autistic ramblings from a guy with too many fursonas</description>
 	<link>https://sosumi.xyz/blog/</link>
 	<atom:link href="https://sosumi.xyz/blog/" rel="self"></atom:link>
 	<language>en</language>
 	<lastBuildDate>
-Wed, 20 Aug 2025 23:45:20 +0000
+Sun, 14 Sep 2025 18:25:11 +0000
 </lastBuildDate>
 	<ttl>1440</ttl>
 
@@ -25,6 +25,15 @@ Wed, 20 Aug 2025 23:45:20 +0000
 		<link>https://sosumi.xyz/blog/posts/2025-05-16.-(journal)-the-day-kuro-became-sosumi.html</link>
 		<pubDate>
 			Fri, 16 May 2025 00:00:00 +0000
+		</pubDate>
+	</item>
+
+	<item>
+		<title> (List) 5 Video Game Locations I'd Live In</title>
+		<description>GASP a listicle? In MY interrobang? It's more likely than you think!</description>
+		<link>https://sosumi.xyz/blog/posts/2025-09-14.-(list)-5-video-game-locations-i'd-live-in.html</link>
+		<pubDate>
+			Sun, 14 Sep 2025 00:00:00 +0000
 		</pubDate>
 	</item>
 

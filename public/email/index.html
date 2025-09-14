@@ -14,12 +14,7 @@
 
     main{
         max-width: 600px;
-        margin: 0px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        margin: 10px;
 
         background-color: white;
         border: 1px solid black;
@@ -39,7 +34,29 @@
     img{
         border: 1px solid black;
         margin: none;
+        max-width: 60vw;
     }
+
+    audio{
+        max-width: 60vw;
+    }
+
+    @media screen and (min-width: 768px) {
+        main{
+            max-width: 600px;
+            margin: 0px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    }
+
 </style>
 
 <body>
