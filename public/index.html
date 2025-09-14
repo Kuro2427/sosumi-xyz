@@ -107,9 +107,14 @@
         <p>sosumi.xyz also makes extensive usage of JavaScript, so certain elements may not work properly if you have JS disabled of if your adblock is particularly pissy about this sort of thing. Though of course, there are no real ads here.</p>
         
         <p>If you're chill with all that, click the image below to visit the main page!</p>
+        
+        <div class="c">
+            (<input type="checkbox" id="skipCheck" name="skip" />
+            <label for="skip">Skip landing page on future visits?</label>)
+        </div>
 
         <div class="c">
-            <a href="home/" onclick="setClickedCookie()"> <img src="assets/enterbanner.png" alt="Enter sosumi.xyz" width="58%"></a>
+            <a href="home/" onclick="setSkipCookie()"> <img src="assets/enterbanner.png" alt="Enter sosumi.xyz" width="58%"></a>
         </div>
         
         <!--<a href="https://www.mabsland.com/Adoption.html"><img src="assets/Censor_Ma.png" alt="This website is rated Web-MA"></a><p>This site is rated <b>WEB-MA</b><br><br>(Frequent usage of strong language,<br>allusions to adult themes and media<br>and infrequent usage of reclaimed slurs.)</p>-->
@@ -138,13 +143,17 @@
 
     <script>
         window.onload = function redirectToMain(){
-            if (getCookie("hasEntered")=="true"){
+            if (getCookie("skipChecked")=="true"){
                 window.location.href="/home/";
             }
         }
 
-        function setClickedCookie(){
-            document.cookie = "hasEntered=true; max-age=31536000; path=/"
+        function setSkipCookie(){
+            chckbox=document.getElementById('skipCheck');
+
+            if(chckbox.checked){
+                document.cookie = "skipChecked=true; max-age=31536000; path=/"
+            }
         }
 
         //Code for getting cookie by name shamelesly stolen from w3schools 🫃
