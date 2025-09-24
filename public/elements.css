@@ -1,0 +1,68 @@
+.site-box {
+  text-align: center;
+  background-image: url('https://kurosroom.nekoweb.org/home/assets/dither1.png');
+  background-repeat: repeat;
+  width: 228px;
+  height: 160px;
+  display: inline-block;
+  margin: 4px;
+  color: black;
+  font-size: 12px;
+  text-decoration: none;
+  border: 1px solid black;
+}
+
+.site-box p{
+  color: white;
+  background-color: black;
+  position: absolute;
+  bottom: 152px;
+}
+
+.site-box > a > span {
+  display: none;
+}
+
+.bottom-dot,
+.site-box::after,
+.site-box::before,
+.top-dot {
+  pointer-events: none;
+}
+
+.sitefeature {
+  position: absolute;
+  top: 20px;
+  margin-top: 13px;
+  margin-left: 15px;
+  height: 137px;
+  width: 244px;
+  background-image: url('https://kurosroom.nekoweb.org/assets/nekoweb/previewplaceholder.png');
+  background-color: white;
+  border: 1px solid black;
+}
+
+.sitefeature img{
+  content: url('https://kurosroom.nekoweb.org/assets/preview.jpg');
+}
+
+.sitefeature::after{
+  content: url('https://kurosroom.nekoweb.org/assets/bunnymac-big.png');
+  position: absolute;
+  top: 100px;
+  left: -25px;
+}
+
+.screenshot {
+  max-height: 100%;
+  width: auto;
+  image-rendering: auto;
+  margin-left: 0.2px;
+  width: 244px;
+  height: 138px;
+}
+
+.follow {
+  cursor: pointer;
+  font-size: 12px;
+}
