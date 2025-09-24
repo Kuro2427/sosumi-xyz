@@ -1,6 +1,6 @@
 .site-box {
   text-align: center;
-  background-image: url('https://kurosroom.nekoweb.org/home/assets/dither1.png');
+  background-image: url('https://sosumi.xyz/home/assets/dither1.png');
   background-repeat: repeat;
   width: 228px;
   height: 160px;
@@ -37,17 +37,17 @@
   margin-left: 15px;
   height: 137px;
   width: 244px;
-  background-image: url('https://kurosroom.nekoweb.org/assets/nekoweb/previewplaceholder.png');
+  background-image: url('https://sosumi.xyz/assets/nekoweb/previewplaceholder.png');
   background-color: white;
   border: 1px solid black;
 }
 
 .sitefeature img{
-  content: url('https://kurosroom.nekoweb.org/assets/preview.jpg');
+  content: url('https://sosumi.xyz/assets/preview.jpg');
 }
 
 .sitefeature::after{
-  content: url('https://kurosroom.nekoweb.org/assets/bunnymac-big.png');
+  content: url('https://sosumi.xyz/assets/bunnymac-big.png');
   position: absolute;
   top: 100px;
   left: -25px;
