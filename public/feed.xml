@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Fri 26 Sep 2025, 13:12:31 -0300</lastBuildDate>
+  <lastBuildDate>Fri 26 Sep 2025, 13:17:34 -0300</lastBuildDate>
   
+      <item>
+        <title>Is this thing on?</title>
+        <link>https://sosumi.xyz/</link>
+        <description><![CDATA[Please work please work]]></description>
+        <pubDate>Fri 26 Sep 2025, 13:17:34 -0300</pubDate>
+        <guid>post-2</guid>
+      </item>
+
       <item>
         <title>(Finally) Added a site updates RSS feed!</title>
         <link>https://sosumi.xyz/</link>
