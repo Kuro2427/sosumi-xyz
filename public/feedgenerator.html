@@ -47,6 +47,10 @@
   <input type="file" id="fileInput" accept=".xml">
 
   <h2>Add / Edit Update</h2>
+
+  <label for="updateTitle">Update Title:</label>
+  <input type="text" id="updateTitle" placeholder="Enter a title for this update">
+
   <label for="updateText">Update Text:</label>
   <textarea id="updateText" placeholder="Write your update log here..."></textarea>
 
@@ -145,6 +149,7 @@
   }
 
   document.getElementById("addUpdate").addEventListener("click", () => {
+    const title = document.getElementById("updateTitle").value.trim();
     const text = document.getElementById("updateText").value.trim();
     if (!text) return;
 
@@ -154,7 +159,7 @@
     const link = document.getElementById("customLink").value.trim();
 
     updates.unshift({
-      title: "Update " + date.toLocaleString(),
+      title: title || "Update " + date.toLocaleString(), // fallback if empty
       text: text,
       date: formatNekoDate(date),
       link: link || "",
@@ -162,6 +167,7 @@
     });
 
     document.getElementById("rssOutput").value = generateRSS();
+    document.getElementById("updateTitle").value = "";
     document.getElementById("updateText").value = "";
     document.getElementById("customDate").value = "";
     document.getElementById("customLink").value = "";
