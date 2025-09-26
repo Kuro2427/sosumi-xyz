@@ -1,3 +1,4 @@
+/*!@nkb "domain":"jbc.lol","rss":"","overflow":false,"readonly":false */
 /*!@nkb "domain":"sosumi.xyz","rss":"","overflow":false,"readonly":false */
 /*
     Don't use this file to edit your site style! Create a different CSS file for that.
@@ -51,9 +52,9 @@
 
 /* Style for your post box (must start with ".post-box") */
 .post-box {
-    background-color: white;
+    background-image: url('https://kurosroom.nekoweb.org/sosumi.xyz/home/assets/dither1.png');
     border: 1px solid black;
-    box-shadow: 0 18px 0 0px black inset;
+    box-shadow: 0 29px 0 0px black inset;
     padding: 15px;
     padding-top:30px;
     border-radius: 0px;
@@ -61,9 +62,23 @@
     font-weight: normal;
 }
 
+.post-box span{
+  position:absolute;
+  top:-25px;
+  margin:0px;
+  color:white;
+}
+
+.post-box p{
+  background-color:white;
+  padding:5px;
+  border: 1px solid black;
+  margin:10px 0px 0px 0px;
+}
+
 .post-box .post-title {
     font-size: 18px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: -10px;
     margin-bottom: 0px;
 }
