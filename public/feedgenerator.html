@@ -65,22 +65,24 @@
   <h2>Generated RSS Feed</h2>
   <textarea id="rssOutput" readonly></textarea>
 
-  <script>
-    const updates = [];
-    const siteTitle = "sosumi.xyz";
-    const siteLink = "https://sosumi.xyz/";
-    const siteDescription = "sosumi.xyz update feed";
+<script>
+  const updates = [];
+  const siteTitle = "sosumi.xyz";
+  const siteLink = "https://sosumi.xyz/";
+  const siteDescription = "sosumi.xyz update feed";
+  let guidCounter = 1; // counter for generating GUIDs
 
-    function generateRSS() {
-      const items = updates.map(update => `
-        <item>
-          <title>${update.title}</title>
-          <link>${update.link || siteLink}</link>
-          <description><![CDATA[${update.text}]]></description>
-          <pubDate>${update.date}</pubDate>
-        </item>`).join("\n");
+  function generateRSS() {
+    const items = updates.map(update => `
+      <item>
+        <title>${update.title}</title>
+        <link>${update.link || siteLink}</link>
+        <description><![CDATA[${update.text}]]></description>
+        <pubDate>${update.date}</pubDate>
+        <guid>${update.guid}</guid>
+      </item>`).join("\n");
 
-      return `<?xml version="1.0" encoding="UTF-8" ?>
+    return `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
   <title>${siteTitle}</title>
@@ -90,115 +92,126 @@
   ${items}
 </channel>
 </rss>`;
-    }
+  }
 
-    function renderUpdates() {
-      const container = document.getElementById("updatesList");
-      container.innerHTML = "";
-      updates.forEach((u, i) => {
-        const div = document.createElement("div");
-        div.className = "update-item";
+  function renderUpdates() {
+    const container = document.getElementById("updatesList");
+    container.innerHTML = "";
+    updates.forEach((u, i) => {
+      const div = document.createElement("div");
+      div.className = "update-item";
 
-        const text = document.createElement("div");
-        text.className = "update-text";
-        text.textContent = `${u.title}: ${u.text}\nLink: ${u.link || "(default)"}`;
+      const text = document.createElement("div");
+      text.className = "update-text";
+      text.textContent = `${u.title}: ${u.text}\nLink: ${u.link || "(default)"}\nGUID: ${u.guid}`;
 
-        const delBtn = document.createElement("button");
-        delBtn.textContent = "Delete";
-        delBtn.onclick = () => {
-          updates.splice(i, 1);
-          document.getElementById("rssOutput").value = generateRSS();
-          renderUpdates();
-        };
-
-        div.appendChild(text);
-        div.appendChild(delBtn);
-        container.appendChild(div);
-      });
-    }
-
-    document.getElementById("addUpdate").addEventListener("click", () => {
-      const text = document.getElementById("updateText").value.trim();
-      if (!text) return;
-
-      const now = new Date();
-      const custom = document.getElementById("customDate").value;
-      const date = custom ? new Date(custom) : now;
-
-      const link = document.getElementById("customLink").value.trim();
-
-      updates.unshift({
-        title: "Update " + date.toLocaleString(),
-        text: text,
-        date: date.toUTCString(),
-        link: link || ""
-      });
-
-      document.getElementById("rssOutput").value = generateRSS();
-      document.getElementById("updateText").value = "";
-      document.getElementById("customDate").value = "";
-      document.getElementById("customLink").value = "";
-      renderUpdates();
-    });
-
-    document.getElementById("downloadFeed").addEventListener("click", () => {
-      const blob = new Blob([generateRSS()], { type: "application/xml" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "feed.xml";
-      a.click();
-      URL.revokeObjectURL(url);
-    });
-
-    document.getElementById("fileInput").addEventListener("change", (event) => {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        parseFeedXML(e.target.result);
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "Delete";
+      delBtn.onclick = () => {
+        updates.splice(i, 1);
+        document.getElementById("rssOutput").value = generateRSS();
+        renderUpdates();
       };
-      reader.readAsText(file);
+
+      div.appendChild(text);
+      div.appendChild(delBtn);
+      container.appendChild(div);
+    });
+  }
+
+  document.getElementById("addUpdate").addEventListener("click", () => {
+    const text = document.getElementById("updateText").value.trim();
+    if (!text) return;
+
+    const now = new Date();
+    const custom = document.getElementById("customDate").value;
+    const date = custom ? new Date(custom) : now;
+    const link = document.getElementById("customLink").value.trim();
+
+    updates.unshift({
+      title: "Update " + date.toLocaleString(),
+      text: text,
+      date: date.toUTCString(),
+      link: link || "",
+      guid: "post-" + guidCounter++
     });
 
-    function parseFeedXML(xmlText) {
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(xmlText, "application/xml");
-      const items = xml.getElementsByTagName("item");
+    document.getElementById("rssOutput").value = generateRSS();
+    document.getElementById("updateText").value = "";
+    document.getElementById("customDate").value = "";
+    document.getElementById("customLink").value = "";
+    renderUpdates();
+  });
 
-      updates.length = 0; // clear existing
-      for (let i = 0; i < items.length; i++) {
-        const title = items[i].getElementsByTagName("title")[0]?.textContent || "Untitled";
-        const description = items[i].getElementsByTagName("description")[0]?.textContent || "";
-        const pubDate = items[i].getElementsByTagName("pubDate")[0]?.textContent || new Date().toUTCString();
-        const link = items[i].getElementsByTagName("link")[0]?.textContent || "";
+  document.getElementById("downloadFeed").addEventListener("click", () => {
+    const blob = new Blob([generateRSS()], { type: "application/xml" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "feed.xml";
+    a.click();
+    URL.revokeObjectURL(url);
+  });
 
-        updates.push({
-          title: title,
-          text: description,
-          date: pubDate,
-          link: link
-        });
+  document.getElementById("fileInput").addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      parseFeedXML(e.target.result);
+    };
+    reader.readAsText(file);
+  });
+
+  function parseFeedXML(xmlText) {
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(xmlText, "application/xml");
+    const items = xml.getElementsByTagName("item");
+
+    updates.length = 0; // clear existing
+    guidCounter = 1; // reset counter
+
+    for (let i = 0; i < items.length; i++) {
+      const title = items[i].getElementsByTagName("title")[0]?.textContent || "Untitled";
+      const description = items[i].getElementsByTagName("description")[0]?.textContent || "";
+      const pubDate = items[i].getElementsByTagName("pubDate")[0]?.textContent || new Date().toUTCString();
+      const link = items[i].getElementsByTagName("link")[0]?.textContent || "";
+      const guid = items[i].getElementsByTagName("guid")[0]?.textContent || "post-" + guidCounter++;
+
+      updates.push({
+        title: title,
+        text: description,
+        date: pubDate,
+        link: link,
+        guid: guid
+      });
+
+      // make sure counter is always higher than existing GUID numbers
+      const match = guid.match(/^post-(\d+)$/);
+      if (match) {
+        const num = parseInt(match[1], 10);
+        if (num >= guidCounter) guidCounter = num + 1;
       }
-
-      document.getElementById("rssOutput").value = generateRSS();
-      renderUpdates();
     }
 
-    // --- Auto-load feed.xml if it exists in same directory ---
-    async function autoLoadFeed() {
-      try {
-        const response = await fetch("feed.xml");
-        if (!response.ok) throw new Error("Feed not found");
-        const text = await response.text();
-        parseFeedXML(text);
-        console.log("feed.xml loaded automatically");
-      } catch (err) {
-        console.warn("No existing feed.xml found or blocked by browser:", err.message);
-      }
-    }
+    document.getElementById("rssOutput").value = generateRSS();
+    renderUpdates();
+  }
 
-    window.addEventListener("DOMContentLoaded", autoLoadFeed);
-  </script>
+  async function autoLoadFeed() {
+    try {
+      const response = await fetch("feed.xml");
+      if (!response.ok) throw new Error("Feed not found");
+      const text = await response.text();
+      parseFeedXML(text);
+      console.log("feed.xml loaded automatically");
+    } catch (err) {
+      console.warn("No existing feed.xml found or blocked by browser:", err.message);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", autoLoadFeed);
+</script>
+
 </body>
 </html>
