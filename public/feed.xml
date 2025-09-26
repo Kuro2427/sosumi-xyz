@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>sosumi.xyz</title>
+  <link>https://sosumi.xyz/</link>
+  <description>sosumi.xyz update feed</description>
+  <lastBuildDate>Fri, 26 Sep 2025 15:07:44 GMT</lastBuildDate>
+  
+        <item>
+          <title>Update 26/09/2025, 12:07:41 pm</title>
+          <link>https://sosumi.xyz/</link>
+          <description><![CDATA[(Finally) Added a site updates RSS feed!]]></description>
+          <pubDate>Fri, 26 Sep 2025 15:07:41 GMT</pubDate>
+        </item>
+</channel>
+</rss>
