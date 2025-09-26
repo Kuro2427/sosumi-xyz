@@ -4,30 +4,14 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Fri, 26 Sep 2025 13:27:45 -0300</lastBuildDate>
+  <lastBuildDate>Fri, 26 Sep 2025 13:34:52 -0300</lastBuildDate>
   
-      <item>
-        <title>ffff</title>
-        <link>https://sosumi.xyz/</link>
-        <description><![CDATA[fffff]]></description>
-        <pubDate>Fri, 26 Sep 2025 13:27:45 -0300</pubDate>
-        <guid>post-3</guid>
-      </item>
-
-      <item>
-        <title>edsdf</title>
-        <link>https://sosumi.xyz/</link>
-        <description><![CDATA[sdfsdf]]></description>
-        <pubDate>Fri, 26 Sep 2025 13:27:42 -0300</pubDate>
-        <guid>post-2</guid>
-      </item>
-
-      <item>
-        <title>please just work</title>
-        <link>https://sosumi.xyz/</link>
-        <description><![CDATA[i'm not even gonna try to make this nice just fucking work dude]]></description>
-        <pubDate>Fri, 26 Sep 2025 13:27:32 -0300</pubDate>
-        <guid>post-1</guid>
-      </item>
+    <item>
+      <title>Fuck sake i cant code shit</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[please just work man]]></description>
+      <pubDate>Fri, 26 Sep 2025 13:34:52 -0300</pubDate>
+      <guid>post-5</guid>
+    </item>
 </channel>
 </rss>
