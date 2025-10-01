@@ -72,10 +72,25 @@ a{
   text-align: center;
 }
 
+#fuckyou{
+  display:none;
+
+  font-family: 'Comic Sans MS';
+  font-size: 40px;
+  background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 3em;
+  font-weight: bold;
+  display: inline-block;
+}
+
 </style>
 
 <body>
     <h1>Blobslop Industries Inc.</h1>
+    <h1 id="fuckyou"> FUCK YOU THIS ONE IS STILL BLINDINGLY WHITE EVEN WITH THE DARK THEME LOL</h1>
     <p>An archive of the shitty little paint.net doodle comics I like to make every now and then, as requested by one of my friends. Most of these hinge on knowing inside jokes, occurrences, or members of my friend group and are for the most part made while having specific conversations in said group, so they will probably be pretty incomprehensible to outsiders.</p>
     <p>As usual, click to enlarge them, but this one is all fancy thanks to <a href="https://netfriend.neocities.org/ez-gallery/">Netfriend's easy gallery thingy.</a></p>
     <div class="ezgallery montage">
@@ -90,5 +105,29 @@ a{
 
     <script src="https://unpkg.com/photoviewer@3.6.2/dist/photoviewer.min.js"></script>
     <script src="gallery.js"></script>
+    <script>
+        var lol=document.getElementById('fuckyou');
+
+        //Code for getting cookie by name shamelesly stolen from w3schools 🫃
+        function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+          return "";
+        }
+
+        if(getCookie('theme')=='dark'){
+          lol.style.display="block";
+        }
+    </script>
 </body>
 </html>

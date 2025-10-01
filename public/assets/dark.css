@@ -1,0 +1,44 @@
+body{
+    background-color: black;
+    background-image: url('blackdither.png');
+}
+
+main{
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+
+a, hr, p{
+    color: white;
+}
+
+img, iframe{
+    filter: invert(100%);
+}
+
+img:hover{
+    filter: invert(0%);
+    transition: 0.5s;
+}
+
+hr{
+    border-top: 1px solid white;
+}
+
+.logo, .window, .maincontent, .radio, .news{
+    border: 1px solid white;
+}
+
+.title, .navbar{
+    background-color: white;
+    color: black;
+}
+
+.radio{
+    filter: grayscale(0%);
+}
+
+.radio iframe{
+    filter: grayscale(100%);
+}

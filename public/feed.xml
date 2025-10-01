@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Fri, 26 Sep 2025 13:34:52 -0300</lastBuildDate>
+  <lastBuildDate>Wed, 01 Oct 2025 19:40:20 -0300</lastBuildDate>
   
+    <item>
+      <title>Happy Halloween!</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[Removed some old and deprecated pages and FINALLY implemented a dark theme and a seasonally appropriate halloween-ey theme!]]></description>
+      <pubDate>Wed, 01 Oct 2025 19:40:20 -0300</pubDate>
+      <guid>post-6</guid>
+    </item>
+
     <item>
       <title>Fuck sake i cant code shit</title>
       <link>https://sosumi.xyz/</link>

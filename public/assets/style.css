@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'msgfallback';
-    src: url('assets/MS\ PGothic.ttf');
+    src: url('MS\ PGothic.ttf');
 }
 
 body{
     image-rendering: pixelated;
 
-    background-image: url(assets/dither1.png);
+    background-image: url(dither1.png);
     font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', 'msgfallback' , monospace, sans-serif;
 
     font-smooth: never;
@@ -59,7 +59,7 @@ a{
     width: calc(100% - 260px); /* 250px logo + 10px gap buffer */
     height: 150px;
 
-    background-image: url('assets/banners/keyboard.png');
+    background-image: url('banners/keyboard.png');
     background-repeat: no-repeat;
     background-size: auto 100%; /* keep full height, scale width naturally */
     background-position: left center; /* start from left, horizontally cropped */
@@ -85,7 +85,7 @@ a{
     color: white;
 }
 
-.internettime{
+.navbar-right{
     float: right;
 }
 
@@ -255,7 +255,7 @@ button{
         display: none;
     }
 
-    .navbar, .internettime {
+    .navbar, .navbar-right {
         text-align: center;
         float: none;
     }

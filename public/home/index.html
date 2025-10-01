@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sosumi.xyz</title>
-    <link rel="stylesheet" href="style.css" id="pageStyle">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="" id="pageStyle">
     <link rel="stylesheet" href="computering-stuff.css">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"/>
@@ -32,14 +33,15 @@
             <div class="clear"></div>
             
             <div class="navbar">
-                <a href="https://www.youtube.com/watch?v=SOqenYis1iQ" target="_blank"> "So how will we fight? All we have is logic and love on our side" </a>
-                <!--span class="internettime">
+                Happy Halloween!
+                <span class="navbar-right">
                     <select name="Themes" id="themeSelect">
                         <option value="light">Classic</option>
                         <option value="dark">Dark</option>
+                        <option value="spoopy">Spoopy</option>
                     </select>
                 </span>
-                <br style="clear: both;"-->
+                <br style="clear: both;">
             </div>
 
         </header>
@@ -57,9 +59,7 @@
                 <div class="navcaption">Fun</div>
                 <ul>
                     <li><a href="../goodimages/">Good Images</a></li>
-                    <li><a href="../conspiracyboard/" target="_blank">Theories and Headcanons</a></li>
                     <li><a href="../blobslop/" target="_blank">(Low effort) Comics</a></li>
-                    <li><a href="../vocaboomer-quiz/">Vocaloid knowledge quiz</a></li>
                 </ul>
 
                 <div class="navcaption">Games</div>
@@ -179,6 +179,8 @@
 
             <div class="title">What's new? <span style="vertical-align: middle;"><a href="../feed.xml"><img src="assets/rss.png" alt="[RSS]"></a></span></div>
             <div class="news">
+                <p>1/10/2025 - Happy Halloween! Removed some old and deprecated pages and FINALLY implemented a dark theme and a seasonally appropriate halloween-ey theme!</p>
+                <hr>
                 <p>26/09/2025 - (Finally) Added a site updates RSS feed!</p>
                 <hr>
                 <p>14/09/2025 - New blog article! <a href="/blog/posts/2025-09-14.-(list)-5-video-game-locations-i'd-live-in.html">5 Video Game Locations I'd Live In</a>. Also fixed e-mail page's mobile layout and implemented a feature that skips the landing page on repeated visits.</p>
@@ -324,6 +326,7 @@
             <script src="ytplayer.js"></script> 
     </div>
     
+    <script src="/assets/themeswitcher.js"></script>
 
     <script>
         possibleMottos=["On the internet, no one knows you're 6 fursonas in a trench coat","Ironically not made with WYSIWYG","It USED TO BE a Perfect Blue reference!","Because unclesumisphantomfunhou.se was too expensive","Also try rakugaki.xyz!","Also try trickmint.gay!","Home of awesome","Presented in 1 glorious bit","The Macintosh is neat","Who needs a dark mode, anyway?","Maybe it's the way you're dressed","All that computer I'm buying","The sky had a Pokémon","I play computer","The human brain is just a really complex hypercard stack actually","As seen on stupid.com!","Let it beep!","I think it can digging in the ground for tubers"];
@@ -349,57 +352,6 @@
             }).then(function (json) {
                 song.innerHTML = json['track']['artist']['#text'] + ' - ' + json['track']['name'];
             });
-
-    </script>
-
-    <script>
-        //Set up stylesheet changer 9000
-        function changeStyle(newStyle){
-            document.getElementById('pageStyle').setAttribute('href', newStyle);
-        }
-
-        //Check if dropdown has changed
-        document.getElementById('themeSelect').onchange=applyStyle;
-
-        //Apply style and save coochie if yes
-        function applyStyle(){
-            var picked=this.value;
-            console.log(picked);
-
-            if(picked=='light'){
-                changeStyle('style.css');
-                document.cookie = "theme=light; max-age=31536000; path=/"
-            } else if(picked=='dark'){
-                changeStyle('dark.css');
-                document.cookie = "theme=dark; max-age=31536000; path=/"
-            }
-        }
-
-        //Get and set preffered user theme on load
-        window.onload = function getPrefs(){
-            if(getCookie("theme")=="light"){
-                changeStyle("style.css");
-            } else if (getCookie("theme")=="dark"){
-                changeStyle("dark.css");
-            }
-        }
-
-        //Code for getting cookie by name shamelesly stolen from w3schools 🫃
-        function getCookie(cname) {
-        let name = cname + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for(let i = 0; i <ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-        }
 
     </script>
 

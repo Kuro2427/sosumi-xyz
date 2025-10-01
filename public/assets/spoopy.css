@@ -1,0 +1,44 @@
+body{
+    background-color: black;
+    background-image: url('spoopybg.png');
+}
+
+main{
+    background-color: black;
+    border: 1px solid orange;
+    color: orange;
+}
+
+a, hr, p{
+    color: orange;
+}
+
+img, iframe{
+    filter: invert(100%);
+}
+
+img:hover{
+    filter: invert(0%);
+    transition: 0.5s;
+}
+
+hr{
+    border-top: 1px solid orange;
+}
+
+.logo, .window, .maincontent, .radio, .news{
+    border: 1px solid orange;
+}
+
+.title, .navbar{
+    background-color: orange;
+    color: black;
+}
+
+.radio{
+    filter: grayscale(0%);
+}
+
+.radio iframe{
+    filter: grayscale(100%);
+}

@@ -9,6 +9,8 @@
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     <link rel="me" href="mailto:kuro@semicola.xyz">
     <link rel="me" href="https://bsky.app/profile/sosumi.xyz">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="" id="pageStyle">
 
     <meta content="sosumi.xyz" property="og:title" />
     <meta content="Let it beep!" property="og:description" />
@@ -18,81 +20,18 @@
 </head>
 
 <style>
-    @font-face {
-        font-family: 'msgfallback';
-        src: url('home/assets/MS\ PGothic.ttf');
-    }
-
-    html, body{
-        image-rendering: pixelated;
-        max-width: 800px;
-        height: 90vh;
-        margin: auto;
-        padding: 5px;
-        background-image: url('home/assets/dither1.png');
-         font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', 'msgfallback' , monospace, sans-serif;
-
-        font-smooth: never;
-        -webkit-font-smoothing : none;
-    }
-
     main{
-        height: 90vh;
-        background-color: white;
-        border: 1px solid black;
-        padding: 10px;
+        max-width: 800px;
+        padding: 0px 20px;
     }
 
     .title{
-        width: 99.5%;
-        color: white;
-        background-color: black;
-        padding: 2px;
-        text-align: center;
+        max-width: 800px;
+        margin: auto;
     }
 
-    a{
+    .bambu-widget p, .bambu-widget a{
         color: black;
-    }
-
-    .c{
-        text-align: center;
-    }
-
-    h1{
-        text-align: center;
-    }
-
-    figure{
-        text-align: center;
-        margin: 32px;
-    }
-
-    .bambu-widget{
-        position:absolute;
-        bottom: 5vh;
-    }
-
-    @media screen and (max-width: 768px) {
-        body{
-            text-align: justify;
-            padding: 0px;
-            height: 100%;
-            padding: 10px;
-        }
-
-        main{
-            height: 100%;
-            padding: 8px;
-            padding-bottom: 100px;
-            border: 1px solid black;
-        }
-
-        .bambu-widget{
-            position: relative;
-            display: inline-block;
-            margin-top: 50px;
-        }
     }
 </style>
 
@@ -119,7 +58,7 @@
         
         <!--<a href="https://www.mabsland.com/Adoption.html"><img src="assets/Censor_Ma.png" alt="This website is rated Web-MA"></a><p>This site is rated <b>WEB-MA</b><br><br>(Frequent usage of strong language,<br>allusions to adult themes and media<br>and infrequent usage of reclaimed slurs.)</p>-->
 
-        <div class="bambu-widget" style="border: 2px solid black; width: 250px; font-size: 12px; background-color: white;">
+        <div class="bambu-widget" style="color: black; border: 2px solid black; width: 250px; font-size: 12px; background-color: white;">
         <div class="bambu-heading" style="background-color: black; color: white; text-align: center;">This web page is rated</div>
         <div class="bambu-body" style="padding: 5px;">
             <div class="bambu-rating" style="float:left; margin-right:10px;"><a href="https://bambu.nekoweb.org/ratings/"><img src="assets/m17.png" title="Suitable for mature audiences." alt="M-17"></a></div>
@@ -140,13 +79,12 @@
 
     </main>
 
-
     <script>
-        window.onload = function redirectToMain(){
-            if (getCookie("skipChecked")=="true"){
-                window.location.href="/home/";
-            }
-        }
+    window.addEventListener("load", function() {
+        if (getCookie("skipChaecked") == "true") {
+        window.location.href = "/home/";
+        console.log('fortnite')
+    }});
 
         function setSkipCookie(){
             chckbox=document.getElementById('skipCheck');
@@ -173,5 +111,7 @@
             return "";
         }
     </script>
+
+    <script src="/assets/themeswitcher.js"></script>
 </body>
 </html>
