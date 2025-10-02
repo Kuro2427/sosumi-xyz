@@ -35,6 +35,11 @@ hr{
     color: black;
 }
 
+.banner{
+    background-color: white;
+    border: 1px solid white;
+}
+
 .radio{
     filter: grayscale(0%);
 }

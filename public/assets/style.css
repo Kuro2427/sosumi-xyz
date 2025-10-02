@@ -3,6 +3,11 @@
     src: url('MS\ PGothic.ttf');
 }
 
+@font-face {
+    font-family: 'chicago';
+    src: url('pixChicago.ttf');
+}
+
 body{
     image-rendering: pixelated;
 
@@ -168,6 +173,10 @@ button{
     margin-top: -5px;
     margin-bottom:0px;
     text-align: center;
+}
+
+.welcome{
+    font-family: 'chicago',monospace,sans-serif;
 }
 
 .title::after{
