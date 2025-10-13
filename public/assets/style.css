@@ -246,10 +246,11 @@ button{
     }
 
     main {
+        border:1px solid black;
         width: 100%;
         min-height: auto;
         margin: 0;
-        border-width: 0;
+        padding: 5px;
     }
 
     .logo{
