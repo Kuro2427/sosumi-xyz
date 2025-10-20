@@ -23,6 +23,7 @@
     main{
         max-width: 800px;
         padding: 0px 20px;
+        height: auto;
     }
 
     .title{
@@ -33,6 +34,18 @@
     .bambu-widget p, .bambu-widget a{
         color: black;
     }
+
+    .rating{
+        max-width: 450px;
+    }
+
+    @media screen and (min-width: 768px) {
+    /* Styles to apply when the screen width is 768px or less */
+        .rating{
+            margin-top: 100px;
+        }
+    }
+
 </style>
 
 <body>
@@ -56,25 +69,8 @@
             <a href="home/" onclick="setSkipCookie()"> <img src="assets/enterbanner.png" alt="Enter sosumi.xyz" width="58%"></a>
         </div>
         
-        <!--<a href="https://www.mabsland.com/Adoption.html"><img src="assets/Censor_Ma.png" alt="This website is rated Web-MA"></a><p>This site is rated <b>WEB-MA</b><br><br>(Frequent usage of strong language,<br>allusions to adult themes and media<br>and infrequent usage of reclaimed slurs.)</p>-->
+        <div class="rating"><a href="https://www.mabsland.com/Adoption.html"><img src="assets/Censor_Ma.png" alt="This website is rated Web-MA" style="float: left; margin-right: 10px;"><div></a><p>This site is rated <b>WEB-MA</b></p>(Frequent usage of strong language,<br>allusions to adult themes and media<br>and infrequent usage of reclaimed slurs.)</p></div></div>
 
-        <div class="bambu-widget" style="color: black; border: 2px solid black; width: 250px; font-size: 12px; background-color: white;">
-        <div class="bambu-heading" style="background-color: black; color: white; text-align: center;">This web page is rated</div>
-        <div class="bambu-body" style="padding: 5px;">
-            <div class="bambu-rating" style="float:left; margin-right:10px;"><a href="https://bambu.nekoweb.org/ratings/"><img src="assets/m17.png" title="Suitable for mature audiences." alt="M-17"></a></div>
-            <div class="bambu-inner-text" style="margin: -10px;">
-                <p>Contains:</p>
-
-                <div class="bambu-content-warnings" style="margin-top: -5px;">
-                    <ul style="list-style-position: inside;">
-                        <li><a href="https://bambu.nekoweb.org/warnings#strong-language">Strong language</a></li>
-                        <li>Rabbits (scary)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="bambu-clear" style="clear: both;"></div>
-        </div>
-        <div class="bambu-footing" style="background-color: black; color: white; font-size: 10px; padding: 2px;">BAMBU Rating System. <a class="bambu-reflink" style="float: right; color: white;" href="https://bambu.nekoweb.org" target="_blank">bambu.nekoweb.org</a></div>
     </div>
 
     </main>
