@@ -1,7 +1,7 @@
 var urlParams = new URLSearchParams( window.location.search );
 var SETTINGS  = {
-  // Defaul Playlist playlist_id: urlParams.get('playlist') || 'PLdXgKR0elp7g7I4c7ioqOzoF8lvmatY1D',
-  playlist_id: urlParams.get('playlist') || 'PLdXgKR0elp7jyQ6ATXVIw0s_OneXn5FSr',
+  playlist_id: urlParams.get('playlist') || 'PLdXgKR0elp7g7I4c7ioqOzoF8lvmatY1D',
+  // Halloween playlist | playlist_id: urlParams.get('playlist') || 'PLdXgKR0elp7jyQ6ATXVIw0s_OneXn5FSr',
   random     : 1,
   autoplay   : 1,
   loop       : 1,
