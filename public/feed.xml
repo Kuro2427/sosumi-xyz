@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Thu, 01 Jan 2026 17:52:37 -0300</lastBuildDate>
+  <lastBuildDate>Thu, 01 Jan 2026 20:57:36 -0300</lastBuildDate>
   
+    <item>
+      <title>Reimplemented "News" section</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[Switched the news section to an embed of the site's RSS over the manual setup it used in the past. Update reports should work more seamlessly now!]]></description>
+      <pubDate>Thu, 01 Jan 2026 20:57:34 -0300</pubDate>
+      <guid>post-9</guid>
+    </item>
+
     <item>
       <title>Happy new year! Have some very minor updates!</title>
       <link>https://sosumi.xyz/</link>
