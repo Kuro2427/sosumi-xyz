@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'msgfallback';
-    src: url('https://sosumi.xyz/home/assets/MS\ PGothic.ttf');
+    src: url('https://sosumi.xyz/assets/MS\ PGothic.ttf');
 }
 
 body{
     font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', 'msgfallback' , monospace, sans-serif;
     font-smooth: never;
     -webkit-font-smoothing : none;
-    background-image: url('https://sosumi.xyz/home/assets/dither1.png');
+    background-image: url('https://sosumi.xyz/assets/dither1.png');
     image-rendering: pixelated;
 }
 
