@@ -54,7 +54,6 @@
 /* Style for your post box (must start with ".post-box") */
 .post-box {
     background-color:white;
-    background-image: url('https://kurosroom.nekoweb.org/sosumi.xyz/assets/dither1.png');
     border: 1px solid black;
     box-shadow: 0 29px 0 0px black inset;
     padding: 15px;
