@@ -15,6 +15,7 @@
     <meta content="https://sosumi.xyz" property="og:url" />
     <meta content="https://sosumi.xyz/assets/bunnymac-big.png" property="og:image" />
     <meta content="#FFFFFF" data-react-helmet="true" name="theme-color" />
+    <meta content="keywords" name="keywords" content="sosumixyz, sosumi, sumi, kuro, kuro2427, personal website, blog, webring, oekakish, sloggr, good images, loadmint dash, oc gallery, about me, computers, macintosh, mac, retrocomputing" />
 
 </head>
 <body>
@@ -302,65 +303,65 @@
 
     </script>
 
-<script>
-    (async function () {
-    // ===== CONFIG =====
-    const FEED_URL = "https://sosumi.xyz/feed.xml";
-    const USE_PROXY = true; // set to false if your feed allows CORS
-    const MAX_ITEMS = 10;
+    <script>
+        (async function () {
+        // ===== CONFIG =====
+        const FEED_URL = "https://sosumi.xyz/feed.xml";
+        const USE_PROXY = true; // set to false if your feed allows CORS
+        const MAX_ITEMS = 10;
 
-    const PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
+        const PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
 
-    const target = document.getElementById("rss-feed");
-    if (!target) return;
+        const target = document.getElementById("rss-feed");
+        if (!target) return;
 
-    try {
-        let items = [];
+        try {
+            let items = [];
 
-        if (USE_PROXY) {
-        const res = await fetch(PROXY + encodeURIComponent(FEED_URL));
-        const data = await res.json();
-        items = data.items || [];
-        } else {
-        const res = await fetch(FEED_URL);
-        const text = await res.text();
-        const xml = new DOMParser().parseFromString(text, "text/xml");
-        items = [...xml.querySelectorAll("item")].map(item => ({
-            title: item.querySelector("title")?.textContent ?? "",
-            link: item.querySelector("link")?.textContent ?? "",
-            pubDate: item.querySelector("pubDate")?.textContent ?? ""
-        }));
+            if (USE_PROXY) {
+            const res = await fetch(PROXY + encodeURIComponent(FEED_URL));
+            const data = await res.json();
+            items = data.items || [];
+            } else {
+            const res = await fetch(FEED_URL);
+            const text = await res.text();
+            const xml = new DOMParser().parseFromString(text, "text/xml");
+            items = [...xml.querySelectorAll("item")].map(item => ({
+                title: item.querySelector("title")?.textContent ?? "",
+                link: item.querySelector("link")?.textContent ?? "",
+                pubDate: item.querySelector("pubDate")?.textContent ?? ""
+            }));
+            }
+
+            target.innerHTML = items
+            .slice(0, MAX_ITEMS)
+            .map((item, index) => {
+                const date = new Date(item.pubDate);
+                const formattedDate = isNaN(date)
+                ? ""
+                : date.toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit"
+                    });
+
+                return `
+                <p class="rss-entry">
+                    <span class="rss-date">${formattedDate}</span> - 
+                    <a href="${item.link}" target="_blank" rel="noopener">
+                    ${item.title}
+                    </a>
+                </p>
+                ${index < MAX_ITEMS - 1 ? "<hr>" : ""}
+                `;
+            })
+            .join("");
+        } catch (err) {
+            target.textContent = "Failed to load RSS feed.";
+            console.error(err);
         }
-
-        target.innerHTML = items
-        .slice(0, MAX_ITEMS)
-        .map((item, index) => {
-            const date = new Date(item.pubDate);
-            const formattedDate = isNaN(date)
-            ? ""
-            : date.toLocaleDateString(undefined, {
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit"
-                });
-
-            return `
-            <p class="rss-entry">
-                <span class="rss-date">${formattedDate}</span> - 
-                <a href="${item.link}" target="_blank" rel="noopener">
-                ${item.title}
-                </a>
-            </p>
-            ${index < MAX_ITEMS - 1 ? "<hr>" : ""}
-            `;
-        })
-        .join("");
-    } catch (err) {
-        target.textContent = "Failed to load RSS feed.";
-        console.error(err);
-    }
-    })();
-</script>
+        })();
+    </script>
 
 
 
