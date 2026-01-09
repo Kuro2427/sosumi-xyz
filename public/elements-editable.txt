@@ -1,5 +1,6 @@
 /*!@nkb "domain":"jbc.lol","rss":"","overflow":false,"readonly":false */
 /*!@nkb "domain":"jbc.lol","rss":"","overflow":false,"readonly":false */
+/*!@nkb "domain":"jbc.lol","rss":"","overflow":false,"readonly":false */
 /*!@nkb "domain":"sosumi.xyz","rss":"","overflow":false,"readonly":false */
 /*
     Don't use this file to edit your site style! Create a different CSS file for that.
@@ -9,13 +10,19 @@
 
 /* Must start with ".site-box". Change how your website will appear on main nekoweb site: https://lune.dimden.dev/405a44b7e5.png */
 .site-box {
-    text-align: center;
-    background-image: url('https://kurosroom.nekoweb.org/sosumi.xyz/assets/dither1.png'); /* Only nekoweb URLs allowed, use full url to your site like https://example.nekoweb.org/images/coolbg.png */
-    background-repeat: repeat;
-    color: black;
-    font-size: 12px;
-    border:1px solid black;
+  background:none;
 }
+
+.site-box::after{
+  content:url('https://kurosroom.nekoweb.org/sosumi.xyz/assets/siteboxoverlay.png');
+  position:absolute;
+  z-index:10;
+  left:0;
+  top:16px;
+  border:1px solid black;
+  height:171px;
+}
+
 .site-box > a > p {
     position:absolute;
     bottom:151px;
@@ -29,20 +36,16 @@
 
 .site-box .sitefeature{
   position:absolute;
-  top:20px;
-  border:1px solid black;
+  top:10px;
+  left:20px;
+  border:none;
 }
 
 .site-box .sitefeature img{
   content: url('https://kurosroom.nekoweb.org/sosumi.xyz/assets/preview.jpg');
 }
 
-.site-box .sitefeature::after{
-  content: url('https://kurosroom.nekoweb.org/sosumi.xyz/assets/bunnymac-big.png');
-  position: absolute;
-  top: 100px;
-  left: -25px;
-}
+
 
 .follow{
   background-color:white;
