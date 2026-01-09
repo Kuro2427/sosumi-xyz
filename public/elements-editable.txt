@@ -1,6 +1,3 @@
-/*!@nkb "domain":"jbc.lol","rss":"","overflow":false,"readonly":false */
-/*!@nkb "domain":"jbc.lol","rss":"","overflow":false,"readonly":false */
-/*!@nkb "domain":"jbc.lol","rss":"","overflow":false,"readonly":false */
 /*!@nkb "domain":"sosumi.xyz","rss":"","overflow":false,"readonly":false */
 /*
     Don't use this file to edit your site style! Create a different CSS file for that.
