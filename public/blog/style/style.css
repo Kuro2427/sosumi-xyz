@@ -107,3 +107,9 @@ iframe, embed{
     border : 1px solid black;
     image-rendering: optimizeQuality;
 }
+
+@media screen and (max-width: 450px) {
+    .bigimg img{
+        width: 100%;
+    }
+}
