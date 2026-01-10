@@ -10,6 +10,7 @@
 body{
     background-color: lightgray;
     font-family: 'comic sans ms', sans-serif;
+    text-align: center;
 }
 
 main{
@@ -88,13 +89,17 @@ a{
     color: #555;
   }
 
-  button {
-    width: 100%;
-    margin-top: 6px;
-    padding: 6px;
-    font-size: 12px;
-    cursor: pointer;
-  }
+    .button {
+        width: 90%;
+        margin-top: 6px;
+        padding: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        background: #ddd;
+        border-radius: 4px;
+        user-select: none;
+    }
+
 </style>
 
 <body>
@@ -111,7 +116,10 @@ a{
         <div id="count">0 bre'd</div>
         <div id="rate">0 / sec</div>
 
-        <button id="miner">Buy auto bre'd (cost: 25)</button>
+        <div id="miner" class="button">
+            Buy auto bre'd
+        </div>
+
         </div>
 
         <div class="explanationOverlay" id="ov">
