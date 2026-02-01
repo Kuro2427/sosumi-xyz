@@ -87,35 +87,35 @@
         border: 1px solid black;
     }
 
-    .rightImg{
-        float: right;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-left: 20px;
-    }
-
-    .rightImg img{
+    .leftImg img, .rightImg img{
         width: 250px;
         height: auto;
         padding: 10px;
         border: 1px solid black;
+    }
+
+    .rightImg{
+        float: right;
+        margin-left: 20px;
     }
 
     .leftImg{
         float: left;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         margin-right: 20px;
     }
 
-    .leftImg img{
-        width: 250px;
-        height: auto;
-        padding: 10px;
-        border: 1px solid black;
+    .rightImg, .leftImg{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
+
+    figcaption{
+        text-align: center;
+    }
+
+    /* Blockquote styles */
 
     blockquote::before{
         content: "“";
@@ -137,6 +137,14 @@
         margin-top: -15px;
     }
 
+    /*make floating images responsive*/
+    @media (max-width: 600px) {
+        .rightImg, .leftImg {
+            float: none;
+            margin: auto;
+        }
+    }
+
 
 </style>
 
@@ -156,6 +164,7 @@
 
         <article>
             <!--# block name="content" -->
+                <a href="https://youtu.be/WFg0vTeXhWs?si=fRwIvTaV5mzJrhsa">you're not supposed to be here</a>
             <!--# endblock -->
         </article>
     </main>
