@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Thu, 01 Jan 2026 20:57:36 -0300</lastBuildDate>
+  <lastBuildDate>Mon, 02 Feb 2026 01:22:37 -0300</lastBuildDate>
   
+    <item>
+      <title>Reimplemented blog to now use SSI</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[I decided to ditch Zoner in favor of Nekoweb's new SSI feature for Interrobang. This makes managing the blog MUCH easier in the long run.]]></description>
+      <pubDate>Mon, 02 Feb 2026 01:22:35 -0300</pubDate>
+      <guid>post-10</guid>
+    </item>
+
     <item>
       <title>Reimplemented "News" section</title>
       <link>https://sosumi.xyz/</link>
