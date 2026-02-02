@@ -6,7 +6,7 @@
     <title><!--# block name="title" -->sosumi.xyz | Interrobang!<!--# endblock --></title>
     <meta name="description" content="<!--# block name="description" -->Interrobang?! - sosumi's personal blog<!--# endblock -->">
     <meta name="author" content="sosumi">
-    <meta name="keywords" content="blog, personal, sosumi, interrobang, tech, music, gaming, anime">
+    <meta name="keywords" content="<!--# block name="tags" -->blog, personal, sosumi, interrobang, tech, music, gaming, anime<!--# endblock -->">
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="stylesheet" href="" id="pageStyle">
 </head>
@@ -152,7 +152,6 @@
     /*Archive*/
     .archiveArticle{
         border-top: 1px solid black;
-        border-bottom: 1px solid black;
         padding: 10px;
         margin-bottom: 10px;
     }
@@ -187,7 +186,7 @@
             <nav>
                 <ul>
                     <li><a href="/home">sosumi.xyz</a></li>
-                    <li><a href="/blog/archive">archive</a></li>
+                    <li><a href="/blog/articles">archive</a></li>
                     <li><a href="/feed.xml">rss</a></li>
                 </ul>
             </nav>
@@ -205,6 +204,23 @@
         //Scroll reference links into view smoothly
         function jumpTo(id){
             document.getElementById(id).scrollIntoView({behavior: "smooth"});
+        }
+    </script>
+
+    <script>
+        //Blog archive filtering
+        function filterArticles(){
+            const select = document.getElementById("categorySelect");
+            const selectedCategory = select.value;
+            const articles = document.getElementsByClassName("archiveArticle");
+
+            for(let article of articles){
+                if(selectedCategory === "all" || article.id === selectedCategory){
+                    article.style.display = "block";
+                } else {
+                    article.style.display = "none";
+                }
+            }
         }
     </script>
 </body>
