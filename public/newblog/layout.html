@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><!--# block name="title" -->sosumi.xyz | Interrobang!<!--# endblock --></title>
-    <meta name="description" content="sosumi's personal blog, Interrobang!">
+    <meta name="description" content="<!--# block name="description" -->Interrobang?! - sosumi's personal blog<!--# endblock -->">
     <meta name="author" content="sosumi">
     <meta name="keywords" content="blog, personal, sosumi, interrobang, tech, music, gaming, anime">
     <link rel="stylesheet" href="/assets/style.css">
@@ -50,6 +50,7 @@
         font-size: 2rem;
         font-weight: bold;
         margin-bottom: 0px;
+        margin-top: 10px;
     }
 
     .pubDate {
@@ -68,6 +69,17 @@
         line-height: 1;
         padding-right: 8px;
         padding-left: 2px;
+    }
+
+    .citation{
+        font-size: 10px;
+        vertical-align: super;
+    }
+
+    footer{
+        margin-top: 20px;
+        border-top: 1px solid black;
+        padding-top: 10px;
     }
 
     /* Image styles */
@@ -137,6 +149,25 @@
         margin-top: -15px;
     }
 
+    /*Archive*/
+    .archiveArticle{
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .tag{
+        border: 1px solid black;
+        padding: 2px 5px;
+    }
+
+    .archiveTitle{
+        font-weight: bold;
+        margin: 0px 10px;
+    }
+
+
     /*make floating images responsive*/
     @media (max-width: 600px) {
         .rightImg, .leftImg {
@@ -164,10 +195,17 @@
 
         <article>
             <!--# block name="content" -->
-                <a href="https://youtu.be/WFg0vTeXhWs?si=fRwIvTaV5mzJrhsa">you're not supposed to be here</a>
+                <a href="https://youtu.be/gxEPV4kolz0?list=RDgxEPV4kolz0&t=277">Man, what are you doing here?</a>
             <!--# endblock -->
         </article>
     </main>
     <script src="/assets/themeswitcher.js"></script>
+    
+    <script>
+        //Scroll reference links into view smoothly
+        function jumpTo(id){
+            document.getElementById(id).scrollIntoView({behavior: "smooth"});
+        }
+    </script>
 </body>
 </html>
