@@ -8,6 +8,11 @@
     src: url('pixChicago.ttf');
 }
 
+:root{
+    --foreground:black;
+    --background:white;
+}
+
 body{
     image-rendering: pixelated;
 
@@ -24,8 +29,8 @@ main{
     min-height: 850px;
     margin:auto;
 
-    background-color: white;
-    border:1px solid black;
+    background-color: var(--background);
+    border:1px solid var(--foreground);
 }
 
 header{
@@ -35,7 +40,7 @@ header{
 }
 
 a{
-    color: black;
+    color: var(--foreground);
     text-decoration: underline;
     cursor: pointer;
 }
@@ -43,7 +48,7 @@ a{
 .logo{
     display: table-cell;
     vertical-align: middle;
-    border: 1px solid black;
+    border: 1px solid var(--foreground);
     width: 250px;
     height: 146px;
     padding: 2px;
@@ -68,7 +73,7 @@ a{
     background-repeat: no-repeat;
     background-size: auto 100%; /* keep full height, scale width naturally */
     background-position: left center; /* start from left, horizontally cropped */
-    border: 1px solid black;
+    border: 1px solid var(--foreground);
 
     overflow: hidden; /* clips the background */
     margin-left: 10px;
@@ -82,12 +87,12 @@ a{
     margin-top: 5px;
     padding: 2px;
 
-    background-color: black;
-    color: white;
+    background-color: var(--foreground);
+    color: var(--background);
 }
 
 .navbar a{
-    color: white;
+    color: var(--background);
 }
 
 .navbar-right{
@@ -98,14 +103,14 @@ hr{
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid black;
+    border-top: 1px solid var(--foreground);
     margin: 1em 0;
     padding: 0;
 }
 
 button{
     border-radius: 0px;
-    border: 1px solid black;
+    border: 1px solid var(--foreground);
     font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', monospace, sans-serif;
 }
 
@@ -134,7 +139,7 @@ button{
 }
 
 .window{
-    border:1px solid black;
+    border:1px solid var(--foreground);
     padding: 5px;
     margin-bottom: 10px;
 }
@@ -146,7 +151,7 @@ button{
 
     max-width: 550px;
 
-    border:1px solid black;
+    border:1px solid var(--foreground);
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
@@ -158,7 +163,7 @@ button{
 }
 
 .maincontent iframe{
-    border: 1px solid black;
+    border: 1px solid var(--foreground);
     height: 300px;
     width: 525px;
     margin: auto;
@@ -166,8 +171,8 @@ button{
 }
 
 .title{
-    background-color: black;
-    color:white;
+    background-color: var(--foreground);
+    color: var(--background);
     margin-left: -5px;
     margin-right: -5px;
     margin-top: -5px;
@@ -204,14 +209,14 @@ button{
     margin: 10px 0px;
     padding: 0px 10px;
     max-height: 132px;
-    border: 1px solid black;
+    border: 1px solid var(--foreground);
     overflow: scroll;
 }
 
 .radio{
-    background-color: white;
+    background-color: var(--background);
     display: block;
-    border: 1px solid black;
+    border: 1px solid var(--foreground);
     padding-bottom: 5px;
     position: fixed;
     bottom: 10px;
@@ -246,7 +251,7 @@ button{
     }
 
     main {
-        border:1px solid black;
+        border:1px solid var(--foreground);
         width: 100%;
         min-height: auto;
         margin: 0;
@@ -289,9 +294,9 @@ button{
     }
 
     .radio {
-        background-color: white;
+        background-color: var(--background);
         display: block;
-        border: 1px solid black;
+        border: 1px solid var(--foreground);
         padding-bottom: 5px;
         position: fixed;
         left: 10vw;

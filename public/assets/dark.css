@@ -1,49 +1,14 @@
-body{
-    background-color: black;
+:root {
+    --background: black;
+    --foreground: white;
+}
+
+body {
+    background-color: var(--background);
     background-image: url('blackdither.png');
+    color: var(--foreground);
 }
 
-main{
-    background-color: black;
-    border: 1px solid white;
-    color: white;
-}
-
-a, hr, p{
-    color: white;
-}
-
-img, iframe{
-    filter: invert(100%);
-}
-
-img:hover{
-    filter: invert(0%);
-    transition: 0.5s;
-}
-
-hr{
-    border-top: 1px solid white;
-}
-
-.logo, .window, .maincontent, .radio, .news{
-    border: 1px solid white;
-}
-
-.title, .navbar{
-    background-color: white;
-    color: black;
-}
-
-.banner{
-    background-color: white;
-    border: 1px solid white;
-}
-
-.radio{
-    filter: grayscale(0%);
-}
-
-.radio iframe{
-    filter: grayscale(100%);
+.invert{
+    filter: invert(1);
 }
