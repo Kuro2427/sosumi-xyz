@@ -103,7 +103,7 @@
 </header>
 
 <p>Hello, I'm sumi, previously known as Kuro2427, and I'm the webmaster of sosumi.xyz if you can believe it!</p>
-<p>I am a 20 year old guy, my pronouns are he/him, and I identify as gay. For a good while I also thought I was asexual, and then <a href="https://lgbtqia.wiki/wiki/Aegosexual">aegosexual</a>, but right now I think just straight up gay might be the label that best suits me.</p>
+<p>I am a <span id="age">21</span> year old guy, my pronouns are he/him, and I identify as gay. For a good while I also thought I was asexual, and then <a href="https://lgbtqia.wiki/wiki/Aegosexual">aegosexual</a>, but right now I think just straight up gay might be the label that best suits me.</p>
 <p>I am unfortunately (/j) also a furry and have been a member of the community for over 10 years, though I change fursonas about as often as I redesign my websites.</p>
 <p>Speaking of unfortunately, I am currently located in Brazil, and thus can speak both English and Portuguese fluently and have done casual translation work both ways.</p>
 
@@ -240,6 +240,24 @@ Albms:
             }
         }
         BGMElement.volume=0.4;
+    </script>
+
+    <script>
+        //Age calculator, because I don't want to update my age every year
+        function calculateAge(birthDate) {
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDifference = today.getMonth() - birthDate.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        const birthDate = new Date(2005, 0, 13); // November 17, 2002 (months are 0-indexed)
+        const ageElement = document.getElementById('age');
+        ageElement.textContent = calculateAge(birthDate);
+        console.log(calculateAge(birthDate));
     </script>
 </body>
 </html>
