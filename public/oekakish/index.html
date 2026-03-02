@@ -31,10 +31,11 @@
         }
         #gallery {
             max-width: 900px;
-            margin: auto;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 32px;
         }
         .image-container {
@@ -47,6 +48,9 @@
             max-width: 100%;
             height: auto;
             display: block;
+
+            width: 256px;
+            height: 256px;
         }
 
         input{
@@ -76,7 +80,7 @@
 <body>
     <main>
     <h2>sosumi.xyz/oekakish/</h2>
-    <p class="caption">Powered by <a href="https://drawbox.nekoweb.org/">drawbox</a></p>
+    <p class="caption">Powered by <a href="https://web.archive.org/web/20251211205325/https://drawbox.nekoweb.org/">drawbox</a> (R.I.P)</p>
 
     <div class="c">
     <canvas id="drawboxcanvas" width="256" height="256"></canvas>
@@ -94,27 +98,40 @@
     </div>
     <p id="status"></p>
 
+    <h2>Rules</h2>
+    <ol>
+        <li>Respect <a href="https://nekoweb.org/tos" target="_blank">Nekoweb's rules and terms of service.</a></li>
+        <li>No NSFW, hateful or otherwise disrespectful content.</li>
+        <li>Don't spam the gallery with low quality submissions such as blank canvases or random lines.</li>
+        <li>I reserve the right to remove any submissions for any reason.</li>
+    </ol>
+
     <details>
         <summary>About</summary>
         <p>Welcome to /oekakish/! This is one of those anonymous drawing submission boards, like the ones kids these days have on their "straw paiges" or whatever. Just doodle something, hit submit and it should pop up on the gallery below. Pretty nifty, right?</p>
         <h3>F.A.Q</h3>
 
         <p><b>Q: What's with the weird name?</b></p>
-        <p>A: This page is called oekakish because it's not quite an <a href="https://en.wikifur.com/wiki/Oekaki">oekaki!</a></p>
+        <p>A: This page is called oekakish because it's not quite an <a href="https://en.wikifur.com/wiki/Oekaki" target="_blank">oekaki!</a></p>
 
         <p><b>Q: Why is the canvas so small?</b></p>
         <p>To both save on bandwidth and also because I just plain like the more pixelated look 256x256 has compared to 512x512. It's worth noting, though, that this page is set up so if you zoom in the canvas <i>should</i> remain pixelated.</p>
 
         <p><b>Q: This page is broken on mobile!</b></p>
         <p>A: Are you new here?</p>
+
+        <p><b>Q: Doesn't this go against the usage guidelines for X Y or Z's API?</b></p>
+        <p>A: Yes but don't narc 🤫</p>
     </details>
 
 	
     <h2>Submitted Drawings</h2>
-    <div id="gallery">Loading images...</div>
+    <div class="galleryWrapper">
+        <div id="gallery">Loading images...</div>
     
     
-    <script src="drawbox.js"></script>
+        <script src="drawbox.js"></script>
+    </div>
 
     </main>
 </body>

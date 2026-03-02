@@ -4,8 +4,20 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Mon, 02 Feb 2026 01:22:37 -0300</lastBuildDate>
+  <lastBuildDate>Mon, 02 Mar 2026 17:07:09 -0300</lastBuildDate>
   
+    <item>
+      <title>Spring cleaning! (Even though it's autumn here...)</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[A bunch of small updates to generally improve UX throughout.
+- The news section on the homepage now pulls the description from RSS updates!
+- Made some slight adjustments to the CSS for /oekakish/ to ensure it doesn't look absolutely horrible on mobile.
+- Removed /oldblog. All posts made using the older system are now available on Interrobang.
+- Dusted off some dead links throughout.]]></description>
+      <pubDate>Mon, 02 Mar 2026 17:07:09 -0300</pubDate>
+      <guid>post-11</guid>
+    </item>
+
     <item>
       <title>Reimplemented blog to now use SSI</title>
       <link>https://sosumi.xyz/</link>

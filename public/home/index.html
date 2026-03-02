@@ -248,7 +248,8 @@
             items = [...xml.querySelectorAll("item")].map(item => ({
                 title: item.querySelector("title")?.textContent ?? "",
                 link: item.querySelector("link")?.textContent ?? "",
-                pubDate: item.querySelector("pubDate")?.textContent ?? ""
+                pubDate: item.querySelector("pubDate")?.textContent ?? "",
+                description: item.querySelector("description")?.textContent ?? ""
             }));
             }
 
@@ -271,6 +272,7 @@
                     ${item.title}
                     </a>
                 </p>
+                ${item.description ? `<p class="rss-description">${item.description}</p>` : ""}
                 ${index < MAX_ITEMS - 1 ? "<hr>" : ""}
                 `;
             })
