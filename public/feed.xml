@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Mon, 02 Mar 2026 17:07:09 -0300</lastBuildDate>
+  <lastBuildDate>Fri, 20 Mar 2026 12:56:04 -0300</lastBuildDate>
   
+    <item>
+      <title>Minor fixes and more slop</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[Added a new blobslop comic, fixed some image scaling issues with /oekakish/ and finally added more stuff to the good images gallery.]]></description>
+      <pubDate>Fri, 20 Mar 2026 12:56:04 -0300</pubDate>
+      <guid>post-12</guid>
+    </item>
+
     <item>
       <title>Spring cleaning! (Even though it's autumn here...)</title>
       <link>https://sosumi.xyz/</link>
