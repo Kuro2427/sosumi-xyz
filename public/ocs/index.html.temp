@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sosumi.xyz | Rogues' Gallery</title>
+  <link rel="stylesheet" href="gallery.css">
+  <link rel="stylesheet" href="https://unpkg.com/photoviewer@3.6.2/dist/photoviewer.css">
+</head>
+
+<style>
+  /*please don't look at my ghetto ass css, it's REALLY bad on this one*/
+  .c{
+    text-align: center;
+  }
+
+  body{
+    max-width: 800px;
+    margin: auto;
+
+    background-image: url('cork.jpg');
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  h1,h3{
+    margin: 0px;
+  }
+
+  table{
+    border-collapse: collapse;
+  }
+
+  td{
+    border: 2px solid black;
+    padding: 5px;
+  }
+
+  figcaption{
+    text-align: center;
+  }
+
+  .card{
+    margin: 20px;
+    padding: 20px;
+    position: relative;
+    background-color: #E1E1E1;
+    background-image: url('paper.png');
+    margin-top: 70px;
+    margin-bottom: 160px;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
+  }
+
+  .card::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 64px;
+    background-image: url('riptop.png');
+    background-size: cover;
+    top: -64px;
+    left: 0px;
+  }
+
+  .card::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 70px;
+    background-image: url('ripbot.png');
+    background-size: cover;
+    top: 100%;
+    left: -1px;
+  }
+
+  .fullbody{
+    float: left;
+    max-width: 150px;
+    margin: 15px;
+    z-index: 10;
+  }
+
+  .fullbody::after{
+    clear: both;
+  }
+
+  .ezgallery img{
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+  }
+
+  .ezgallery a{
+    cursor: zoom-in;
+  }
+
+</style>
+
+<body>
+
+  <div class="card">
+    <div class="c"><h1>Rogues' Gallery</h1><h3>(Meet my OCs)</h3></div>
+    <p>Welcome to the rogues' gallery. This page features portraits and descriptions for some of the most wanted criminals in all of Nekoweb.</p>
+    <p>Okay, all jokes aside, this page is a collection of all my OCs and sonas and their respective ref sheets and drawings. Thank you for taking interest in my little menagerie (pun intended)</p>
+    <p>If you're at all interested in doing anything with one of these guys, first of all: holy shit, thank you!! Second of all: I'm generally pretty lax with how you choose to depict these lads, but for the sake of clarity...</p>
+
+    <table>
+      <tr><th>Can I...</th> <th>Answer:</th></tr>
+      <tr><td>Make fan works (art, fanfiction, etc.) featuring these characters?</td> <td>Yes please!</td></tr>
+      <tr><td>Make works with mature themes featuring these characters?</td> <td>Go ahead!</td></tr>
+      <tr><td>Make NSFW/R-18 works featuring these characters?</td> <td>Unless you or the character you wish to depict are underage, feel free to do so.</td></tr>
+      <tr><td>Make commercial/for-profit works featuring these characters?</td> <td>Ask me first.</td></tr>
+      <tr><td>Make works that feature extreme fetishes or excessive gore where these characters are the central focus</td> <td>Please don't.</td></tr>
+    </table>
+
+    <p>If you have any questions about this or otherwise just need some clarification, please feel free to contact me via <a href="../email/">e-mail.</a></p>
+  </div>
+
+  <div class="card">
+    <div class="c"><h1>- WANTED -</h1></div>
+
+    <h2>Miraitech Prototype Model KV-480 "Kanae"</h2>
+    <img src="kanae/springless-kanae-fullbody.png" alt="" class="fullbody">
+    
+    <ul>
+      <li>Sex: Male</li>
+      <li>Height: 180cm</li>
+      <li>Age: Unknown (At least 100)</li>
+      <li>Species: Robot</li>
+      <li>Last seen: Manning his item shop in sb_parklands</li>
+      <li>Crimes: Arrest evasion and accomplice to multiple counts of fraud and possession of illegal firearms</li>
+    </ul>
+
+    <h1>BOUNTY: 100,000 IC</h1>
+
+    <p>KV-480 is the accomplice and partner to the infamous interdimensional criminal known by the pseudonym of "The Iron Maiden". He is far less dangerous than the former, dedicating himself to tending to their shared traveling shop wherein he sells general equipments and materials, and the maiden pedals her heavily modified lethal firearms. He is well skilled at evading law enforcers, seemingly being able to transport himself and the caravan which acts as their business through dimensions at will.</p>
+    <p>Ah, yes, good ol' Kanae. One of my first ever OCs I still keep around to this day. He was actually originally designed to just be my fursona back in 2020, but eventually I just kept developing his personality and story so much I just couldn't really relate to him anymore. At some point, he got absorbed into my partner's game project as a minor character, but I think his description here has already spilled enough beans about that upcoming project, so I won't be sharing any more info on that aspect of him :p</p>
+
+    <div class="ezgallery montage">
+      <figure><a href="kanae/springless-kanae-fullbody.png"><img src="kanae/springless-kanae-fullbody.png" alt="" style="object-fit: contain;"></a><figcaption>By SpringlessEcho</figcaption></figure>
+      <figure><a href="kanae/Kanaeref.png"><img src="kanae/Kanaeref.png" alt=""></a><figcaption>Ref sheet</figcaption></figure>
+      <figure><a href="kanae/skedgyedgy-kanae-gatchi.png"><img src="kanae/skedgyedgy-kanae-gatchi.png" alt=""></a><figcaption>By SkedgyEdgy</figcaption></figure>
+      <figure><a href="kanae/skedgyedgy-two-of-them.png"><img src="kanae/skedgyedgy-two-of-them.png" alt=""></a> <figcaption>By SkedgyEdgy</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="c"><h1>- WANTED -</h1></div>
+
+    <h2>Naoki Ishihara</h2>
+    <img src="naoki/naoki fullbody.png" alt="" class="fullbody">
+
+    <ul>
+      <li>Sex: Male</li>
+      <li>Height: 192cm</li>
+      <li>Age: 21</li>
+      <li>Species: Jackalope</li>
+      <li>Last seen: Wandering between multiple stores in quick succession; likely working one of his many odd jobs</li>
+      <li>Crimes: Tax evasion and multiple counts of digital piracy</li>
+    </ul>
+
+    <h1>BOUNTY: 500 UC (Least concern)</h1>
+  </div>
+
+
+<script src="https://unpkg.com/photoviewer@3.6.2/dist/photoviewer.min.js"></script>
+<script src="gallery.js"></script>
+</body>
+</html>

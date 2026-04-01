@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Fri, 20 Mar 2026 12:56:04 -0300</lastBuildDate>
+  <lastBuildDate>Wed, 01 Apr 2026 10:10:02 -0300</lastBuildDate>
   
+    <item>
+      <title>sosumi.xyz is finally in full color now!</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[After one whole year operating in black and white mode, our engineers at sosumitech have finally cracked the code to displaying all your favorite pages in brilliant, vibrant colors! The future is now, and it's in color.]]></description>
+      <pubDate>Wed, 01 Apr 2026 10:10:02 -0300</pubDate>
+      <guid>post-13</guid>
+    </item>
+
     <item>
       <title>Minor fixes and more slop</title>
       <link>https://sosumi.xyz/</link>

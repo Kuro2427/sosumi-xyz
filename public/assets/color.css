@@ -1,0 +1,19 @@
+:root {
+    --background: cyan;
+    --foreground: magenta;
+}
+
+body, main{
+    background-color: var(--background);
+    color: var(--foreground);
+    background-image: none;
+}
+
+.banner{
+    background-image: url('banners/color.png');
+    background-color: var(--foreground);
+}
+
+.invert{
+    filter: none;
+}
