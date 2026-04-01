@@ -3,10 +3,15 @@
     --foreground: magenta;
 }
 
-body, main{
+main{
     background-color: var(--background);
     color: var(--foreground);
     background-image: none;
+}
+
+body{
+    background: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, magenta);
+    background-attachment: fixed;
 }
 
 .banner{
