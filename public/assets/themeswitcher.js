@@ -1,8 +1,8 @@
 // Holiday override
 window.addEventListener("DOMContentLoaded", function() {
-    if (getCookie("theme") != "color") {
-        changeStyle("color");
-        document.cookie = "theme=color; max-age=31536000; path=/";
+    if (getCookie("theme") == "color") {
+        changeStyle("light");
+        document.cookie = "theme=light; max-age=31536000; path=/";
     }
 });
 
@@ -25,9 +25,6 @@ function applyStyle() {
     } else if (picked == 'spoopy') {
         changeStyle('/assets/spoopy.css');
         document.cookie = "theme=spoopy-offseason; max-age=31536000; path=/";
-    } else if (picked == 'color') {
-        changeStyle('/assets/color.css');
-        document.cookie = "theme=color; max-age=31536000; path=/";
     }
 
     window.location.reload();
@@ -47,9 +44,6 @@ window.onload = function getPrefs() {
     } else if (theme == "spoopy-offseason") {
         changeStyle("/assets/spoopy.css");
         dropdown.value = "spoopy";
-    } else if (theme == "color") {
-        changeStyle("/assets/color.css");
-        dropdown.value = "color";
     }
 };
 
