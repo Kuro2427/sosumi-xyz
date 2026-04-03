@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page not found!</title>
+    <title>Not found!</title>
 </head>
 <style>
     body{
-        background-color: white;
-        color: black;
-        font-family: 'MS PGothic',monospace;
+        background-color: rgb(122, 150, 109);
+        background-image: url('/assets/shiggy.gif');
+        max-width: 500px;
         text-align: center;
+        font-family: 'MS PGothic',monospace;
 
         margin: 0;
         position: absolute;
@@ -19,17 +20,10 @@
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     }
-
-    a{
-        color: black;
-    }
 </style>
 <body>
-    <img src="/assets/clarus.png" usemap="#image-map">
-
-    <map name="image-map">
-        <area target="" alt="" title="" href="/clarus/" coords="224,215,224,139,188,136,207,105,216,84,257,85,255,114,324,119,356,86,356,212,307,215,316,185,262,182,257,213" shape="poly">
-    </map>
-    <p><a href="#" onclick="history.back()"><- Return to previous page?</a></p>
+    <h1>Page not found</h1>
+    <audio src="/assets/punani.mp3" autoplay></audio>
+    <p><a href="#" onclick="window.history.back()"><- Return to the previous page?</a></p>
 </body>
 </html>

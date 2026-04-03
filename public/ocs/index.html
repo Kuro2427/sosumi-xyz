@@ -1,38 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>no way, fag</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sosumi.xyz | Rogues' Gallery</title>
+  <link rel="stylesheet" href="gallery.css">
+  <link rel="stylesheet" href="https://unpkg.com/photoviewer@3.6.2/dist/photoviewer.css">
 </head>
 
 <style>
-    body{
-        background-image: url('/assets/shiggy.gif');
-        margin: auto;
-        text-align: center;
+  /*please don't look at my ghetto ass css, it's REALLY bad on this one*/
+  .c{
+    text-align: center;
+  }
 
-        display: flex;
-        align-items: center; /* Vertical center */
-        justify-content: center; /* Horizontal center */
-        height: 100vh; /* Ensure the parent has height */
-        flex-direction: column;
-    }
+  body{
+    max-width: 800px;
+    margin: auto;
 
-    p{
-        background-color: rgb(174, 182, 155);
-    }
+    background-image: url('cork.jpg');
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 17px;
+  }
 
-    main{
-        width: 400px;
-        height: 200px;
-    }
+  h1,h3{
+    margin: 0px;
+  }
+
+  table{
+    border-collapse: collapse;
+  }
+
+  td{
+    border: 2px solid black;
+    padding: 5px;
+  }
+
+  figcaption{
+    text-align: center;
+  }
+
+  .card{
+    margin: 20px;
+    padding: 20px;
+    position: relative;
+    background-color: #E1E1E1;
+    background-image: url('paper.png');
+    margin-top: 70px;
+    margin-bottom: 160px;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
+  }
+
+  .card::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 64px;
+    background-image: url('riptop.png');
+    background-size: cover;
+    top: -64px;
+    left: 0px;
+  }
+
+  .card::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 70px;
+    background-image: url('ripbot.png');
+    background-size: cover;
+    top: 100%;
+    left: -1px;
+  }
+
+  .fullbody{
+    float: left;
+    max-width: 150px;
+    margin: 15px;
+    z-index: 10;
+  }
+
+  .fullbody::after{
+    clear: both;
+  }
+
+  .ezgallery img{
+    transition: 0.5s;
+    width: 120px;
+    height: 120px;
+    border: 2px solid black;
+  }
+
+  .ezgallery img:hover{
+    transition: 0.5s;
+    width: 130px;
+    height: 130px;
+  }
+
+  .ezgallery a{
+    cursor: zoom-in;
+  }
+
+  figcaption{
+    font-size: 12px;
+  }
+
 </style>
 
 <body>
-    <main>
-            <p>This page is under construction</p>
-            <p>(couldn't finish it in time for the update)</p>
-    </main>
+
+  <div class="card">
+    <div class="c"><h1>Rogues' Gallery</h1><h3>(Meet my OCs)</h3></div>
+    <p>Welcome to the rogues' gallery. This page features portraits and descriptions for some of the most wanted criminals in all of Nekoweb.</p>
+    <p>Okay, all jokes aside, this page is a collection of all my OCs and sonas and their respective ref sheets and drawings. Thank you for taking interest in my little menagerie (pun intended)</p>
+    <p>If you're at all interested in doing anything with one of these guys, first of all: holy shit, thank you!! Second of all: I'm generally pretty lax with how you choose to depict these lads, but for the sake of clarity...</p>
+
+    <table>
+      <tr><th>Can I...</th> <th>Answer:</th></tr>
+      <tr><td>Make fan works (art, fanfiction, etc.) featuring these characters?</td> <td>Yes please!</td></tr>
+      <tr><td>Make works with mature themes featuring these characters?</td> <td>Go ahead!</td></tr>
+      <tr><td>Make NSFW/R-18 works featuring these characters?</td> <td>Unless you or the character you wish to depict are underage, feel free to do so.</td></tr>
+      <tr><td>Make commercial/for-profit works featuring these characters?</td> <td>Ask me first.</td></tr>
+      <tr><td>Make works that feature extreme fetishes or excessive gore where these characters are the central focus</td> <td>Please don't.</td></tr>
+    </table>
+
+    <p>If you have any questions about any of this or otherwise just need some clarification, please feel free to contact me via <a href="../email/">e-mail.</a></p>
+    <p><i>P.S: Any drawings featured here that don't have a credited artist were drawn by me!</i></p>
+  </div>
+
+  <div class="card">
+    <div class="c"><h1>- WANTED -</h1></div>
+
+    <h2>Miraitech Prototype Model KV-480 "Kanae"</h2>
+    <img src="kanae/springless-kanae-fullbody.png" alt="" class="fullbody">
+    
+    <ul>
+      <li>Sex: Male</li>
+      <li>Height: 180cm</li>
+      <li>Age: Unknown (At least 100)</li>
+      <li>Species: Robot</li>
+      <li>Last seen: Manning his item shop in sb_parklands</li>
+      <li>Crimes: Arrest evasion and accomplice to multiple counts of fraud and possession of illegal firearms</li>
+    </ul>
+
+    <h1>BOUNTY: 100,000 IC</h1>
+
+    <p>KV-480 is the accomplice and partner to the infamous interdimensional criminal known by the pseudonym of "The Iron Maiden". He is far less dangerous than the former, dedicating himself to tending to their shared traveling shop wherein he sells general equipments and materials, and the maiden pedals her heavily modified lethal firearms. He is well skilled at evading law enforcers, seemingly being able to transport himself and the caravan which acts as their business through dimensions at will.</p>
+    <p>Ah, yes, good ol' Kanae. One of my first ever OCs I still keep around to this day. He was actually originally designed to just be my fursona back in 2020, but eventually I just kept developing his personality and story so much I just couldn't really relate to him anymore. At some point, he got absorbed into my partner's game project as a minor character, but I think his description here has already spilled enough beans about that upcoming project, so I won't be sharing any more info on that aspect of him :p</p>
+
+    <div class="ezgallery montage">
+      <figure><a href="kanae/springless-kanae-fullbody.png"><img src="kanae/springless-kanae-fullbody.png" alt="" style="object-fit: contain;"></a><figcaption>By SpringlessEcho</figcaption></figure>
+      <figure><a href="kanae/Kanaeref.png"><img src="kanae/Kanaeref.png" alt=""></a><figcaption>Ref sheet</figcaption></figure>
+      <figure><a href="kanae/skedgyedgy-two-of-them.png"><img src="kanae/skedgyedgy-two-of-them.png" alt=""></a> <figcaption>By SkedgyEdgy</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="c"><h1>- WANTED -</h1></div>
+
+    <h2>Naoki Ishihara</h2>
+    <img src="naoki/naoki fullbody.png" alt="" class="fullbody">
+
+    <ul>
+      <li>Sex: Male</li>
+      <li>Height: 192cm</li>
+      <li>Age: 21</li>
+      <li>Species: Jackalope</li>
+      <li>Last seen: Wandering between multiple stores in quick succession; likely working one of his many odd jobs</li>
+      <li>Crimes: Tax evasion and multiple counts of digital piracy</li>
+    </ul>
+
+    <h1>BOUNTY: 500 UC (Least concern)</h1>
+    <p>Naoki Ishihara is a university student, currently majoring in English, in hopes of becoming a fiction author. Despite being very poor, he insists on living by himself, not wanting to rely on his parents for housing. As such, he frequently takes many odd jobs to barely make ends meet, even if "ends meet" doesn't necessarily include paying taxes or not committing piracy.</p>
+    <p>Naoki is my current main fursona. He was intentionally designed as more of a <a href="https://en.wikifur.com/wiki/Truesona">truesona</a> than a standalone character like my previous ones, so he doesn't necessarily have a set personality or backstory. Lad's just kinda me as a jackalope lol</p>
+
+    <div class="ezgallery montage">
+      <figure><a href="naoki/naoki ref.png"><img src="naoki/naoki ref.png" alt="Ref sheet"></a> <figcaption>Ref sheet</figcaption></figure>
+      <figure><a href="naoki/Naoki.png"><img src="naoki/Naoki.png" alt=""></a> <figcaption>Profile pic</figcaption></figure>
+      <figure><a href="naoki/magma doodle.png"><img src="naoki/magma doodle.png" alt=""></a><figcaption>by GOLWOB_Studios</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom: 100px;">
+    <div class="c"><h1>- MISSING -</h1> <h2>Have you seen these characters?</h2></div>
+
+    <p>Hoo,boy... This section...</p>
+    <p>So, as anyone who went on the old version of this page can tell you, I have a pretty terrible habit of designing a character to act as a fursona or avatar, giving them a backstory and a personality that gradually shits away from mine to the point I don't really see myself in them anymore, and then just letting go of the character.</p>
+    <p>Some, like Kanae, get upgraded to OC status, getting to live their life in my creative ventures. But others... Well, they end up here.</p>
+
+    <h2>Roland</h2>
+    <img src="roland/roland-fullbody.png" alt="" class="fullbody">
+
+    <ul>
+      <li>Sex: Male</li>
+      <li>Height: 180cm</li>
+      <li>Age: 24</li>
+      <li>Species: Reindeer</li>
+      <li>Last seen: Holiday 2023</li>
+      <li>Reason for retirement: Couldn't make him work outside of the holiday season.</li>
+    </ul>
+
+    <p>Let's start with probably the most egregious example right away. Poor, poor Roland.</p>
+    <p>He was designed around holiday 2023 as an offshoot of a character I made for my partner's project who still hasn't shown up yet (lol)</p>
+    <p>His sole personality trait was liking winter/the holidays. Obviously, the gimmick got old as soon as that season passed. I tried <a href="roland/Roland but good.png">redesigning him</a> a few times to get rid of the whole holiday aesthetic but that just felt... Wrong. So he was ultimately just shelved.</p>
+    
+
+    <h2>Haruo Hanamura</h2>
+    <img src="haruo/haruo-fullbody.png" alt="" class="fullbody">
+
+    <ul>
+      <li>Sex: Male</li>
+      <li>Height: 165</li>
+      <li>Age: ??</li>
+      <li>Species: Jackalope (Arctic Hare + Dragon Hybrid)</li>
+      <li>Last seen: Early 2025</li>
+      <li>Reason for retirement: Felt too young</li>
+    </ul>
+
+    <p>Haruo actually got to be my main sona for quite a bit. I designed him in early 2024, right after I first retired Roland. Much like all my other sonas, he didn't originally have a personality, and unfortunately he never really got one...</p>
+    <p>That's because he's a special case. When I designed Haruo, I was only 19 years old, and largely still saw myself as a teenager back then. Then, around the time I turned 20, some Major Life Things™ happened which required some immediate maturing on my part. By the end of it all, having a character that just looked so young felt DEEPLY icky.</p>
+
+    <h2>James "Vermillion" Kobayashi</h2>
+    <img src="james/fullbody.png" alt="" class="fullbody" height="200px" width="100px">
+    <p>"I don't think I ever saw him with any friends or family. His house was always empty. Never had any guests or nothing. Kind of a quiet guy. Wasn't really standoffish or nothing, just sorta... Lonely, y'know?</p>
+    <p>I mean, don't get me wrong, it's a shame the guy's gone and all but... Part of me wonders if he'll even have anyone to mourn him..."</p>
+    <p>"Actually can you guys cut that last part out, I didn-</p>
+    <p>[Click]</p>
+  </div>
+
+  <div class="c"><a href="igasu/" style="color: rgb(194, 176, 144);">Aren't we forgetting someone important?</a></div>
+
+
+<script src="https://unpkg.com/photoviewer@3.6.2/dist/photoviewer.min.js"></script>
+<script src="gallery.js"></script>
 </body>
 </html>

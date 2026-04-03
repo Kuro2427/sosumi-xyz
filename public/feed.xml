@@ -4,8 +4,17 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Thu, 02 Apr 2026 09:08:19 -0300</lastBuildDate>
+  <lastBuildDate>Fri, 03 Apr 2026 18:47:54 -0300</lastBuildDate>
   
+    <item>
+      <title>Reworked OC Gallery</title>
+      <link>https://sosumi.xyz/ocs/</link>
+      <description><![CDATA[Fully remade the OC gallery page to be more fun AND fun-ctional!
+Please go check it out, I worked really hard on it and think it's neat]]></description>
+      <pubDate>Fri, 03 Apr 2026 18:47:54 -0300</pubDate>
+      <guid>post-15</guid>
+    </item>
+
     <item>
       <title>Unapriled be thy fools</title>
       <link>https://sosumi.xyz/</link>
