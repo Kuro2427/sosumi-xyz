@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Fri, 03 Apr 2026 18:47:54 -0300</lastBuildDate>
+  <lastBuildDate>Mon, 04 May 2026 15:17:39 -0300</lastBuildDate>
   
+    <item>
+      <title>Welcome to computering, brisray!</title>
+      <link>https://sosumi.xyz/computering</link>
+      <description><![CDATA[Added Ray's Miscellany to the computering webring + some minor fixes]]></description>
+      <pubDate>Mon, 04 May 2026 15:17:39 -0300</pubDate>
+      <guid>post-16</guid>
+    </item>
+
     <item>
       <title>Reworked OC Gallery</title>
       <link>https://sosumi.xyz/ocs/</link>
