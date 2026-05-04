@@ -11,7 +11,8 @@ var sites = [
 'https://sylvies.space/',
 'https://pizzacatdelights.nekoweb.org/',
 'https://twentyphanday.nekoweb.org/',
-'https://lapislabel.net/'
+'https://lapislabel.net/',
+'https://brisray.com/'
 ];
 
 //the name of the ring
@@ -25,7 +26,7 @@ var ringID = 'computering';
 //should the widget include a link to an index page?
 var useIndex = true;
 //the full URL of the index page. if you're not using one, you don't have to specify anything here
-var indexPage = 'https://kurosroom.nekoweb.org/computering/index.html';
+var indexPage = 'https://sosumi.xyz/computering/index.html';
 
 //should the widget include a random button?
 var useRandom = true;
