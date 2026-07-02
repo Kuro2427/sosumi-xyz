@@ -20,10 +20,24 @@
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     }
+
+    p{
+        background-color: rgb(195, 206, 181);
+    }
+    }
 </style>
 <body>
     <h1>Page not found</h1>
     <audio src="/assets/punani.mp3" autoplay></audio>
-    <p><a href="#" onclick="window.history.back()"><- Return to the previous page?</a></p>
+    <p><a href="#" onclick="window.history.back()"><- <span id="back">Return to the previous page?</span></a></p>
+
+    <script>
+        let chance = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
+        text = document.getElementById('back');
+        console.log(chance);
+        if(chance==9){
+            text.textContent="Get back to where you once belonged"
+        }
+    </script>
 </body>
 </html>

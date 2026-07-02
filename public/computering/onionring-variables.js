@@ -12,7 +12,11 @@ var sites = [
 'https://pizzacatdelights.nekoweb.org/',
 'https://twentyphanday.nekoweb.org/',
 'https://lapislabel.net/',
-'https://brisray.com/'
+'https://brisray.com/',
+'https://willascool.neocities.org/',
+'https://vergissmichnicht.nekoweb.org/',
+'https://sawtooth-awful.neocities.org/',
+'https://carolinghellwalker.nekoweb.org/'
 ];
 
 //the name of the ring
