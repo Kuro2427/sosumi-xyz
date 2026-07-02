@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Thu, 02 Jul 2026 11:52:16 -0300</lastBuildDate>
+  <lastBuildDate>Thu, 02 Jul 2026 20:09:45 -0300</lastBuildDate>
   
+    <item>
+      <title>Introducing: An art page!</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[That's right, I draw sometimes! And my art is finally at a level where I feel comfortable with sharing it with the world. Check it out! Or don't! Your choice really.]]></description>
+      <pubDate>Thu, 02 Jul 2026 20:09:45 -0300</pubDate>
+      <guid>post-18</guid>
+    </item>
+
     <item>
       <title>More computeringers and, you guessed it. Small fixes</title>
       <link>https://sosumi.xyz/</link>
