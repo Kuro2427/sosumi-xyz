@@ -1,0 +1,360 @@
+@font-face {
+    font-family: 'msgfallback';
+    src: url('MS\ PGothic.ttf');
+}
+
+/* */
+/* styles for werewolf-girlfriend's (https://werewolf-girlfriend.neocities.org) gallery template! */
+/*  */
+
+
+/*  */
+/* colors */
+/*  */
+
+:root {
+    --bg: white;
+    --txt: black;
+    --accent: black;
+}
+
+
+/*  */
+/* general styles for the gallery view */
+/*  */
+
+body {
+    background-color: var(--bg);
+    background-image: url('/assets/dither1.png');
+    color: var(--txt);
+
+    font-family: 'MS PGothic', 'PGothic', 'msgfallback', monospace, sans-serif;
+    font-size: 16px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.hasBG{
+    background-color: var(--bg);
+    padding: 16px;
+    border: 1px solid var(--txt);
+}
+
+header div {
+    margin-bottom: 1em;
+}
+
+a {
+    color: var(--accent);
+}
+
+a:has(img) {
+    text-decoration: none;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid var(--accent);
+}
+
+/* tag button styles */
+#tag-buttons {
+    margin-top: 1em;
+}
+
+.tag, #reset {
+    border: 1px solid var(--accent);
+
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    background-color: var(--bg);
+    color: var(--accent);
+}
+
+.tag::before {
+    content: "#";
+}
+
+/* change accent color for different tag categories */
+.color-coded {--accent: rgb(180, 25, 25);}
+
+/* styles for when a tag is selected */
+.active {
+    background-color: var(--accent);
+    color: var(--bg);
+}
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.item {
+    width: calc(20vw - 1.5em);
+    height: calc(20vw - 1.5em);
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--accent);
+}
+
+.hidden, .item-info {
+    display: none;
+}
+
+#to-top-btn {
+    display: none;
+    position: fixed;
+    padding: 15px;
+    bottom: 20px;
+    right: 30px;
+    z-index: 1;
+
+    border: 1px solid var(--accent);
+    background-color: var(--bg);
+    color: var(--accent);
+}
+
+footer {
+    margin-top: 3em;
+}
+
+
+/*  */
+/* styles for controlling how the gallery thumbnails look */
+/*  */
+
+/* defaults */
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}
+
+.zoom img {object-fit: none;}
+
+.crop img {object-fit: cover;}
+
+.top-left img       {object-position: top left;}
+.top-center img     {object-position: top center;}
+.top-right img      {object-position: top right;}
+
+.center-left img    {object-position: center left;}
+.center-center img  {object-position: center;}
+.center-right img   {object-position: center right;}
+
+.bottom-left img    {object-position: bottom left;}
+.bottom-center img  {object-position: bottom center;}
+.bottom-right img   {object-position: bottom right;}
+
+
+/*  */
+/* Lightbox styles */
+/*  */
+
+#lightbox {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(10, 10, 10, 0.90);
+    color: white;
+
+    display: none;
+
+    overflow-y: auto;
+}
+
+#close-btn {
+    z-index: 2;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+#lightbox .flex {
+    display: flex;
+    gap: 2em;
+    justify-content: space-between;
+
+    height: 100vh;
+    padding: 0 1em;
+}
+
+/* the main image in the lightbox */
+#lightbox-img {
+    margin: 1em 0;
+    width: 60%;
+}
+
+#lightbox-img img {
+    /* make it centered and as big as possible in the containing div */
+    object-fit: scale-down;
+    object-position: center;
+
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* the info section of the lightbox */
+#lightbox-info {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0 1em 0;
+    width: 35%;
+}
+
+#lightbox-title, #lightbox-date, #lightbox-desc, #lightbox-tags {
+    word-break: break-word;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    margin-bottom: 0.5em;
+}
+
+#lightbox-date, #lightbox-tags {
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#lightbox-desc {
+    max-height: 30em;
+    margin-bottom: 1.5em;
+}
+#lightbox-desc img {max-width: 45%;}
+#lightbox-desc video, #lightbox-desc iframe {max-width: 90%;}
+
+#lightbox-tags {
+    margin-top: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+#lightbox-tags li {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+#lightbox-tags li::before {content: ' #';}
+#lightbox-tags li:nth-child(even) {
+    background-color: lightgray; 
+    border: 1px solid lightgray;
+}
+
+/* styles for navigation buttons & progress tally */
+#lightbox-nav {
+    display: flex;
+    justify-content: space-between;
+    
+    margin-top: 2em;
+}
+
+#prev-btn, #next-btn {
+    padding: 0.5em 4em;
+    cursor: pointer;
+
+    min-width: 10em;
+
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+#progress {
+    padding: 0.5em;
+}
+
+
+/*  */
+/* responsive section */
+/*  */
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: rgb(19, 19, 19);
+        --txt: rgb(221, 221, 221);
+        --accent: rgb(63, 151, 73);
+    }
+    .color-coded {--accent: rgb(236, 115, 115);}
+}
+
+/* scaling */
+@media screen and (max-width: 1200px) {
+    .item {
+        width: calc(25vw - 2em);
+        height: calc(25vw - 2em);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .item {
+        width: calc(33vw - 2em);
+        height: calc(33vw - 2em);
+    }
+}
+
+
+/* mobile view */
+@media screen and (max-width: 800px) {
+    /* gallery */
+    .item {
+        width: calc(50vw - 2em);
+        height: calc(50vw - 2em);
+    }
+
+    /* lightbox */
+    #lightbox {
+        overflow-y: scroll;
+    }
+
+    #lightbox .flex {
+        margin-top: 0;
+        flex-direction: column;
+        height: auto;
+        gap: 1em;
+    }
+
+    #close-btn {
+        position: static;
+        display: block;
+        text-align: right;
+        padding-top: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    #lightbox-img {
+        width: 100%;
+        height: 65vh;
+    }
+    
+    #lightbox-img img {
+        height: 100%;
+    }
+
+    #lightbox-info {
+        margin-top: 0;
+        width: 100%;
+        gap: 0.5em;
+    }
+
+    #lightbox-title, #lightbox-date, #lightbox-desc, #lightbox-tags {
+        margin-bottom: 0;
+        max-height: none;
+    }
+
+    #lightbox-nav {
+        order: -1;
+        margin-top: 0;
+    }
+}

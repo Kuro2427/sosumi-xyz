@@ -1,6 +1,10 @@
 :root {
     --background: black;
     --foreground: orange;
+
+    --bg: black;
+    --txt: orange;
+    --accent: orange;
 }
 
 body{

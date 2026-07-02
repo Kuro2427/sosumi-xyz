@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title></title>
+    <link href="gallery.css" rel="stylesheet" type="text/css" media="all">
+    <script src="gallery.js"></script>
+    <link rel="stylesheet" href="" id="pageStyle">
+</head>
+<body>
+    <div class="hasBG">
+    <!-- huge inspiration from https://mawchine.neocities.org/archive 's picrew repository -->
+
+    <header>
+        <h1>sosumi's art</h1>
+        <p></p>
+        <p>by <a href=""></a></p>
+
+        <div id="item-counter">total: ...more than one (javascript didnt load)</div>
+
+        <hr>
+
+        <div id="tag-buttons">
+            <button class="tag" title="test"></button>
+            <button id="reset">clear selection</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="gallery">
+
+            <div class="item" data-tags="test test2">
+                <img class="item-img" 
+                src="https://picsum.photos/400" 
+                alt="" 
+                loading="lazy">
+                <div class="item-info">
+                    <div class="item-title"><h2>Test Item</h2></div>
+                    <div class="item-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt perspiciatis temporibus harum similique! Reprehenderit ad cumque odit nemo fugit vitae quisquam aliquid nihil numquam molestias esse ea, repellat, nobis corrupti.</div>
+                    <div class="item-date"></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        <p>gallery template 1.1 by <a href="https://werewolf-girlfriend.neocities.org">werewolf-girlfriend</a></p>
+    </footer>
+
+    
+    <!-- to top button -->
+    <button id="to-top-btn" title="Back to the top">^</button>
+
+    <!-- lightbox container -->
+    <div id="lightbox">
+        <span id="close-btn">&times;</span>
+
+        <div class="flex">
+            <!-- main lightbox image -->
+            <div id="lightbox-img">
+                <img src="" alt="">
+            </div>
+
+            <!-- info, not necessarily filled out for every gallery item -->
+            <div id="lightbox-info">
+                <div id="lightbox-title"></div>
+
+                <div id="lightbox-desc"></div>
+
+                <div id="lightbox-date"></div>
+
+                <ul id="lightbox-tags"></ul>
+
+                <!-- previous and next buttons + progress bar -->
+                <div id="lightbox-nav">
+                    <button id="prev-btn">&lt;--</button>
+                    <span id="progress"></span>
+                    <button id="next-btn">--&gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+<script src="/assets/themeswitcher.js"></script>
+</body>
+</html>

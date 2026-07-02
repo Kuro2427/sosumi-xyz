@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Example gallery</title>
+    <link href="gallery.css" rel="stylesheet" type="text/css" media="all">
+    <script src="gallery.js"></script>
+</head>
+<body>
+    <!-- huge inspiration from https://mawchine.neocities.org/archive 's picrew repository -->
+
+    <header>
+        <h1>Example gallery</h1>
+        <p>
+            Hello! You have opened <a href="https://werewolf-girlfriend.neocities.org">werewolf-girlfriend</a>'s gallery template 1.0! This file (<a href="index.html">index.html</a>) is a lil showcase of what the gallery is capable of, please take a look around :D You may also want to check out the blank version of this template in <a href="blank.html">blank.html</a>! 
+            <br><br>
+
+            This gallery was hugely inspired by <a href="https://mawchine.neocities.org/archive">mawchine</a>'s picrew repository! I used their excellent work as a jumping off point before I added a bunch of features :) Also the example images used here come from wikimedia commons under free licenses!
+            <br><br>
+
+            If you decide to use this template then I humbly request that you keep the disclaimer from the footer somewhere on the page &lt;3 For more info on how to use this template, please read the HTML itself!
+            <br><br>
+
+            <span style="font-size: small;">(And do check out the mobile view and dark mode options for this template too!)</span>
+            <br><br>
+        </p>
+        <p>by <a href="">(you can link back to the rest of your site here)</a></p>
+
+        <div id="item-counter">total: ...more than one (javascript didnt load)</div>
+
+        <hr>
+
+        <div id="tag-buttons">
+            <button class="tag" title="example">You don't need to type a label for your tag buttons, theyre automatically generated based on the title attribute :)</button>
+            <button class="tag" title="Example">This button won't work because tags are case sensitive!</button>
+            <button class="tag color-coded" title="template">You can have color-coded tags! See the CSS (line 65 and 271) for how you can add your own :)</button>
+            <button class="tag" title="tag1"></button>
+            <button class="tag" title="tag2"></button>
+            <button id="reset">clear selection</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="gallery">
+            <div class="item" data-tags="you can have as many tags as you want! they-just-have-to-be-one-word like_this a b c d e f g h i j k l m n o p q r s t u v w x y z example">
+                <img class="item-img" 
+                src="img/example2.jpg" 
+                alt="Gallery images can have alt text!" 
+                loading="lazy">
+                <div class="item-info">
+                    <div class="item-title">
+                        <h1>This is a loooong title. Good thing titles have word break!</h1>
+                    </div>
+                    <div class="item-desc">
+                        <p>And this is a description! </p>
+                        <p>Whatever is inside the item-title, item-date, and item-description divs under each gallery item (including HTML tags and stuff) gets shown in the lightbox!</p>
+                        <p>Now heres some more example text...</p>
+                        <p><i>Lorem Ipsum</i> is simply dummy text of the printing and typesetting industry. <b>Lorem Ipsum</b> has been the industry's <em>standard</em> dummy text ever since the 1500s, <span>when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the <a href="">1960s</a> with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <br>
+                        <p>(there was a &lt;br&gt; element there ^)</p>
+                        <span style="font-size: xx-large;">HELLO WORLD!</span>
+                        <img src="img/example1.png">
+                        <ol>
+                            <li>hello</li>
+                            <li><a href="">world!</a></li>
+                        </ol>
+
+                        <ul>
+                            <li>hello</li>
+                            <li><a href="">world!</a></li>
+                        </ul>
+
+                        <img src="img/example1.png" width="50px">
+                        <img src="img/example1.png" width="100px">
+                    </div>
+                    <div class="item-date">
+                        <date>This is where you can put a date, such as: July 2nd 1984</date>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item zoom center-center" data-tags="example">
+                <img class="item-img" 
+                src="img/example2.jpg" 
+                loading="lazy">
+                <div class="item-info">
+                    <div class="item-desc">
+                        <p>This item uses the zoom and its sister classes! It changes how the thumbnail looks in the gallery view :) There are 9 options for how the thumbnail gets zoomed:</p>
+                        <ul>
+                            <li>top-left / top-center / top-right</li>
+                            <li>center-left / center-center / center-right</li>
+                            <li>bottom-left / bottom-center / bottom-right</li>
+                        </ul>
+                        <p>Also notice that you can leave titles and dates out on gallery items! And descriptions for that matter.</p>
+                        <p>The next item is completely empty!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" data-tags="">
+                <!-- empty! -->
+            </div>
+
+            <div class="item" data-tags="tag1 tag2">
+                <img class="item-img" 
+                src="img/example3.gif" 
+                alt="example" 
+                loading="lazy">
+                <div class="item-info">
+                    <div class="item-desc">
+                        <p>holy smokes! a gif!!!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item zoom bottom-center" data-tags="tag2">
+                <img class="item-img" 
+                src="img/example2.jpg" 
+                loading="lazy">
+                <div class="item-info">
+                    <div class="item-title">
+                        <h1>also notice that u can switch between images with the arrow keys</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" data-tags="example template">
+                <img class="item-img" 
+                src="" 
+                alt="" 
+                loading="lazy">
+                <div class="item-info">
+                    <div class="item-title"></div>
+                    <div class="item-desc">
+                        This is a blank gallery item template with all the fields you can fill out! You can also check out <a href="blank.html">blank.html</a> which only contains the bare minimum for a functional file :)
+                    </div>
+                    <div class="item-date"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        <p>gallery template 1.1 by <a href="https://werewolf-girlfriend.neocities.org">werewolf-girlfriend</a></p>
+    </footer>
+
+    
+    <!-- to top button -->
+    <button id="to-top-btn" title="Back to the top">^</button>
+
+    <!-- lightbox container -->
+    <div id="lightbox">
+        <span id="close-btn">&times;</span>
+
+        <!-- these are placeholders, content will be added dynamically when a gallery item is clicked -->
+        <div class="flex">
+            <!-- main lightbox image -->
+            <div id="lightbox-img">
+                <img src="" alt="">
+            </div>
+
+            <!-- infos, not necessarily filled out for every gallery item -->
+            <div id="lightbox-info">
+                <div id="lightbox-title"></div>
+
+                <div id="lightbox-desc"></div>
+
+                <div id="lightbox-date"></div>
+
+                <ul id="lightbox-tags"></ul>
+
+                <!-- Previous and Next buttons -->
+                <div id="lightbox-nav">
+                    <button id="prev-btn">&lt;--</button>
+                    <span id="progress"></span>
+                    <button id="next-btn">--&gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
