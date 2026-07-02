@@ -284,9 +284,9 @@ footer {
 /* dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: black;
-        --txt: white;
-        --accent: white;
+        --bg: white;
+        --txt: black;
+        --accent: black;
     }
     .color-coded {--accent: rgb(236, 115, 115);}
 }
