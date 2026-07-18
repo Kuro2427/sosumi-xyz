@@ -4,8 +4,17 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Thu, 02 Jul 2026 20:09:45 -0300</lastBuildDate>
+  <lastBuildDate>Sat, 18 Jul 2026 00:21:52 -0300</lastBuildDate>
   
+    <item>
+      <title>Minor visual updates</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[Finally upgraded the (admittedly kinda ugly) favicon/page logo thingy to better match my current sona
+New intro paragraph too!]]></description>
+      <pubDate>Sat, 18 Jul 2026 00:21:52 -0300</pubDate>
+      <guid>post-19</guid>
+    </item>
+
     <item>
       <title>Introducing: An art page!</title>
       <link>https://sosumi.xyz/</link>
