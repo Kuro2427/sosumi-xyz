@@ -10,7 +10,6 @@ var sites = [
 'https://sosumi.xyz/',
 'https://sylvies.space/',
 'https://pizzacatdelights.nekoweb.org/',
-'https://twentyphanday.nekoweb.org/',
 'https://lapislabel.net/',
 'https://brisray.com/',
 'https://willascool.neocities.org/',
