@@ -66,3 +66,5 @@ function getCookie(cname) {
 
 // Check if dropdown has changed
 document.getElementById('themeSelect').onchange = applyStyle;
+
+console.log("Theme switcher loaded successfully.");

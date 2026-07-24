@@ -1,0 +1,125 @@
+    /* Article styles */
+    .articleTitle {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0px;
+        margin-top: 10px;
+    }
+
+    .pubDate {
+        margin: 0px;
+    }
+
+    article img{
+        image-rendering: auto;
+        filter: none;
+    }
+
+    .citation{
+        font-size: 10px;
+        vertical-align: super;
+    }
+
+    footer{
+        margin-top: 20px;
+        border-top: 1px solid var(--foreground);
+        padding-top: 10px;
+    }
+
+    /* Image styles */
+
+    .bigImg{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+    }
+
+    .bigImg img{
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        border: 1px solid var(--foreground);
+    }
+
+    .leftImg img, .rightImg img{
+        width: 250px;
+        height: auto;
+        padding: 10px;
+        border: 1px solid var(--foreground);
+    }
+
+    .rightImg{
+        float: right;
+        margin-left: 20px;
+    }
+
+    .leftImg{
+        float: left;
+        margin-right: 20px;
+    }
+
+    .rightImg, .leftImg{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    figcaption{
+        text-align: center;
+    }
+
+    /* Blockquote styles */
+
+    blockquote::before{
+        content: "“";
+        font-size: 80px;
+        position: absolute;
+        margin-left: -40px;
+        margin-top: -20px;
+    }
+
+    blockquote{
+        margin: 0px;
+        padding: 5px 5px 5px 20px;
+        border: 1px solid var(--foreground);
+    }
+
+    blockquote .quoteCredit{
+        text-align: right;
+        color: rgb(73, 73, 73);
+        margin-top: -15px;
+    }
+
+    /*Archive*/
+    .archiveArticle{
+        border-bottom: 1px solid var(--foreground);
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .archiveArticle:last-child {
+        border-bottom: none;
+    }
+
+    .tag{
+        border: 1px solid var(--foreground);
+        padding: 2px 5px;
+        pointer-events: none;
+    }
+
+    .archiveTitle{
+        font-weight: bold;
+        margin: 0px 10px;
+    }
+
+
+    /*make floating images responsive*/
+    @media (max-width: 600px) {
+        .rightImg, .leftImg {
+            float: none;
+            margin: auto;
+        }
+    }

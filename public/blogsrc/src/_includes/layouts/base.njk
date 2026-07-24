@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ title or "Interrobang?!" }}</title>
+  <meta content="{{ description or "(sosumi's blog)"}}" property="og:description" />
+  <meta content="{{ page.url }}" property="og:url" />
+  <meta content="https://sosumi.xyz/assets/bunnymac-big.png" property="og:image" />
+  <meta content="#FFFFFF" data-react-helmet="true" name="theme-color" />
+  <meta content="keywords" name="keywords" content="sosumixyz, sosumi, sumi, kuro, kuro2427, personal website, blog, webring, oekakish, sloggr, good images, loadmint dash, oc gallery, about me, computers, macintosh, mac, retrocomputing" />
+
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/blog/assets/posts.css">
+  <link rel="stylesheet" href="" id="pageStyle">
+
+  <style>
+
+    main{
+      max-width: 800px;
+      min-height:0px;
+      padding: 10px 20px;
+    }
+
+    nav{
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    header{
+      border-bottom: 1px solid black;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <header>
+        <div class="c"><a href="https://sosumi.xyz/blog"><img src="/blog/assets/logo.png" alt="Interrobang?! (sosumi's blog)" class="invert"></a></div>
+        <nav> <a href="https://sosumi.xyz/">Home</a> • <a href="https://sosumi.xyz/blog">Posts</a> • <a href="https://sosumi.xyz/feed.xml" target="_blank"><img src="https://sosumi.xyz/home/assets/rss.png" alt="" style="filter: invert(100);" class="invert"> RSS Feed</a> </nav>
+    </header>
+
+    {{ content | safe }}
+
+  </main>
+
+<script src="/assets/themeswitcher.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+title: Interrobang?! (sosumi's blog)
+description: Interrobang?! - The insane ramblings of an antissocial weirdo!
+---
+
+<h1>Welcome to the Interrobang!</h1>
+
+<p>Much like the rest of this site, Interrobang is a variety blog, without a particular set theme or writing style.</p>
+<p>Expect to find anything and everything in here, from stream of thought style rambles to listicles, and whatever else I feel like sharing with the world at large.</p>
+<p>Lastly, please don't expect frequent updates. I rarely if ever have the urge to write here, though I guess that makes the articles which <i>are</i> here a little more special...? Nah, probably not...</p>
+
+<hr>
+
+<h1>Posts</h1>
+
+<p>Articles are sorted in reverse chronological order, and you can filter them by category if you'd like.</p>
+
+<p>Only show me...  
+    <select name="filter" id="categorySelect" onchange="filterArticles()">
+        <option value="all">everything</option>
+        <option value="ramble">rambles</option>
+        <option value="listicle">listicles</option>
+    </select>
+</p>
+
+{% for post in collections.post | reverse %}
+
+    <div class="archiveArticle" id="{{post.data.tag}}">
+
+      <p> <span class="tag">#{{ post.data.tag }}</span> 
+      <a href="/blog{{ post.url }}">{{ post.data.title }}</a> — <time>{{ post.date.toDateString() }}</time></p>
+      <p>{{ post.data.description }}</p>
+
+    </div>
+
+  {% else %}
+    <li>No posts found yet!</li>
+{% endfor %}
+
+<p style="color: lightgray;">(yes that's everything lol I told you there wasn't much here)</p>
+
+<script>
+    //Blog archive filtering
+    function filterArticles(){
+        const select = document.getElementById("categorySelect");
+        const selectedCategory = select.value;
+        const articles = document.getElementsByClassName("archiveArticle");
+
+        for(let article of articles){
+            if(selectedCategory === "all" || article.id === selectedCategory){
+                article.style.display = "block";
+            } else {
+                article.style.display = "none";
+            }
+        }
+    }
+</script>

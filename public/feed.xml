@@ -4,8 +4,17 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Sat, 18 Jul 2026 00:21:52 -0300</lastBuildDate>
+  <lastBuildDate>Fri, 24 Jul 2026 16:56:33 -0300</lastBuildDate>
   
+    <item>
+      <title>Reimplemented blog (again)</title>
+      <link>https://sosumi.xyz/blog/</link>
+      <description><![CDATA[Yeah so I remade Interrobang from scratch for like the 4th time lmao
+We're using 11ty now so it's MUCH easier to manage than even with Nekoweb's SSI. All this stuff is on my end, though so it should hopefully look and act the same way it's always done for you guys!]]></description>
+      <pubDate>Fri, 24 Jul 2026 16:56:33 -0300</pubDate>
+      <guid>post-20</guid>
+    </item>
+
     <item>
       <title>Minor visual updates</title>
       <link>https://sosumi.xyz/</link>

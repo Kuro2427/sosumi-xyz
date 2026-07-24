@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+---
+
+<style>
+  /*ik having a loose style tag in the middle of the page like this is kinda ghetto but fuck it we ball*/
+  p:first-of-type::first-letter{
+    font-size: 2rem;
+    font-weight: bold;
+    float: left;
+    line-height: 1;
+    padding-right: 8px;
+    padding-left: 2px;
+  }
+</style>
+
+<article>
+
+  <div class="articleTitle">{{ title }}</div>
+  Published on <time datetime="{{ page.date.toISOString() }}">
+    {{ page.date.toDateString() }}
+  </time>
+
+
+  <div class="post-content">
+    {{ content | safe }}
+  </div>
+</article>
+
+<script>
+    //Scroll reference links into view smoothly
+    function jumpTo(id){
+        document.getElementById(id).scrollIntoView({behavior: "smooth"});
+    }
+</script>
