@@ -1,0 +1,4 @@
+the node_modules folder is now set to not sync to github.
+to get the blog to properly run and compile on a machine that doesn't have this folder run
+
+npm install 
