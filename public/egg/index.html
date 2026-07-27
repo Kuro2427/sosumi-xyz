@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>*</title>
+    <style>
+        @font-face {
+            font-family: 'msgfallback';
+            src: url('MS\ PGothic.ttf');
+        }
+
+        body{
+            background-color: black;
+            color:white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 98.3vh;
+
+            font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', 'msgfallback' , monospace, sans-serif;
+
+            font-smooth: never;
+            -webkit-font-smoothing : none;
+        }
+
+        button{
+            font-family: 'MS PGothic', 'ＭＳ Pゴシック' , 'MS Pゴシック' , Mspgothic, 'pgothic', 'msgfallback' , monospace, sans-serif;
+
+            font-smooth: never;
+            -webkit-font-smoothing : none;
+            border-radius: 0px;
+            border:1px solid gray;
+        }
+
+        main{
+            max-width: fit-content;
+            max-height: fit-content;
+            margin: auto;
+        }
+
+        dialog{
+            margin-top:20px;
+            background-color: black;
+            border: 5px solid white;
+            color:white;
+        }
+        .c{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay src="man.mp3" loop id="man"></audio>
+    <main>
+        <a href="#" onclick="start()">
+            <img src="tree.gif" alt="* (He is behind the tree...)" title="* (He is behind the tree...)">
+        </a>
+
+        <dialog id="1">
+            <p>* (Well, there is a man here.)</p>
+            <p>* (He offered you something.)</p>
+            <div class="c"><button onclick="yes()">Yes</button> <button onclick="no()">No</button></div>
+        </dialog>
+
+        <dialog id="no">
+            <p>* (Then he needn't be here.)</p>
+            <div class="c">
+                <form method="dialog">
+                    <button type="submit" onclick="window.location.href='https://sosumi.xyz/'">Ok</button>
+                </form>
+            </div>
+        </dialog>
+
+        <dialog id="yes">
+            <audio src="egg.mp3" id="egg"></audio>
+            <p>* (You received an Egg.)</p>
+            <div class="c">
+                <form method="dialog">
+                    <button type="submit" onclick="window.location.href='https://sosumi.xyz/'">Ok</button>
+                </form>
+            </div>
+        </dialog>
+
+    </main>
+
+    <script src="/assets/cookiefunctions.js"></script>
+
+    <script>
+        const box1 = document.getElementById("1");
+        const boxno = document.getElementById("no");
+        const boxyes = document.getElementById("yes");
+
+        const bloop = document.getElementById("egg");
+
+        window.addEventListener('DOMContentLoaded', () => {
+
+            const man = document.getElementById("man");
+            man.play();
+
+            if(getCookie("egg")=="refused"){
+                eggState = -1;
+            } else if (getCookie("egg")=="accepted"){
+                eggState = 1;
+            } else{
+                eggState = 0;
+            }
+
+            console.log(eggState);
+
+            if(eggState==-1 || eggState==1){
+                window.location.href="https://sosumi.xyz/"
+            }
+
+        });
+
+        function start(){
+            if(eggState==0){
+                box1.showModal();
+            }
+        }
+
+        function no(){
+            box1.close();
+            boxno.showModal();
+            setCookie("egg","refused",365);
+            eggState=-1;
+        };
+
+        function yes(){
+            box1.close();
+            boxyes.showModal();
+            bloop.play();
+            setCookie("egg","accepted",365);
+            eggState=1;
+        };
+    </script>
+</body>
+</html>

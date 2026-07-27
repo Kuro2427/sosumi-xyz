@@ -21,15 +21,15 @@
         transform: translate(-50%, -50%);
     }
 
-    p{
-        background-color: rgb(195, 206, 181);
+    p,h1{
+        background-color: #C6CEA5;
     }
-    }
+    
 </style>
 <body>
     <h1>Page not found</h1>
     <audio src="/assets/punani.mp3" autoplay></audio>
-    <p><a href="#" onclick="window.history.back()"><- <span id="back">Return to the previous page?</span></a></p>
+    <p><a href="#" onclick="window.history.back()" id="backlink"><- <span id="back">Return to the previous page?</span></a></p>
 
     <script>
         let chance = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
@@ -37,6 +37,18 @@
         console.log(chance);
         if(chance==9){
             text.textContent="Get back to where you once belonged"
+        }
+    </script>
+
+    <script>
+        let eggchance = Math.floor(Math.random() * (50 - 0 + 1)) + 0;
+        link = document.getElementById('backlink');
+        text = document.getElementById('back');
+        console.log(eggchance);
+        if(eggchance==50){
+            link.href="/egg"
+            link.onClick=null;
+            text.textContent="Back?"
         }
     </script>
 </body>

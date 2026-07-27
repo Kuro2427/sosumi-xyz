@@ -197,6 +197,7 @@
     </div>
     
     <script src="/assets/themeswitcher.js"></script>
+    <script src="/assets/cookiefunctions.js"></script>
 
     <script>
         possibleMottos=["On the internet, no one knows you're 6 fursonas in a trench coat","Ironically not made with WYSIWYG","It USED TO BE a Perfect Blue reference!","Because unclesumisphantomfunhou.se was too expensive","Also try rakugaki.xyz!","Also try trickmint.gay!","Home of awesome","Presented in 1 glorious bit","The Macintosh is neat","Who needs a dark mode, anyway?","Maybe it's the way you're dressed","All that computer I'm buying","The sky had a Pokémon","I play computer","The human brain is just a really complex hypercard stack actually","As seen on stupid.com!","Let it beep!","I think it can digging in the ground for tubers"];
@@ -204,6 +205,10 @@
 
         mottoDiv=document.getElementById("motto");
         function randMotto(){
+            if(getCookie("egg")=="accepted"){
+                possibleMottos.push("* (He waves at you happily.)")
+            }
+
             var number=Math.floor(Math.random()*possibleMottos.length);
             mottoDiv.innerHTML=possibleMottos[number];
         }

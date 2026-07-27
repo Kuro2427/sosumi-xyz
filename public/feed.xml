@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Fri, 24 Jul 2026 16:56:33 -0300</lastBuildDate>
+  <lastBuildDate>Mon, 27 Jul 2026 20:42:52 -0300</lastBuildDate>
   
+    <item>
+      <title>Added tribute easter egg to 404 page</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[Gone but not forgotten]]></description>
+      <pubDate>Mon, 27 Jul 2026 20:42:52 -0300</pubDate>
+      <guid>post-21</guid>
+    </item>
+
     <item>
       <title>Reimplemented blog (again)</title>
       <link>https://sosumi.xyz/blog/</link>
