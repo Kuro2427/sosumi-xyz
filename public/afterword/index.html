@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Afterword — A Visual Novel Reader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Literata:ital,opsz,wght@0,18..144,400;0,18..144,500;1,18..144,400&family=Inter:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face{
+  font-family:'OpenDyslexic';
+  src:url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Regular.woff') format('woff');
+  font-weight:normal; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'OpenDyslexic';
+  src:url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Bold.woff') format('woff');
+  font-weight:bold; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'OpenDyslexic';
+  src:url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Italic.woff') format('woff');
+  font-weight:normal; font-style:italic; font-display:swap;
+}
+:root{
+  --ink-950:#0d1019;
+  --ink-900:#121623;
+  --ink-800:#1a2036;
+  --ink-700:#252c48;
+  --parchment:#f1e6cf;
+  --parchment-dim:#c9bfa9;
+  --gold:#b8912f;
+  --gold-bright:#d9b551;
+  --wine:#7a3b3f;
+  --line:rgba(184,145,47,0.28);
+  --shadow:0 20px 60px rgba(0,0,0,0.55);
+  --speed:22ms;
+  --fs:1.15rem;
+  --font-body:'Literata',serif;
+}
+body.day{
+  --ink-950:#e9e1cd;
+  --ink-900:#f1e9d6;
+  --ink-800:#fbf5e6;
+  --ink-700:#e3d8bd;
+  --parchment:#241b12;
+  --parchment-dim:#5b4d38;
+  --gold:#8a5a1f;
+  --gold-bright:#6b4517;
+  --wine:#7a3b3f;
+  --line:rgba(122,59,63,0.25);
+  --shadow:0 20px 60px rgba(0,0,0,0.15);
+}
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse at 20% -10%, var(--ink-800), transparent 60%),
+    radial-gradient(ellipse at 100% 110%, var(--ink-800), transparent 55%),
+    var(--ink-950);
+  color:var(--parchment);
+  font-family:var(--font-body);
+  overflow:hidden;
+  min-height:100vh;
+  transition:background 0.4s ease, color 0.4s ease;
+}
+#stars{position:fixed;inset:0;pointer-events:none;opacity:0.5;z-index:0;}
+body.day #stars{display:none;}
+#app{position:relative;z-index:1;height:100vh;width:100vw;}
+
+/* ---------- Title Screen ---------- */
+#title-screen{
+  height:100%;display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.title-card{
+  width:min(560px,92vw);
+  background:linear-gradient(180deg,var(--ink-800),var(--ink-900));
+  border:1px solid var(--line);
+  border-radius:4px;
+  box-shadow:var(--shadow);
+  padding:44px 40px 36px;
+  text-align:center;
+  position:relative;
+}
+.title-card::before,.title-card::after{
+  content:"";position:absolute;width:26px;height:26px;
+  border:1px solid var(--gold);opacity:0.6;
+}
+.title-card::before{top:10px;left:10px;border-right:none;border-bottom:none;}
+.title-card::after{bottom:10px;right:10px;border-left:none;border-top:none;}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.3em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+}
+.app-title{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;
+  font-size:2.6rem;margin:0 0 6px;color:var(--parchment);letter-spacing:0.01em;
+}
+.app-sub{color:var(--parchment-dim);font-size:0.92rem;margin-bottom:30px;font-family:'IBM Plex Mono',monospace;letter-spacing:0.03em;}
+.dropzone{
+  border:1px dashed var(--line);border-radius:3px;padding:26px 16px;
+  cursor:pointer;transition:border-color 0.2s, background 0.2s;
+  margin-bottom:16px;
+}
+.dropzone:hover,.dropzone.drag{border-color:var(--gold);background:rgba(184,145,47,0.06);}
+.dropzone p{margin:0;font-size:0.95rem;}
+.dropzone .hint{font-size:0.78rem;color:var(--parchment-dim);margin-top:6px;font-family:'IBM Plex Mono',monospace;}
+input[type=file]{display:none;}
+.divider-word{
+  display:flex;align-items:center;gap:12px;color:var(--parchment-dim);
+  font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;
+  text-transform:uppercase;margin:18px 0;
+}
+.divider-word::before,.divider-word::after{content:"";flex:1;height:1px;background:var(--line);}
+.btn{
+  font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;
+  text-transform:uppercase;background:transparent;color:var(--parchment);
+  border:1px solid var(--gold);border-radius:2px;padding:10px 18px;cursor:pointer;
+  transition:background 0.2s,color 0.2s;
+}
+.btn:hover{background:var(--gold);color:var(--ink-950);}
+.btn.primary{background:var(--gold);color:var(--ink-950);}
+.btn.primary:hover{background:var(--gold-bright);}
+.work-preview{margin-top:20px;text-align:left;padding-top:18px;border-top:1px solid var(--line);}
+.work-preview h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;margin:0 0 4px;}
+.work-preview .by{color:var(--gold);font-size:0.85rem;margin-bottom:10px;font-family:'IBM Plex Mono',monospace;}
+.work-preview .meta{color:var(--parchment-dim);font-size:0.82rem;margin-bottom:18px;}
+.work-preview .actions{display:flex;gap:10px;justify-content:flex-end;}
+.error-msg{color:#d97757;font-size:0.82rem;margin-top:10px;font-family:'IBM Plex Mono',monospace;}
+
+/* ---------- Stage ---------- */
+#stage{position:absolute;inset:0;display:none;}
+#stage.active{display:block;cursor:pointer;}
+
+#ribbon{
+  position:absolute;left:0;top:0;bottom:0;width:6px;
+  background:linear-gradient(180deg,var(--wine),var(--gold));
+  z-index:5;
+}
+#ribbon-tab{
+  position:absolute;left:6px;
+  width:26px;height:64px;
+  background:var(--wine);
+  border-radius:0 3px 3px 0;
+  box-shadow:2px 2px 8px rgba(0,0,0,0.4);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'IBM Plex Mono',monospace;color:var(--parchment);
+  font-size:0.68rem;writing-mode:vertical-rl;letter-spacing:0.1em;
+  transition:top 0.4s ease;z-index:5;
+}
+
+#topbar{
+  position:absolute;top:0;left:0;right:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 22px 16px 40px;z-index:10;
+  background:linear-gradient(180deg,rgba(13,16,25,0.75),transparent);
+}
+body.day #topbar{background:linear-gradient(180deg,rgba(233,225,205,0.85),transparent);}
+#work-label{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;color:var(--parchment-dim);}
+#work-label b{color:var(--gold);font-weight:500;}
+#icon-buttons{display:flex;gap:8px;}
+.icon-btn{
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(26,32,54,0.7);border:1px solid var(--line);
+  color:var(--parchment);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:1rem;transition:border-color 0.2s,transform 0.15s;
+}
+body.day .icon-btn{background:rgba(251,245,230,0.7);}
+.icon-btn:hover{border-color:var(--gold);transform:translateY(-1px);}
+
+/* click catcher */
+
+/* NVL mode */
+#nvl-layer{
+  position:absolute;inset:0;padding:100px 14% 160px 60px;
+  overflow-y:auto;z-index:3;
+}
+#nvl-layer::-webkit-scrollbar{width:6px;}
+#nvl-layer::-webkit-scrollbar-thumb{background:var(--line);}
+.nvl-scene-break{text-align:center;color:var(--gold);margin:26px 0;letter-spacing:0.4em;font-size:0.9rem;opacity:0.8;}
+.nvl-para{
+  font-size:var(--fs);line-height:1.85;margin:0 0 1.1em;
+  color:var(--parchment-dim);transition:color 0.4s ease;
+  max-width:70ch;
+}
+.nvl-para.current{color:var(--parchment);}
+.nvl-chapter-head{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;
+  font-size:1.8rem;color:var(--gold);margin:10px 0 22px;
+  border-bottom:1px solid var(--line);padding-bottom:10px;max-width:70ch;
+}
+
+/* ADV mode */
+#adv-box{
+  position:absolute;left:60px;right:60px;bottom:36px;
+  background:linear-gradient(180deg,rgba(26,32,54,0.92),rgba(18,22,35,0.96));
+  border:1px solid var(--line);border-radius:4px;
+  box-shadow:var(--shadow);
+  padding:26px 32px 22px;z-index:3;
+  max-height:38vh;overflow-y:auto;
+}
+body.day #adv-box{background:linear-gradient(180deg,rgba(251,245,230,0.95),rgba(233,225,205,0.98));}
+#adv-box::-webkit-scrollbar{width:6px;}
+#adv-box::-webkit-scrollbar-thumb{background:var(--line);}
+#adv-chapter-tag{
+  font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px;
+}
+#adv-text{font-size:var(--fs);line-height:1.75;min-height:2.4em;}
+#adv-text.scene-break{text-align:center;color:var(--gold);letter-spacing:0.4em;}
+#continue-caret{
+  position:absolute;bottom:14px;right:24px;color:var(--gold);
+  font-size:1.1rem;animation:bob 1.2s ease-in-out infinite;opacity:0;
+}
+#continue-caret.show{opacity:1;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
+
+.caret-blink{display:inline-block;width:0.5em;color:var(--gold);animation:blink 0.9s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
+
+/* end of work */
+#end-card{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  background:rgba(13,16,25,0.9);z-index:20;
+}
+body.day #end-card{background:rgba(233,225,205,0.94);}
+#end-card.show{display:flex;}
+.end-inner{text-align:center;max-width:420px;}
+.end-inner h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;margin-bottom:8px;}
+.end-inner p{color:var(--parchment-dim);margin-bottom:22px;font-size:0.9rem;}
+
+/* chapter transition card */
+#chapter-card{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,var(--ink-950),var(--ink-900) 60%,var(--ink-950));
+  z-index:15;cursor:pointer;
+  animation:fadeIn 0.5s ease;
+}
+body.day #chapter-card{background:linear-gradient(180deg,var(--ink-950),var(--ink-900) 60%,var(--ink-950));}
+#chapter-card.show{display:flex;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.chapter-card-inner{
+  text-align:center;max-width:min(560px,86vw);
+  padding:20px;
+}
+.cc-eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.3em;
+  text-transform:uppercase;color:var(--parchment-dim);margin-bottom:18px;
+}
+.cc-number{
+  font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px;
+}
+.cc-title{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;
+  font-size:2.4rem;color:var(--parchment);margin:0 0 22px;line-height:1.25;
+}
+.cc-ornament{color:var(--gold);font-size:1rem;letter-spacing:0.5em;margin-bottom:22px;opacity:0.8;}
+.cc-notes{
+  text-align:left;background:rgba(184,145,47,0.06);border:1px solid var(--line);
+  border-radius:3px;padding:16px 20px;margin:0 auto 26px;max-width:440px;
+  cursor:default;
+}
+.cc-notes-label{
+  font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:8px;
+}
+.cc-notes p{margin:0;font-size:0.92rem;line-height:1.65;color:var(--parchment-dim);}
+.cc-prompt{
+  font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--gold);animation:bob 1.4s ease-in-out infinite;
+}
+
+/* ---------- Modals ---------- */
+.modal-veil{
+  position:fixed;inset:0;background:rgba(0,0,0,0.55);
+  display:none;align-items:center;justify-content:center;z-index:50;
+}
+.modal-veil.show{display:flex;}
+.modal{
+  width:min(520px,90vw);max-height:78vh;display:flex;flex-direction:column;
+  background:linear-gradient(180deg,var(--ink-800),var(--ink-900));
+  border:1px solid var(--line);border-radius:4px;box-shadow:var(--shadow);
+}
+.modal-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 22px;border-bottom:1px solid var(--line);
+}
+.modal-head h3{
+  margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.4rem;
+}
+.modal-close{background:none;border:none;color:var(--parchment-dim);font-size:1.3rem;cursor:pointer;line-height:1;}
+.modal-close:hover{color:var(--gold);}
+.modal-body{padding:16px 22px 24px;overflow-y:auto;}
+
+/* chapters list */
+.chapter-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 10px;border-bottom:1px solid var(--line);cursor:pointer;
+  transition:background 0.15s;border-radius:2px;
+}
+.chapter-row:hover{background:rgba(184,145,47,0.08);}
+.chapter-row.active{background:rgba(184,145,47,0.14);}
+.chapter-row .num{font-family:'IBM Plex Mono',monospace;color:var(--gold);font-size:0.75rem;width:34px;}
+.chapter-row .name{flex:1;font-size:0.95rem;}
+.chapter-row .prog{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--parchment-dim);}
+
+/* backlog */
+.backlog-chapter{
+  font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--gold);margin:18px 0 8px;
+}
+.backlog-chapter:first-child{margin-top:0;}
+.backlog-line{font-size:0.94rem;line-height:1.7;color:var(--parchment-dim);margin-bottom:0.8em;}
+.backlog-break{text-align:center;color:var(--gold);letter-spacing:0.4em;margin:14px 0;font-size:0.75rem;}
+
+/* settings */
+.setting-row{margin-bottom:22px;}
+.setting-row label{
+  display:block;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--parchment-dim);margin-bottom:10px;
+}
+.seg{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden;}
+.seg button{
+  flex:1;background:transparent;border:none;color:var(--parchment-dim);
+  padding:9px 8px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:0.76rem;
+  letter-spacing:0.05em;transition:background 0.15s,color 0.15s;
+}
+.seg button:not(:last-child){border-right:1px solid var(--line);}
+.seg button.active{background:var(--gold);color:var(--ink-950);}
+input[type=range]{width:100%;accent-color:var(--gold);}
+.range-val{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--gold);float:right;}
+
+@media (max-width:640px){
+  #adv-box{left:20px;right:20px;bottom:20px;padding:18px 20px 16px;}
+  #nvl-layer{padding:90px 20px 150px 44px;}
+  #topbar{padding:14px 16px 14px 44px;}
+  .title-card{padding:32px 22px 28px;}
+}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div id="app">
+
+  <!-- TITLE SCREEN -->
+  <div id="title-screen">
+    <div class="title-card">
+      <div class="eyebrow">Afterword</div>
+      <h1 class="app-title">A Visual Novel Reader</h1>
+      <div class="app-sub">for whole‑work AO3 HTML downloads</div>
+
+      <div class="dropzone" id="dropzone">
+        <p>Drop an AO3 "Download this Work → HTML" file here, or click to choose one</p>
+        <div class="hint">.html / .htm — read entirely in your browser, nothing is uploaded</div>
+      </div>
+      <input type="file" id="file-input" accept=".html,.htm,text/html">
+
+      <div class="divider-word">or</div>
+      <div style="display:flex; justify-content:center;">
+        <button class="btn" id="sample-btn">Try a sample</button>
+      </div>
+
+      <div class="error-msg" id="error-msg" style="display:none;"></div>
+
+      <div class="work-preview" id="work-preview" style="display:none;">
+        <h2 id="preview-title"></h2>
+        <div class="by" id="preview-author"></div>
+        <div class="meta" id="preview-meta"></div>
+        <div class="meta" id="preview-tags" style="margin-top:-6px;"></div>
+        <p id="preview-summary" style="font-size:0.88rem; line-height:1.6; color:var(--parchment-dim); margin:12px 0 4px;"></p>
+        <div class="actions">
+          <button class="btn primary" id="begin-btn">Begin Reading ▸</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE -->
+  <div id="stage">
+    <div id="ribbon"></div>
+    <div id="ribbon-tab">CH 1</div>
+
+    <div id="topbar">
+      <div id="work-label"><b id="tb-title"></b> · <span id="tb-chapter"></span></div>
+      <div id="icon-buttons">
+        <button class="icon-btn" id="btn-backlog" title="Backlog">☰</button>
+        <button class="icon-btn" id="btn-chapters" title="Chapters">🔖</button>
+        <button class="icon-btn" id="btn-mode" title="Toggle ADV/NVL">▤</button>
+        <button class="icon-btn" id="btn-settings" title="Settings">⚙</button>
+      </div>
+    </div>
+
+    <div id="nvl-layer" style="display:none;"></div>
+
+    <div id="adv-box">
+      <div id="adv-chapter-tag"></div>
+      <div id="adv-text"></div>
+      <div id="continue-caret">▼</div>
+    </div>
+
+    <div id="end-card">
+      <div class="end-inner">
+        <h2>End of Work</h2>
+        <p id="end-sub">You've reached the last line.</p>
+        <button class="btn primary" id="end-restart">Read Again</button>
+        <button class="btn" id="end-chapters" style="margin-left:10px;">Chapters</button>
+      </div>
+    </div>
+
+    <div id="chapter-card">
+      <div class="chapter-card-inner">
+        <div class="cc-eyebrow" id="cc-work-title"></div>
+        <div class="cc-number" id="cc-number"></div>
+        <h2 class="cc-title" id="cc-title"></h2>
+        <div class="cc-ornament">❦</div>
+        <div class="cc-notes" id="cc-notes" style="display:none;">
+          <div class="cc-notes-label">Author's Note</div>
+          <p id="cc-notes-text"></p>
+        </div>
+        <div class="cc-prompt">Click or press Space to begin ▸</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALS -->
+<div class="modal-veil" id="veil-chapters">
+  <div class="modal">
+    <div class="modal-head"><h3>Chapters</h3><button class="modal-close" data-close>×</button></div>
+    <div class="modal-body" id="chapters-list"></div>
+  </div>
+</div>
+
+<div class="modal-veil" id="veil-backlog">
+  <div class="modal">
+    <div class="modal-head"><h3>Backlog</h3><button class="modal-close" data-close>×</button></div>
+    <div class="modal-body" id="backlog-list"></div>
+  </div>
+</div>
+
+<div class="modal-veil" id="veil-settings">
+  <div class="modal">
+    <div class="modal-head"><h3>Settings</h3><button class="modal-close" data-close>×</button></div>
+    <div class="modal-body">
+      <div class="setting-row">
+        <label>Presentation Mode</label>
+        <div class="seg" id="seg-mode">
+          <button data-val="adv" class="active">ADV</button>
+          <button data-val="nvl">NVL</button>
+        </div>
+      </div>
+      <div class="setting-row">
+        <label>Text Speed <span class="range-val" id="val-speed">Medium</span></label>
+        <input type="range" id="rng-speed" min="0" max="4" step="1" value="2">
+      </div>
+      <div class="setting-row">
+        <label>Text Size <span class="range-val" id="val-size">18px</span></label>
+        <input type="range" id="rng-size" min="14" max="26" step="1" value="18">
+      </div>
+      <div class="setting-row">
+        <label>Reading Font</label>
+        <div class="seg" id="seg-font">
+          <button data-val="serif" class="active">Serif</button>
+          <button data-val="sans">Sans</button>
+          <button data-val="dyslexic" title="OpenDyslexic">Dyslexic</button>
+        </div>
+      </div>
+      <div class="setting-row">
+        <label>Reading Light</label>
+        <div class="seg" id="seg-theme">
+          <button data-val="night" class="active">Night</button>
+          <button data-val="day">Day</button>
+        </div>
+      </div>
+      <div class="setting-row" style="margin-bottom:0;">
+        <label>Chapter Intro Cards</label>
+        <div class="seg" id="seg-intros">
+          <button data-val="on" class="active">On</button>
+          <button data-val="off">Off</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- Ambient starfield (skips if reduced motion) ---------------- */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function sizeCanvas(){
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+    stars = Array.from({length: Math.floor(window.innerWidth/12)}, () => ({
+      x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+      r: Math.random()*1.1+0.2, s: Math.random()*0.4+0.05, o: Math.random()
+    }));
+  }
+  function drawStars(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = '#e8d9ad';
+    stars.forEach(st=>{
+      st.o += (Math.random()-0.5)*0.02;
+      st.o = Math.max(0.1, Math.min(0.9, st.o));
+      ctx.globalAlpha = st.o;
+      ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI*2); ctx.fill();
+      if(!reduceMotion) st.y += st.s;
+      if(st.y > canvas.height) st.y = 0;
+    });
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(drawStars);
+  }
+  sizeCanvas(); window.addEventListener('resize', sizeCanvas); drawStars();
+
+  /* ---------------- State ---------------- */
+  let work = null;           // {title, author, meta, chapters:[{title, lines:[{type,text}]}]}
+  let curCh = 0, curLine = 0;
+  let mode = 'adv';
+  let typing = false;
+  let typeTimer = null;
+  let backlog = [];          // [{chapter, type, text}]
+  let nvlLinesShown = 0;     // for periodic page clears
+
+  const SPEEDS = [0, 8, 22, 42, 70]; // ms per char, index 0 = instant
+  const SPEED_LABELS = ['Instant','Fast','Medium','Slow','Slower'];
+  let speedIdx = 2;
+  let fontSize = 18;
+  let showChapterIntros = true;
+  let pendingEntry = null; // {ch, line} awaiting dismissal of the chapter card
+
+  /* ---------------- Parsing AO3 whole-work HTML ---------------- */
+  function stripChapterPrefix(str){
+    return str.replace(/^Chapter\s*\d+\s*:?\s*/i,'').trim();
+  }
+
+  function extractLinesFromUserstuff(node){
+    const lines = [];
+    if(!node) return lines;
+    Array.from(node.children).forEach(child=>{
+      const tag = child.tagName.toLowerCase();
+      if(tag === 'hr'){
+        lines.push({type:'break', text:''});
+      } else if(tag === 'p' || tag === 'blockquote'){
+        const text = child.textContent.replace(/\s+/g,' ').trim();
+        if(text) lines.push({type:'p', text});
+      } else if(tag === 'div'){
+        // nested divs sometimes wrap paragraphs
+        lines.push(...extractLinesFromUserstuff(child));
+      }
+    });
+    return lines;
+  }
+
+  // Finds the <dd> that follows a <dt>Label:</dt> inside the preface tag list.
+  function findDD(prefaceRoot, label){
+    if(!prefaceRoot) return null;
+    const dts = prefaceRoot.querySelectorAll('dl.tags dt');
+    for(const dt of dts){
+      const norm = dt.textContent.trim().replace(/:\s*$/,'').toLowerCase();
+      if(norm === label.toLowerCase()){
+        const dd = dt.nextElementSibling;
+        if(dd && dd.tagName === 'DD') return dd;
+      }
+    }
+    return null;
+  }
+
+  // Finds the <blockquote> that follows a <p>Label</p> marker (used for Summary/Notes,
+  // and reused for per-chapter "Chapter Notes"). Searches all <p> descendants of root.
+  function findBlockquoteAfter(root, label){
+    if(!root) return null;
+    const ps = root.querySelectorAll('p');
+    for(const p of ps){
+      if(p.textContent.trim().toLowerCase() === label.toLowerCase()){
+        let sib = p.nextElementSibling;
+        if(sib && sib.tagName === 'BLOCKQUOTE') return sib;
+      }
+    }
+    return null;
+  }
+
+  function parseAO3(htmlStr){
+    const doc = new DOMParser().parseFromString(htmlStr, 'text/html');
+
+    // Real AO3 "Download this Work" exports wrap front matter in <div id="preface">
+    // (older/alternate exports sometimes use class="preface" instead), containing
+    // a nested <div class="meta"> with the tag list, title, byline, summary and notes.
+    const prefaceRoot = doc.querySelector('#preface .meta') || doc.querySelector('.preface .meta') || doc.querySelector('#preface') || doc.querySelector('.preface');
+
+    const titleEl = (prefaceRoot && prefaceRoot.querySelector('h1')) || doc.querySelector('h1.title') || doc.querySelector('h2.title');
+    const authorEl = (prefaceRoot && prefaceRoot.querySelector('.byline'));
+    const workTitle = titleEl ? titleEl.textContent.trim() : 'Untitled Work';
+    const workAuthor = authorEl ? authorEl.textContent.replace(/^by\s+/i,'').trim() : 'Anonymous';
+
+    const rating = findDD(prefaceRoot, 'Rating');
+    const fandom = findDD(prefaceRoot, 'Fandom');
+    const relationships = findDD(prefaceRoot, 'Relationships');
+    const statsDD = findDD(prefaceRoot, 'Stats');
+
+    let words = '', chapterCount = '';
+    if(statsDD){
+      const statsText = statsDD.textContent.replace(/\s+/g,' ').trim();
+      const wMatch = statsText.match(/Words:\s*([\d,]+)/i);
+      const cMatch = statsText.match(/Chapters:\s*(\d+\s*\/\s*[\d?]+)/i);
+      if(wMatch) words = wMatch[1] + ' words';
+      if(cMatch) chapterCount = cMatch[1].replace(/\s+/g,'') + ' chapters';
+    }
+
+    const summaryBQ = findBlockquoteAfter(prefaceRoot, 'Summary');
+    const summary = summaryBQ ? summaryBQ.textContent.replace(/\s+/g,' ').trim() : '';
+
+    // ---- Chapter body parsing ----
+    // Real AO3 exports place chapter content as SIBLINGS inside #chapters, not
+    // nested inside a wrapping element: each chapter is a <div class="meta group">
+    // (holding the <h2 class="heading"> title, and sometimes chapter-start notes)
+    // immediately followed by a <div class="userstuff"> with the actual prose.
+    // Chapter end-notes appear as <div class="meta" id="endnotesN"> and are skipped.
+    const chaptersRoot = doc.querySelector('#chapters');
+    const chapters = [];
+    let current = null;
+
+    if(chaptersRoot){
+      Array.from(chaptersRoot.children).forEach(el=>{
+        if(el.tagName !== 'DIV') return;
+        const isHeading = el.classList.contains('meta') && el.classList.contains('group');
+        const isEndnotes = el.classList.contains('meta') && !el.classList.contains('group');
+        const isContent = el.classList.contains('userstuff');
+
+        if(isHeading){
+          const h2 = el.querySelector('h2.heading');
+          let chTitle = h2 ? stripChapterPrefix(h2.textContent.trim().replace(/\s+/g,' ')) : '';
+          if(!chTitle) chTitle = 'Chapter ' + (chapters.length + 1);
+          const notesBQ = findBlockquoteAfter(el, 'Chapter Notes');
+          const notes = notesBQ ? notesBQ.textContent.replace(/\s+/g,' ').trim() : '';
+          current = {title: chTitle, lines: [], notes};
+          chapters.push(current);
+        } else if(isContent){
+          if(!current){
+            current = {title: workTitle, lines: [], notes: ''};
+            chapters.push(current);
+          }
+          current.lines.push(...extractLinesFromUserstuff(el));
+        } else if(isEndnotes){
+          // chapter end notes — not part of the narrative, intentionally skipped
+        }
+      });
+
+      // Older-style export fallback: nested <div class="chapter"> wrappers
+      if(chapters.length === 0){
+        const chapterEls = chaptersRoot.querySelectorAll(':scope > .chapter');
+        chapterEls.forEach((chEl, i)=>{
+          const tEl = chEl.querySelector('.title');
+          let chTitle = tEl ? stripChapterPrefix(tEl.textContent.trim()) : '';
+          if(!chTitle) chTitle = 'Chapter ' + (i+1);
+          const userstuff = chEl.querySelector('.userstuff');
+          const lines = extractLinesFromUserstuff(userstuff);
+          if(lines.length) chapters.push({title: chTitle, lines, notes: ''});
+        });
+      }
+
+      // Oneshot fallback: no chapter markers at all, #chapters holds the prose directly
+      if(chapters.length === 0 || chapters.every(c=>c.lines.length===0)){
+        const lines = extractLinesFromUserstuff(chaptersRoot);
+        if(lines.length) chapters.length = 0, chapters.push({title: workTitle, lines, notes: ''});
+      }
+    }
+
+    if(chapters.length === 0 || chapters.every(c=>c.lines.length===0)){
+      throw new Error('No readable paragraphs were found in this file. Make sure it is the full "Download this Work → HTML" export from AO3.');
+    }
+
+    let meta = '';
+    if(words) meta += words;
+    if(chapterCount) meta += (meta?' · ':'') + chapterCount;
+
+    return {
+      title: workTitle,
+      author: workAuthor,
+      meta,
+      summary,
+      rating: rating ? rating.textContent.trim() : '',
+      fandom: fandom ? fandom.textContent.replace(/\s+/g,' ').trim() : '',
+      relationships: relationships ? relationships.textContent.replace(/\s+/g,' ').trim() : '',
+      chapters
+    };
+  }
+
+  const SAMPLE_HTML = `<html><body>
+  <div id="preface">
+    <div class="meta">
+      <dl class="tags">
+        <dt>Rating:</dt><dd><a href="#">Teen And Up Audiences</a></dd>
+        <dt>Fandom:</dt><dd><a href="#">Original Work</a></dd>
+        <dt>Relationships:</dt><dd><a href="#">Marin/Original Character</a></dd>
+        <dt>Stats:</dt><dd>Published: 2024-03-02 Words: 612 Chapters: 2/2</dd>
+      </dl>
+      <h1>A Small Correspondence</h1>
+      <div class="byline">by <a href="#">lighthouse_keeper</a></div>
+      <p>Summary</p>
+      <blockquote class="userstuff"><p>A letter arrives eight years late, and Marin has to decide whether to answer it.</p></blockquote>
+      <p>Notes</p>
+      <blockquote class="userstuff"><p>Written for a rainy afternoon.</p></blockquote>
+    </div>
+  </div>
+  <div id="chapters" class="userstuff">
+    <div class="meta group"><h2 class="heading">Chapter 1: The First Letter</h2></div>
+    <!--chapter content-->
+    <div class="userstuff">
+      <p>The letter arrived on a Tuesday, which felt, to Marin, like an unserious day for something so important to happen.</p>
+      <p>She turned the envelope over twice before opening it, as though the second inspection might reveal a different sender.</p>
+      <hr />
+      <p>Dear Marin, it began, in handwriting far neater than she remembered. I don't know if you'll read this. I wouldn't blame you if you didn't.</p>
+      <p>She read it four times that night, and then once more in the morning, before she let herself believe it was real.</p>
+    </div>
+    <!--/chapter content-->
+    <div class="meta" id="endnotes1"><p>Chapter End Notes</p><blockquote class="userstuff"><p>Thank you for reading this far!</p></blockquote></div>
+    <div class="meta group">
+      <h2 class="heading">Chapter 2: What the Harbor Knew</h2>
+      <p>Chapter Notes</p>
+      <blockquote class="userstuff"><p>Content warning: brief mention of grief. Thank you all for the kind comments on chapter one!</p></blockquote>
+    </div>
+    <!--chapter content-->
+    <div class="userstuff">
+      <p>The harbor had a way of keeping secrets that the rest of the town never quite managed.</p>
+      <p>Marin walked its length every evening, letter in her coat pocket, as if proximity to water might help her decide what to write back.</p>
+      <p>In the end, she wrote only one line: I kept the porch light on, in case.</p>
+    </div>
+    <!--/chapter content-->
+  </div>
+  </body></html>`;
+
+  /* ---------------- Title screen wiring ---------------- */
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('file-input');
+  const errorMsg = document.getElementById('error-msg');
+  const workPreview = document.getElementById('work-preview');
+
+  function showError(msg){
+    errorMsg.textContent = msg;
+    errorMsg.style.display = 'block';
+    workPreview.style.display = 'none';
+  }
+
+  function handleFileText(text){
+    try{
+      work = parseAO3(text);
+      errorMsg.style.display = 'none';
+      document.getElementById('preview-title').textContent = work.title;
+      document.getElementById('preview-author').textContent = 'by ' + work.author;
+      document.getElementById('preview-meta').textContent = work.meta || (work.chapters.length + ' chapter' + (work.chapters.length>1?'s':''));
+      const tagBits = [work.rating, work.fandom].filter(Boolean);
+      document.getElementById('preview-tags').textContent = tagBits.join(' · ');
+      document.getElementById('preview-summary').textContent = work.summary || '';
+      workPreview.style.display = 'block';
+    } catch(err){
+      showError(err.message || 'Could not parse that file.');
+    }
+  }
+
+  dropzone.addEventListener('click', ()=> fileInput.click());
+  dropzone.addEventListener('dragover', e=>{ e.preventDefault(); dropzone.classList.add('drag'); });
+  dropzone.addEventListener('dragleave', ()=> dropzone.classList.remove('drag'));
+  dropzone.addEventListener('drop', e=>{
+    e.preventDefault(); dropzone.classList.remove('drag');
+    const f = e.dataTransfer.files[0];
+    if(f) f.text().then(handleFileText);
+  });
+  fileInput.addEventListener('change', e=>{
+    const f = e.target.files[0];
+    if(f) f.text().then(handleFileText);
+  });
+  document.getElementById('sample-btn').addEventListener('click', ()=> handleFileText(SAMPLE_HTML));
+  document.getElementById('begin-btn').addEventListener('click', beginReading);
+
+  /* ---------------- Stage control ---------------- */
+  const stage = document.getElementById('stage');
+  const titleScreen = document.getElementById('title-screen');
+  const advBox = document.getElementById('adv-box');
+  const advText = document.getElementById('adv-text');
+  const advTag = document.getElementById('adv-chapter-tag');
+  const continueCaret = document.getElementById('continue-caret');
+  const nvlLayer = document.getElementById('nvl-layer');
+  const endCard = document.getElementById('end-card');
+  const chapterCard = document.getElementById('chapter-card');
+  const ribbonTab = document.getElementById('ribbon-tab');
+
+  function beginReading(){
+    titleScreen.style.display = 'none';
+    stage.classList.add('active');
+    curCh = 0; curLine = 0; backlog = []; nvlLinesShown = 0;
+    document.getElementById('tb-title').textContent = work.title;
+    renderChapterList();
+    goToLine(0,0,true);
+  }
+
+  function currentLineObj(){
+    const ch = work.chapters[curCh];
+    if(!ch) return null;
+    return ch.lines[curLine] || null;
+  }
+
+  function updateChrome(){
+    const ch = work.chapters[curCh];
+    document.getElementById('tb-chapter').textContent = ch.title + ' · ' + (curLine+1) + '/' + ch.lines.length;
+    advTag.textContent = ch.title;
+    ribbonTab.textContent = 'CH ' + (curCh+1);
+    const pct = ((curCh) / Math.max(1,work.chapters.length-1)) * (window.innerHeight - 100);
+    ribbonTab.style.top = (30 + pct) + 'px';
+    document.querySelectorAll('.chapter-row').forEach((row,i)=>{
+      row.classList.toggle('active', i===curCh);
+    });
+  }
+
+  // Shows the between-chapters title card (chapter number, title, author's note)
+  // and holds `pendingEntry` until the reader dismisses it.
+  function showChapterCard(chIndex){
+    const ch = work.chapters[chIndex];
+    document.getElementById('cc-work-title').textContent = work.title;
+    document.getElementById('cc-number').textContent = 'Chapter ' + (chIndex+1) + ' of ' + work.chapters.length;
+    document.getElementById('cc-title').textContent = ch.title;
+    const notesEl = document.getElementById('cc-notes');
+    const notesText = document.getElementById('cc-notes-text');
+    if(ch.notes){
+      notesText.textContent = ch.notes;
+      notesEl.style.display = 'block';
+    } else {
+      notesEl.style.display = 'none';
+    }
+    chapterCard.classList.add('show');
+  }
+
+  function dismissChapterCard(){
+    chapterCard.classList.remove('show');
+    if(pendingEntry){
+      const {ch, line} = pendingEntry;
+      pendingEntry = null;
+      actuallyGoToLine(ch, line, true);
+    }
+  }
+
+  // Public entry point: gates on whether a chapter card should appear first.
+  // `skipCard` is used by mode-toggle re-renders, which aren't real chapter entries.
+  function goToLine(ch, line, isStart, skipCard){
+    if(isStart && line === 0 && showChapterIntros && !skipCard){
+      pendingEntry = {ch, line};
+      showChapterCard(ch);
+      return;
+    }
+    actuallyGoToLine(ch, line, isStart);
+  }
+
+  function actuallyGoToLine(ch, line, isStart){
+    curCh = ch; curLine = line;
+    if(mode === 'nvl' && isStart){
+      nvlLayer.innerHTML = '';
+      const head = document.createElement('div');
+      head.className = 'nvl-chapter-head';
+      head.textContent = work.chapters[curCh].title;
+      nvlLayer.appendChild(head);
+      nvlLinesShown = 0;
+    }
+    updateChrome();
+    playCurrentLine();
+  }
+
+  function pushBacklog(entry){
+    backlog.push(entry);
+  }
+
+  function typewrite(el, text, done){
+    el.textContent = '';
+    const caret = document.createElement('span');
+    caret.className = 'caret-blink'; caret.textContent = '▍';
+    let i = 0;
+    const ms = SPEEDS[speedIdx];
+    if(ms === 0){
+      el.textContent = text;
+      typing = false;
+      done();
+      return;
+    }
+    typing = true;
+    function step(){
+      if(!typing) return; // was force-completed
+      i++;
+      el.textContent = text.slice(0,i);
+      if(i < text.length){
+        typeTimer = setTimeout(step, ms);
+      } else {
+        typing = false;
+        done();
+      }
+    }
+    typeTimer = setTimeout(step, ms);
+  }
+
+  function forceComplete(){
+    clearTimeout(typeTimer);
+    typing = false;
+    if(mode==='adv'){
+      const lineObj = currentLineObj();
+      if(lineObj) advText.textContent = lineObj.type==='break' ? '❦' : lineObj.text;
+    } else {
+      const cur = nvlLayer.querySelector('.nvl-para.typing');
+      if(cur){
+        cur.textContent = cur.dataset.full;
+        cur.classList.remove('typing');
+      }
+    }
+    onLineFullyShown();
+  }
+
+  function onLineFullyShown(){
+    if(mode==='adv'){
+      continueCaret.classList.add('show');
+    }
+  }
+
+  function playCurrentLine(){
+    const lineObj = currentLineObj();
+    if(!lineObj){ showEndCard(); return; }
+    pushBacklog({chapter: work.chapters[curCh].title, type: lineObj.type, text: lineObj.text});
+
+    if(mode === 'adv'){
+      continueCaret.classList.remove('show');
+      advBox.scrollTop = 0;
+      if(lineObj.type === 'break'){
+        advText.className = 'scene-break';
+        advText.textContent = '❦';
+        typing = false;
+        onLineFullyShown();
+      } else {
+        advText.className = '';
+        typewrite(advText, lineObj.text, onLineFullyShown);
+      }
+    } else {
+      // NVL mode: page-clear every 6 lines for readability
+      if(nvlLinesShown >= 6){
+        nvlLayer.innerHTML = '';
+        const head = document.createElement('div');
+        head.className = 'nvl-chapter-head';
+        head.textContent = work.chapters[curCh].title + ' (continued)';
+        nvlLayer.appendChild(head);
+        nvlLinesShown = 0;
+      }
+      // dim previous paragraphs
+      nvlLayer.querySelectorAll('.nvl-para.current').forEach(p=>p.classList.remove('current'));
+
+      if(lineObj.type === 'break'){
+        const div = document.createElement('div');
+        div.className = 'nvl-scene-break';
+        div.textContent = '❦';
+        nvlLayer.appendChild(div);
+        typing = false;
+        onLineFullyShown();
+      } else {
+        const p = document.createElement('div');
+        p.className = 'nvl-para current typing';
+        p.dataset.full = lineObj.text;
+        nvlLayer.appendChild(p);
+        nvlLayer.scrollTop = nvlLayer.scrollHeight;
+        typewrite(p, lineObj.text, ()=>{
+          p.classList.remove('typing');
+          onLineFullyShown();
+          nvlLayer.scrollTop = nvlLayer.scrollHeight;
+        });
+      }
+      nvlLinesShown++;
+    }
+  }
+
+  function advance(){
+    if(endCard.classList.contains('show')) return;
+    if(chapterCard.classList.contains('show')) return;
+    if(typing){ forceComplete(); return; }
+    const ch = work.chapters[curCh];
+    if(curLine < ch.lines.length - 1){
+      curLine++;
+      updateChrome();
+      playCurrentLine();
+    } else if(curCh < work.chapters.length - 1){
+      curCh++; curLine = 0;
+      goToLine(curCh, 0, true);
+    } else {
+      showEndCard();
+    }
+  }
+
+  function showEndCard(){
+    endCard.classList.add('show');
+  }
+
+  // Attached to the stage (an ancestor of the text box / NVL layer) rather than a
+  // separate overlay, so a click anywhere — including directly on the text — advances.
+  stage.addEventListener('click', e=>{
+    if(e.target.closest('#topbar')) return;
+    if(e.target.closest('#end-card')) return;
+    if(chapterCard.classList.contains('show')){
+      if(e.target.closest('.cc-notes')) return; // let the note be read/selected without dismissing
+      dismissChapterCard();
+      return;
+    }
+    advance();
+  });
+  document.addEventListener('keydown', e=>{
+    if(document.querySelector('.modal-veil.show')) return;
+    if(!stage.classList.contains('active')) return;
+    if(e.code === 'Space' || e.code === 'Enter'){
+      e.preventDefault();
+      if(chapterCard.classList.contains('show')){ dismissChapterCard(); return; }
+      advance();
+    }
+  });
+
+  /* ---------------- Mode toggle ---------------- */
+  function setMode(newMode){
+    mode = newMode;
+    document.querySelectorAll('#seg-mode button').forEach(b=> b.classList.toggle('active', b.dataset.val===mode));
+    if(mode === 'adv'){
+      advBox.style.display = 'block';
+      nvlLayer.style.display = 'none';
+    } else {
+      advBox.style.display = 'none';
+      nvlLayer.style.display = 'block';
+    }
+    if(stage.classList.contains('active') && !chapterCard.classList.contains('show')){
+      goToLine(curCh, curLine, true, true);
+    }
+  }
+  document.getElementById('btn-mode').addEventListener('click', ()=> setMode(mode==='adv'?'nvl':'adv'));
+  document.getElementById('seg-mode').addEventListener('click', e=>{
+    if(e.target.tagName==='BUTTON') setMode(e.target.dataset.val);
+  });
+
+  /* ---------------- Chapters modal ---------------- */
+  const chaptersList = document.getElementById('chapters-list');
+  function renderChapterList(){
+    chaptersList.innerHTML = '';
+    work.chapters.forEach((ch,i)=>{
+      const row = document.createElement('div');
+      row.className = 'chapter-row' + (i===curCh?' active':'');
+      row.innerHTML = `<span class="num">${String(i+1).padStart(2,'0')}</span><span class="name">${ch.title}</span><span class="prog">${ch.lines.length} lines</span>`;
+      row.addEventListener('click', ()=>{
+        closeModals();
+        goToLine(i, 0, true);
+      });
+      chaptersList.appendChild(row);
+    });
+  }
+  document.getElementById('btn-chapters').addEventListener('click', ()=>{ renderChapterList(); openModal('veil-chapters'); });
+  document.getElementById('end-chapters').addEventListener('click', ()=>{ endCard.classList.remove('show'); renderChapterList(); openModal('veil-chapters'); });
+
+  /* ---------------- Backlog modal ---------------- */
+  const backlogList = document.getElementById('backlog-list');
+  function renderBacklog(){
+    backlogList.innerHTML = '';
+    let lastChapter = null;
+    backlog.forEach(entry=>{
+      if(entry.chapter !== lastChapter){
+        const h = document.createElement('div');
+        h.className = 'backlog-chapter';
+        h.textContent = entry.chapter;
+        backlogList.appendChild(h);
+        lastChapter = entry.chapter;
+      }
+      const d = document.createElement('div');
+      if(entry.type === 'break'){
+        d.className = 'backlog-break'; d.textContent = '❦';
+      } else {
+        d.className = 'backlog-line'; d.textContent = entry.text;
+      }
+      backlogList.appendChild(d);
+    });
+    backlogList.scrollTop = backlogList.scrollHeight;
+  }
+  document.getElementById('btn-backlog').addEventListener('click', ()=>{ renderBacklog(); openModal('veil-backlog'); });
+
+  /* ---------------- Settings modal ---------------- */
+  document.getElementById('btn-settings').addEventListener('click', ()=> openModal('veil-settings'));
+
+  document.getElementById('rng-speed').addEventListener('input', e=>{
+    speedIdx = 4 - Number(e.target.value); // slider left=slow feel? we map directly below
+  });
+  // simpler direct mapping: slider value 0..4 -> index into SPEEDS where 0=instant..4=slower
+  document.getElementById('rng-speed').addEventListener('input', e=>{
+    speedIdx = Number(e.target.value);
+    document.getElementById('val-speed').textContent = SPEED_LABELS[speedIdx];
+  });
+  document.getElementById('rng-size').addEventListener('input', e=>{
+    fontSize = Number(e.target.value);
+    document.documentElement.style.setProperty('--fs', fontSize+'px');
+    document.getElementById('val-size').textContent = fontSize+'px';
+  });
+  const READING_FONTS = {
+    serif: "'Literata', serif",
+    sans: "'Inter', sans-serif",
+    dyslexic: "'OpenDyslexic', sans-serif"
+  };
+  document.getElementById('seg-font').addEventListener('click', e=>{
+    if(e.target.tagName!=='BUTTON') return;
+    document.querySelectorAll('#seg-font button').forEach(b=>b.classList.toggle('active', b===e.target));
+    document.documentElement.style.setProperty('--font-body', READING_FONTS[e.target.dataset.val] || READING_FONTS.serif);
+  });
+  document.getElementById('seg-theme').addEventListener('click', e=>{
+    if(e.target.tagName!=='BUTTON') return;
+    document.querySelectorAll('#seg-theme button').forEach(b=>b.classList.toggle('active', b===e.target));
+    document.body.classList.toggle('day', e.target.dataset.val==='day');
+  });
+  document.getElementById('seg-intros').addEventListener('click', e=>{
+    if(e.target.tagName!=='BUTTON') return;
+    document.querySelectorAll('#seg-intros button').forEach(b=>b.classList.toggle('active', b===e.target));
+    showChapterIntros = e.target.dataset.val === 'on';
+  });
+
+  /* ---------------- Modal helpers ---------------- */
+  function openModal(id){ document.getElementById(id).classList.add('show'); }
+  function closeModals(){ document.querySelectorAll('.modal-veil').forEach(v=>v.classList.remove('show')); }
+  document.querySelectorAll('[data-close]').forEach(b=> b.addEventListener('click', closeModals));
+  document.querySelectorAll('.modal-veil').forEach(v=>{
+    v.addEventListener('click', e=>{ if(e.target===v) closeModals(); });
+  });
+  document.addEventListener('keydown', e=>{ if(e.code==='Escape') closeModals(); });
+
+  /* ---------------- End card restart ---------------- */
+  document.getElementById('end-restart').addEventListener('click', ()=>{
+    endCard.classList.remove('show');
+    goToLine(0,0,true);
+  });
+
+  window.addEventListener('resize', updateChrome);
+})();
+</script>
+</body>
+</html>
