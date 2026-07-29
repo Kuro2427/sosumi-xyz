@@ -261,7 +261,6 @@ body.day #chapter-card{background:linear-gradient(180deg,var(--ink-950),var(--in
 .cc-notes{
   text-align:left;background:rgba(184,145,47,0.06);border:1px solid var(--line);
   border-radius:3px;padding:16px 20px;margin:0 auto 26px;max-width:440px;
-  cursor:default;
 }
 .cc-notes-label{
   font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;
@@ -554,6 +553,22 @@ input[type=range]{width:100%;accent-color:var(--gold);}
         lines.push(...extractLinesFromUserstuff(child));
       }
     });
+
+    // Fallback: some older/imported AO3 works don't wrap paragraphs in <p> at
+    // all — just plain text separated by <br>. Without this, such chapters
+    // would silently parse to zero lines and the reader would have nothing
+    // to show. Split on <br> and treat each non-empty chunk as a paragraph.
+    if(lines.length === 0){
+      const html = (node.innerHTML || '').trim();
+      if(html){
+        html.split(/<br\s*\/?>/i).forEach(chunk=>{
+          const tmp = document.createElement('div');
+          tmp.innerHTML = chunk;
+          const text = tmp.textContent.replace(/\s+/g,' ').trim();
+          if(text) lines.push({type:'p', text});
+        });
+      }
+    }
     return lines;
   }
 
@@ -924,7 +939,17 @@ input[type=range]{width:100%;accent-color:var(--gold);}
 
   function playCurrentLine(){
     const lineObj = currentLineObj();
-    if(!lineObj){ showEndCard(); return; }
+    if(!lineObj){
+      // curLine has run past this chapter's lines. If this chapter simply had
+      // no extractable content (rather than us having really finished it),
+      // move on to the next chapter instead of ending the whole work.
+      if(curCh < work.chapters.length - 1){
+        goToLine(curCh + 1, 0, true);
+      } else {
+        showEndCard();
+      }
+      return;
+    }
     pushBacklog({chapter: work.chapters[curCh].title, type: lineObj.type, text: lineObj.text});
 
     if(mode === 'adv'){
@@ -1002,7 +1027,6 @@ input[type=range]{width:100%;accent-color:var(--gold);}
     if(e.target.closest('#topbar')) return;
     if(e.target.closest('#end-card')) return;
     if(chapterCard.classList.contains('show')){
-      if(e.target.closest('.cc-notes')) return; // let the note be read/selected without dismissing
       dismissChapterCard();
       return;
     }
