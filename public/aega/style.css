@@ -1,0 +1,55 @@
+:root{
+    --background:white;
+    --foreground:black;
+}
+
+body{
+    /*Layout*/
+
+    max-width: 1000px;
+    margin: auto;
+    padding: 16px;
+
+    /*Style*/
+    font-family: "MS Pgothic", sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+.logoBanner{
+    text-align: center;
+}
+
+.logoBanner img{
+    border-radius: 12px;
+    border: 1px solid var(--foreground);
+}
+
+.vidInfo{
+    display: flex;
+
+    align-items: center;
+}
+
+.vidInfo *{
+    margin-right: 10px;
+}
+
+.playerWrapper{
+    width: 100%;
+    background: rgb(83, 83, 83);
+    border: 1px solid lightgray;
+    box-shadow: 0 0 0 2px black; 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player img, video, iframe{
+    height: 480px;
+    width: auto;
+    
+    margin: 2PX;
+    border: 1px solid var(--foreground);
+}

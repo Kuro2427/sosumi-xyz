@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday!! 🎉 (a rhythm game for you)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="start-screen">
+    <h1>🎉 Happy Birthday Ace "Jomosonic10" Pilot!! 🎉</h1>
+    <p class="subtitle">Have this stupid fucking vibe coded rhythm game because I hate you and hope you die from some sort of illness in the near future 🙏🙏🙏.</p>
+    <p class="subtitle">Hit the Penis button to start.</p>
+
+    <div id="song-status">Loading audio.mp3&hellip;</div>
+
+    <button id="start-btn" disabled>PENIS</button>
+
+    <div class="hint">
+      Keys: <b>D</b> <b>F</b> <b>J</b> <b>K</b> — hit the note when it lines up with the receptor line at the bottom.
+    </div>
+  </div>
+
+  <div id="game-screen" class="hidden">
+    <div id="hud">
+      <div id="score">SCORE: 0</div>
+    </div>
+    <canvas id="game-canvas" width="480" height="720"></canvas>
+  </div>
+
+  <div id="end-screen" class="hidden">
+    <h1 id="end-title">Nice!</h1>
+    <div id="end-stats"></div>
+    <p id="birthday-msg"></p>
+    <button id="retry-btn">Play Again</button>
+  </div>
+
+  <audio id="song-audio" src="audio.mp3" preload="auto"></audio>
+
+  <script src="chart.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
