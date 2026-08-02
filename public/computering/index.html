@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computering Webring!</title>
     <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <script src="https://u.widget.st/ar.js"></script>
 
     <meta content="Computering!" property="og:title" />
     <meta content="A webring for bitches that be computering" property="og:description" />
@@ -35,6 +36,22 @@
 
         table{
           width: 100%;
+        }
+
+        .formWrapper{
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        form{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          gap:2px;
         }
         
     </style>
@@ -202,7 +219,7 @@
 
       <div class="window">
         <div class="title-bar">
-          <div class="title-bar-text">Join</div>
+          <div class="title-bar-text">Join Computering</div>
           <div class="title-bar-controls">
             <button aria-label="Minimize"></button>
             <button aria-label="Maximize"></button>
@@ -211,22 +228,22 @@
         </div>
         <div class="window-body">
             <div class="sunken-panel" style="padding: 10px;">
-                <p>Interested in joining? Just send me an e-mail with the following info, and if I think your site is suited for this webring, you're in!</p>
-                <p>Required info:</p>
-                <ul>
-                    <li><u>Your username/name</u> A name </li>
-                    <li><u>Your website's name</u> Your site's formal title. May also just be your url if you're chill like that</li>
-                    <li><u>Your website's URL</u> Kind of self explanatory, really</li>
-                    <li><u>Your favorite operating system</u> Part of me is asking this as a filter question, part of me is just curious</li>
-                </ul>
-
-                <p>Optional info:</p>
-                <ul>
-                    <li><u>An 88x31 button to represent your website</u> Not required but recommended</li>
-                </ul>
+                <p>Interested in joining? Just fill out the form below with the appropriate info, and if I think your site is suited for this webring, you're in!</p>
+                
+                <div class="formWrapper">
+                  <ws-widget type="contact" iid="1303">
+                    <form>
+                      <input name="name" type="text" placeholder="Your username">
+                      <input name="sitename" type="text" placeholder="Your site's name">
+                      <input name="siteurl" type="url" placeholder="Your site's URL">
+                      <input type="email" name="email" placeholder="Your e-mail address">
+                      <textarea name="message" placeholder="Your favorite operating system"></textarea>
+                      <input name="button" type="url" placeholder="A link to your site's 88x31 button (optional)">
+                      <button type="submit">Join now!</button>
+                    </form>
+                  </ws-widget>
+                </div>
             </div>
-
-            <div class="c" style="padding-top: 10px;"><button onclick="window.open('email/')">Join Computering!</button></div>
         </div>
       </div>
 

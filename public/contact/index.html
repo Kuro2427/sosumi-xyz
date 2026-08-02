@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="" id="pageStyle">
+
+    <script src="https://u.widget.st/ar.js"></script>
+
+    <style>
+
+        main{
+            padding: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            min-height: 95vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0px;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap:5px;
+            width: 400px;
+        }
+
+        .form-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
+        }
+
+        #disc{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="c"><img src="banner.png" alt="sosumi's Magical Mystery Form"></div>
+
+        <p>A good while ago, I used to have an unobstructed mailto link right on my homepage. That turned out to have been a very very bad idea. There are only so many spam e-mails about SEO optimization and crappy web hosts a man can delete in a day before he loses his damn mind.</p>
+        <p>As such, I've turned to this nifty little contact form powered by <a href="https://widget.st/" target="_blank">WidgetStar</a></p>
+        <p>If everything is set up properly and working as intended, I should get an e-mail AND a Discord ping with whatever you type below, which should hopefully make it so I am much more likely to answer your messages more quickly. No promises, though ;P</p>
+        <p>If for some reason your submissions aren't going through, you can shoot me a DM at <span style="background-color: var(--foreground); color: var(--background); padding: 2px; font-family: monospace;">@sosumixyz</span> on Discord. <s style="color: gray; font-size: 10px;">(you could also try re-enabling JavaScript, little Mx. Opsec demon)</s></p>
+
+        <div class="form-container">
+        <ws-widget type="contact" iid="912">
+        <form>
+            <input name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="e-mail">
+            <input name="subject" placeholder="Subject">
+            <textarea name="message" placeholder="Your message"></textarea>
+            <textarea name="discord" placeholder="Your discord" id="disc"></textarea>
+            <button type="submit">Send</button>
+        </form>
+        </ws-widget>
+        </div>
+
+    </main>
+
+    <script src="/assets/themeswitcher.js"></script>
+</body>
+</html>

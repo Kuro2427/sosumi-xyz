@@ -1,5 +1,6 @@
 ---
 title: Hello, world!
+key: template
 date: 2026-07-24
 description: This is a test file with a really really long description haha lol lmao
 tag: test

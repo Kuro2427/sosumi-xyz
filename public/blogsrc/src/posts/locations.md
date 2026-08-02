@@ -1,5 +1,6 @@
 ---
 title: 5 Video Game Locations I'd Live In
+key: locations
 date: 2025-09-14
 description: ∗GASP∗ a listicle? In MY interrobang? It's more likely than you think!
 tag: listicle

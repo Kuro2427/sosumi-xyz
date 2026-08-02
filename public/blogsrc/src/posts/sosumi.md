@@ -1,5 +1,6 @@
 ---
 title: The Day Kuro Became Sosumi
+key: sosumi
 date: 2025-05-16
 description: An unreasonably long rambling about usernames and my online identity.
 tag: ramble

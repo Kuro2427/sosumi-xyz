@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Mon, 27 Jul 2026 20:42:52 -0300</lastBuildDate>
+  <lastBuildDate>Sun, 02 Aug 2026 20:53:11 -0300</lastBuildDate>
   
+    <item>
+      <title>Switched a bunch of stuff to WidgetStar!</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[Fully reimplemented the old e-mail page and computering join request area to both now be contact forms! Posts in Interobang?! also have comments now!!!]]></description>
+      <pubDate>Sun, 02 Aug 2026 20:53:11 -0300</pubDate>
+      <guid>post-22</guid>
+    </item>
+
     <item>
       <title>Added tribute easter egg to 404 page</title>
       <link>https://sosumi.xyz/</link>
