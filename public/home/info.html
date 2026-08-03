@@ -12,12 +12,6 @@
     <p style="font-size: 10px; margin-top: -10px;">Powered by <a href="https://github.com/biancarosa/lastfm-last-played?tab=readme-ov-file">biancarosa's now playing widget</a></p>
 </div>
 
-<style>
-    .status-body p, .status-body b{
-        color: var(--foreground);
-    }
-</style>
-
 <div class="window">
     <div class="title">Latest Status</div>
     <ws-widget type="status" iid="1890"></ws-widget>
@@ -65,3 +59,9 @@
     ageElement.textContent = calculateAge(birthDate);
     console.log(calculateAge(birthDate));
 </script>
+
+<style>
+    .status-body p, .status-body b{
+        color: var(--foreground);
+    }
+</style>
