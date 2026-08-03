@@ -59,10 +59,22 @@
             display: flex;
             align-items: center;
             padding: 5px;
+            margin-left: -5px;
         }
 
         .stop{
             margin: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .c img{
+                width: 200px;
+                height: auto;
+            }
+
+            form{
+                width: 300px;
+            }
         }
         
 
@@ -75,15 +87,15 @@
         <p>A good while ago, I used to have an unobstructed mailto link right on my homepage. That turned out to have been a very very bad idea. There are only so many spam e-mails about SEO optimization and crappy web hosts a man can delete in a day before he loses his damn mind.</p>
         <p>As such, I've turned to this nifty little contact form powered by <a href="https://widget.st/" target="_blank">WidgetStar</a></p>
         <p>If everything is set up properly and working as intended, I should get an e-mail AND a Discord ping with whatever you type below, which should hopefully make it so I am much more likely to answer your messages more quickly. No promises, though ;P</p>
-        <p>If for some reason your submissions aren't going through, you can shoot me a DM at <span style="background-color: var(--foreground); color: var(--background); padding: 2px; font-family: monospace;">@sosumixyz</span> on Discord. <s style="color: gray; font-size: 10px;">(you could also try re-enabling JavaScript, little Mx. Opsec demon)</s></p>
+        <p>If for some reason your submissions aren't going through, you can shoot me a DM at <span style="background-color: var(--foreground); color: var(--background); padding: 2px; font-family: monospace;">@sosumixyz</span> on Discord. <s style="color: gray; font-size: 10px;">(you could also try re-enabling JavaScript, little mx. opsec demon)</s></p>
 
         <div class="form-container">
         <ws-widget type="contact" iid="912">
         <form>
-            <input name="name" placeholder="Name">
-            <input type="email" name="email" placeholder="e-mail">
+            <input name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="e-mail" required>
             <input name="subject" placeholder="Subject">
-            <textarea name="message" placeholder="Your message"></textarea>
+            <textarea name="message" placeholder="Your message" required></textarea>
             <textarea name="discord" placeholder="Your discord" id="disc"></textarea>
             <button type="submit">Send</button>
         </form>
