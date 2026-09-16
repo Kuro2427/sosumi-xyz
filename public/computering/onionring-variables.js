@@ -15,7 +15,8 @@ var sites = [
 'https://willascool.neocities.org/',
 'https://vergissmichnicht.nekoweb.org/',
 'https://sawtooth-awful.neocities.org/',
-'https://carolinghellwalker.nekoweb.org/'
+'https://carolinghellwalker.nekoweb.org/',
+'https://lativionos.run/'
 ];
 
 //the name of the ring

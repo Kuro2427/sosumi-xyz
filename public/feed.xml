@@ -4,8 +4,16 @@
   <title>sosumi.xyz</title>
   <link>https://sosumi.xyz/</link>
   <description>sosumi.xyz update feed</description>
-  <lastBuildDate>Sun, 02 Aug 2026 20:53:11 -0300</lastBuildDate>
+  <lastBuildDate>Wed, 16 Sep 2026 15:13:25 -0300</lastBuildDate>
   
+    <item>
+      <title>Welcome to Computering, LateTheIdiot!</title>
+      <link>https://sosumi.xyz/</link>
+      <description><![CDATA[Added Lativion OS to the Computering webring]]></description>
+      <pubDate>Wed, 16 Sep 2026 15:13:25 -0300</pubDate>
+      <guid>post-23</guid>
+    </item>
+
     <item>
       <title>Switched a bunch of stuff to WidgetStar!</title>
       <link>https://sosumi.xyz/</link>
