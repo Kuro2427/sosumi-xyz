@@ -1,4 +1,4 @@
-![sosumi's "webbed site" (on the inter net)](https://f.elisttm.space/f/Kuro/Random_uploads/ghlogo.png)
+![sosumi's "webbed site" (on the inter net)](https://f.eli.toys/f/Kuro/Random_uploads/ghlogo.png)
 
 Hello, this is the repository for my site, [sosumi.xyz.](https://sosumi.xyz)
 
@@ -12,4 +12,4 @@ This repo exists publicly entirely just because the action calls for it, but if 
 
 ---
 
-![how in the world do i center text in markdown](https://f.elisttm.space/f/Kuro/Random_uploads/please_to_help.png)
+![how in the world do i center text in markdown](https://f.eli.toys/f/Kuro/Random_uploads/please_to_help.png)
