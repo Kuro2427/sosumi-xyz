@@ -33,7 +33,6 @@ body {
     font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
     font-size: 12px;
     font-weight: normal;
-    overflow: hidden;
 }
 button {
     font-family: inherit;
